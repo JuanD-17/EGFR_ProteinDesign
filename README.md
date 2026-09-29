@@ -161,7 +161,9 @@ ectodomain residues it crosses four layers:
    residues the crystal resolved and falling back to the ND2 atom of the
    glycosylated asparagine where it did not. Surface within 12 Å is treated as
    buried.
-4. **Architecture** — domain boundaries derived from the disulfide pattern.
+4. **Architecture** — region assignment from the disulfide pattern. See
+   *Domain boundaries* below: this layer locates L-domain cores, which are
+   narrower than the domains themselves.
 
 It also computes the cetuximab interface by ΔSASA between the free receptor
 and the complex. That measurement is used as an exclusion and as a positive
@@ -179,29 +181,75 @@ Outputs `02_Analysis/01_residue_annotation.csv` (the full table),
 `01_annotation_summary.md` (a readable report) and
 `01_annotation_metadata.json` (parameters and provenance).
 
-#### Why domain boundaries are derived rather than looked up
+### `scripts/01b_verify_numbering.py` — verification
+
+Step 01 rests on two derived claims: a UniProt-to-PDB offset obtained by
+sequence alignment, and domain boundaries inferred from the disulfide
+pattern. Both are load-bearing, and an error in either would shift every
+downstream residue number without raising an exception. This script tests
+both by routes that do not reuse the reasoning that produced them.
+
+- **Test 0** — is the offset uniform across all mapped residues?
+- **Test 1** — mapping UniProt's annotated disulfide pairs through the offset,
+  do the SG–SG distances in the crystal come out at the 2.05 Å of a real
+  covalent bond? This is geometric, not sequence-based, so it is independent
+  of the alignment being checked.
+- **Test 2** — do residues quoted in the EGFR literature have the expected
+  identity in both numbering frames?
+- **Test 3** — how much disulfide content do the competing domain III ranges
+  contain?
+- **Test 4** — what fraction of each range's residue contacts stay inside it?
+  A genuine domain is compact; a range drawn across a boundary leaks contacts
+  to its neighbours.
+
+```bash
+python scripts/01b_verify_numbering.py
+```
+
+Output is kept at `02_Analysis/01b_numbering_verification.txt`.
+
+#### Domain boundaries
 
 UniProt does not annotate the ectodomain subdomains I–IV. Its only `Domain`
-feature is the intracellular kinase, at 712–979. The two `Repeat` features
-that cover the L-domains, at 75–300 and 390–600, are explicitly flagged
-*Approximate* and do not agree with the boundaries commonly quoted in the
-literature.
+feature is the intracellular kinase, at 712–979, and the two `Repeat`
+features covering the L-domains, at 75–300 and 390–600, are flagged
+*Approximate*.
 
-Domains are therefore inferred from the disulfide distribution. Domains II
+Step 01 therefore infers regions from the disulfide distribution. Domains II
 and IV are furin-like modules packed with disulfides; domains I and III are
-leucine-rich L-domains almost free of them. Long gaps between consecutive
-disulfide-bonded cysteines locate the L-domain cores directly from the data:
+leucine-rich L-domains almost free of them, so long gaps between consecutive
+disulfide-bonded cysteines locate the L-domain cores:
 
 | Range | Length | Character | Assignment |
 |-------|--------|-----------|------------|
 | 25–58 | 34 aa | cysteine-rich | I/II N-terminal |
 | 59–156 | 98 aa | cysteine-free | I (L-domain core) |
 | 157–362 | 206 aa | cysteine-rich | II (furin-like) |
-| 363–469 | 107 aa | cysteine-free | **III (L-domain core)** |
+| 363–469 | 107 aa | cysteine-free | III (L-domain **core**) |
 | 470–645 | 176 aa | cysteine-rich | IV (furin-like) |
 
-This places domain III at **363–469**, which matches neither the 335–538
-range circulating in derived material nor UniProt's approximate 390–600.
+**These are cores, not domains, and the distinction matters.** Test 4
+measures compactness directly, and the derived 363–469 range loses:
+
+| Range for domain III | Internal contacts | External | Fraction inside |
+|----------------------|-------------------|----------|-----------------|
+| 363–469, from the disulfide gap | 495 | 167 | 0.748 |
+| **335–538** | 1027 | **32** | **0.970** |
+| 390–600, UniProt approximate | 1006 | 128 | 0.887 |
+
+A short range scores well on compactness partly by being short, so a *longer*
+range scoring higher cannot be a length artefact: it means the shorter one
+was cutting through a structural unit. The 363–469 core leaks a quarter of
+its contacts to residues outside itself, which a domain does not do.
+
+The reading is that cysteine content and contact topology answer different
+questions. The disulfide gap locates the leucine-rich solenoid core of
+domain III, which is a real substructure; the domain also carries flanking
+disulfide-bonded segments that pack against that core. **Domain III is taken
+as 335–538 for epitope scoping**, and 363–469 is referred to as its core.
+
+An earlier version of this file claimed 335–538 was unsupported. It is not;
+Test 4 supports it over the range derived here.
 
 ## Findings from step 01
 
@@ -217,20 +265,25 @@ The crystal resolved only 28 sugar atoms, so most of that occlusion is
 invisible in the structure and has to be reconstructed from the sequence
 annotation.
 
-**Only 168 of 621 residues are designable.** Broken down by domain:
+**Only 168 of 621 residues are designable.** Counted over the domain ranges
+that survived verification, with L-domain cores shown separately:
 
-| Domain | Residues | Designable | Fraction |
-|--------|----------|------------|----------|
-| II (furin-like) | 206 | 74 | 35.9% |
-| IV (furin-like) | 176 | 52 | 29.5% |
-| III (L-domain core) | 107 | 20 | 18.7% |
-| I (L-domain core) | 98 | 9 | 9.2% |
+| Region | Residues | Designable | Fraction | Designable His |
+|--------|----------|------------|----------|----------------|
+| II (157–362, furin-like) | 206 | 74 | 35.9% | H183, H233, H304 |
+| IV (470–645, furin-like) | 176 | 52 | 29.5% | H559, H584, H618 |
+| **III (335–538)** | 204 | **45** | 22.1% | H433 |
+| III core (363–469) | 107 | 20 | 18.7% | H433 |
+| I core (59–156) | 98 | 9 | 9.2% | — |
 
-Domain III, the epitope the competition recommends, has the *lowest*
-designable density of the large domains. It is small, and two glycosylation
-sites land in its core. Domain II offers roughly three times as much usable
-conserved surface, and it is the dimerization arm — blocking it is a
-functional mechanism rather than an epitope of convenience.
+Domain III carries 45 designable residues, which is enough surface for a
+binder epitope. Domain II carries more, and is the dimerization arm, so
+blocking it would be a functional mechanism rather than an epitope of
+convenience — but the margin is not large enough on its own to justify
+departing from the recommended epitope.
+
+The 20-residue figure quoted before verification came from scoping domain III
+to its core, and understated the available surface by more than half.
 
 **The cetuximab epitope is more conserved than expected.** Of its 27
 residues, 20 are identical between human and mouse, 7 are conservative
@@ -304,6 +357,7 @@ report is not supporting documentation: it is part of what gets evaluated.
 - [x] Domain annotation and domain III boundaries
 - [x] Human/mouse conservation map
 - [x] Solvent accessibility and glycan occlusion
+- [x] Numbering and domain boundaries verified independently
 - [ ] Epitope patch selection
 - [ ] Binder generation
 - [ ] pH-sensitivity engineering

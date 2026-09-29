@@ -1,0 +1,134 @@
+==========================================================================
+TEST 0  Offset consistency
+==========================================================================
+  Mapped residues        : 609
+  Distinct offsets found : 1
+      UniProt - PDB = +24  in 609 residues
+  PASS
+
+  A single offset of +24 means 6ARU is numbered by the
+  mature protein, which begins after the 24-residue signal peptide.
+
+==========================================================================
+TEST 1  Disulfide geometry (independent of the alignment)
+==========================================================================
+  Each UniProt disulfide pair is mapped through the offset and the
+  SG-SG distance measured in the crystal. A real disulfide is
+  2.05 A. A wrong offset cannot reproduce these by chance.
+
+    C31  -C58    PDB    7-34    SG-SG  2.03 A  ok
+    C157 -C187   PDB  133-163   SG-SG  2.04 A  ok
+    C190 -C199   PDB  166-175   SG-SG  2.03 A  ok
+    C194 -C207   PDB  170-183   SG-SG  2.04 A  ok
+    C215 -C223   PDB  191-199   SG-SG  2.03 A  ok
+    C219 -C231   PDB  195-207   SG-SG  3.31 A  <-- long
+    C232 -C240   PDB  208-216   SG-SG  2.03 A  ok
+    C236 -C248   PDB  212-224   SG-SG  2.03 A  ok
+    C251 -C260   PDB  227-236   SG-SG  2.04 A  ok
+    C264 -C291   PDB  240-267   SG-SG  2.04 A  ok
+    C295 -C307   PDB  271-283   SG-SG  2.04 A  ok
+    C311 -C326   PDB  287-302   SG-SG  2.04 A  ok
+    C329 -C333   PDB  305-309   SG-SG  2.04 A  ok
+    C337 -C362   PDB  313-338   SG-SG  2.04 A  ok
+    C470 -C499   PDB  446-475   SG-SG  2.04 A  ok
+    C506 -C515   PDB  482-491   SG-SG  2.05 A  ok
+    C510 -C523   PDB  486-499   SG-SG  2.03 A  ok
+    C526 -C535   PDB  502-511   SG-SG  2.04 A  ok
+    C539 -C555   PDB  515-531   SG-SG  2.03 A  ok
+    C558 -C571   PDB  534-547   SG-SG  2.04 A  ok
+    C562 -C579   PDB  538-555   SG-SG  2.04 A  ok
+    C582 -C591   PDB  558-567   SG-SG  2.03 A  ok
+    C595 -C617   PDB  571-593   SG-SG  2.03 A  ok
+    C620 -C628   PDB  596-604   SG-SG  2.03 A  ok
+    C624 -C636   PDB  600-612   SG-SG  2.04 A  ok
+
+  24 bonds within 0.35 A of 2.05 A, 1 longer, 0 unresolved
+  mean 2.087 A, range 2.03-3.31 A
+
+  PASS - the numbering map is geometrically confirmed.
+  The 1 long contact(s) are a property of the model, not
+  of the mapping: a wrong offset would break all 25 at once,
+  since the mapped positions would not be cysteines at all.
+  Cysteines are correctly identified in every case.
+
+==========================================================================
+TEST 2  Literature residues in both frames
+==========================================================================
+  quoted   UniProt   PDB      in PDB   match   context (UniProt +/-3)
+  ----------------------------------------------------------------------
+  H370     H         346      H        yes     GDLHILP
+  R377     R         353      R        yes     VAFRGDS
+  L406     L         382      L        yes     GFLLIQA
+  H433     H         409      H        yes     TKQHGQF
+  Q435     Q         411      Q        yes     QHGQFSL
+  K489     K         465      K        yes     QKTKIIS
+
+  PASS - every quoted residue has the expected identity in both frames
+  The literature positions are precursor numbering, and they
+  correspond to PDB numbers 24 lower.
+
+==========================================================================
+TEST 3  Domain III boundaries
+==========================================================================
+  All ranges below are UniProt precursor numbering, so they are
+  directly comparable. The disulfide-derived range was computed
+  from UniProt features, not from PDB residue numbers.
+
+  range                                  length   SS-Cys   density
+  ----------------------------------------------------------------------
+  derived here (disulfide gap)           107      0        0.0 per 100 aa
+  value in the circulating script        204      10       4.9 per 100 aa
+  UniProt Repeat, flagged Approximate    211      17       8.1 per 100 aa
+
+  Regions where the two disagree:
+
+    335-362 (28 aa), extra at the N-terminal end
+      disulfide-bonded cysteines: 2 (7.1 per 100 aa)
+      sequence: KVCNGIGIGEFKDSLSINATNIKHFKNC
+
+    470-538 (69 aa), extra at the C-terminal end
+      disulfide-bonded cysteines: 8 (11.6 per 100 aa)
+      sequence: CYANTINWKKLFGTSGQKTKIISNRGENSCKATGQVCHALCSPEGCWGPEPRDCVSCRNVSRGRECVDK
+
+    363-469 (the derived core) contains 0 disulfide-bonded cysteines.
+
+  Reading: an L-domain core is free of disulfides. The regions the
+  wider range adds are densely cross-linked, which is the signature
+  of the furin-like domains that flank domain III.
+
+==========================================================================
+TEST 4  Structural compactness of each candidate range
+==========================================================================
+  Cysteine content is an indirect argument. This is the direct one:
+  for each range, what fraction of its residue contacts stay inside
+  it. A real domain is a compact unit and keeps most of its contacts
+  internal; a range drawn across a boundary leaks them to neighbours.
+  Contacts are CB-CB (CA for glycine) within 8 A.
+
+  range                                  internal   external   fraction
+  ----------------------------------------------------------------------
+  derived here (disulfide gap)           495        167        0.748
+  value in the circulating script        1027       32         0.970
+  UniProt Repeat, flagged Approximate    1006       128        0.887
+
+  Most compact: value in the circulating script (0.970)
+
+  This contradicts the disulfide-gap derivation, and the wider
+  range wins on the stronger argument. A short range is compact
+  partly by being short, so a LONGER range scoring higher is not
+  an artefact of length: it means the shorter one was cutting
+  through a structural unit. The derived core leaks 25% of its
+  contacts to residues outside itself, which a domain does not do.
+
+  Revised reading: the disulfide gap locates the leucine-rich
+  solenoid CORE of domain III, a real substructure but not the
+  whole domain. The domain also carries flanking segments that
+  are disulfide-bonded and pack against that core. Cysteine
+  content identifies the core; contact topology identifies the
+  domain, and it is the domain that matters for epitope scope.
+
+==========================================================================
+  Offset recorded by step 01 : +24
+  Offset recomputed here     : +24
+  CONSISTENT
+==========================================================================
