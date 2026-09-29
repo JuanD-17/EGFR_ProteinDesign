@@ -57,6 +57,7 @@ EGFR_ProteinDesign/
 │   ├── 03_ph_mechanism.py     pH-switch feasibility and design families
 │   ├── 03b_protonation_networks.py  pKa estimates and network geometry
 │   ├── 04_prepare_target.py   trimmed target and BindCraft configuration
+│   ├── 05_engineer_ph_switch.py  histidine placement on designed interfaces
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
