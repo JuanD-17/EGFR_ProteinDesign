@@ -1,0 +1,8 @@
+uniprot_pos,pdb_resnum,residue,aa,role,pka_free,model_pka,titrating_pka,assumed_pka_bound,coupling_kcal_mol,fold_change,verdict,conservation,glycan_shadow,patches
+368,344,ASP,D,anchor for an engineered histidine,4.67,3.8,6.5,8.5,0.848,4.19,good anchor,identical,no,1 2 3 5
+370,346,HIS,H,receptor-side switch,4.93,6.5,4.93,6.93,0.588,2.7,usable,identical,yes,1 3
+433,409,HIS,H,receptor-side switch,6.22,6.5,6.22,8.22,0.943,4.91,usable,identical,no,1 2 3
+455,431,GLU,E,anchor for an engineered histidine,4.31,4.5,6.5,8.5,0.848,4.19,"excellent anchor, fully ionised",identical,no,5
+458,434,ASP,D,anchor for an engineered histidine,1.95,3.8,6.5,8.5,0.848,4.19,"excellent anchor, fully ionised",identical,no,1 2 3 5
+460,436,ASP,D,anchor for an engineered histidine,3.7,3.8,6.5,8.5,0.848,4.19,"excellent anchor, fully ionised",identical,no,1 2 3 5
+496,472,GLU,E,anchor for an engineered histidine,4.88,4.5,6.5,8.5,0.848,4.19,good anchor,identical,no,4

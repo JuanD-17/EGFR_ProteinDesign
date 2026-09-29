@@ -54,6 +54,7 @@ EGFR_ProteinDesign/
 │   ├── 02_select_epitope.py   candidate epitope patches and hotspot lists
 │   ├── 02b_characterize_patches.py  patch geometry and face grouping
 │   ├── 03_ph_mechanism.py     pH-switch feasibility and design families
+│   ├── 03b_protonation_networks.py  pKa estimates and network geometry
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
@@ -573,6 +574,100 @@ Patch 4 is eliminated as a pH-switch candidate on a ceiling of Δn = 1.
 Patches 1 and 3 carry two target histidines each and support both
 mechanistic directions. Patch 5 has no histidine but four reachable acids,
 so it is a pure binder-side design.
+
+### `scripts/03b_protonation_networks.py` — pKa and network geometry
+
+Step 03's ceiling of 1.23 kcal/mol per coupled protonation carries a
+condition that this step makes explicit and then tests.
+
+**Selectivity comes from the pKa shift on binding, not from the pKa.** The
+linkage coefficient is `Δn(pH) = f_bound(pH) − f_free(pH)`. A group whose
+pKa does not change on binding contributes exactly nothing, however
+favourable its interaction. The design requirement is therefore to place
+each histidine so that binding stabilises its protonated form, and burying
+it against a carboxylate is the mechanism that does so.
+
+Free-state pKa values are estimated with PROPKA, and the script then
+enumerates which groups can be engaged simultaneously: between 5 and 22 Å
+apart, close enough for one binder face yet far enough to titrate against
+the binder rather than each other, with outward normals within 80°.
+
+```bash
+python scripts/03b_protonation_networks.py --assumed-shift 2.0
+```
+
+PROPKA 3.5 does not run on Python 3.14, because it dispatches its parameter
+parser on `self.__annotations__` and PEP 649 no longer resolves that through
+an instance. The script carries a documented compatibility shim that reads
+the class annotations instead; it changes nothing on older interpreters and
+can be deleted once PROPKA supports 3.14.
+
+## Findings from step 03b
+
+### The two mechanisms titrate different molecules
+
+An earlier version of this analysis scored target carboxylates as the
+titrating species and concluded that D458 and D460, at pKa 1.95 and 3.70,
+were too acidic to be useful. That inverted the reading.
+
+For a binder-side switch it is the **binder's** histidine that titrates. The
+target carboxylate only has to be a dependable counter-charge that upshifts
+that histidine's pKa on burial. A very low pKa is therefore not a defect but
+the virtue: it guarantees the anchor is fully ionised at both pH values.
+
+| Group | Role | pKa free | kcal/mol | Verdict |
+|-------|------|---------:|---------:|---------|
+| H433 | receptor-side switch | 6.22 | 0.943 | usable, best switch |
+| H370 | receptor-side switch | 4.93 | 0.588 | usable, weaker |
+| D458 | anchor | 1.95 | 0.848 | excellent, fully ionised |
+| D460 | anchor | 3.70 | 0.848 | excellent, fully ionised |
+| E455 | anchor | 4.31 | 0.848 | excellent, fully ionised |
+| D368 | anchor | 4.67 | 0.848 | good |
+| E496 | anchor | 4.88 | 0.848 | good |
+
+H433 at 6.22 titrates almost ideally for this window. H370 is downshifted
+from its 6.50 model value, meaning its environment already destabilises the
+protonated form, which is a second reason beyond glycan risk to prefer H433.
+
+### Viable networks reach 70–90×, not 100×
+
+Thirty-one combinations satisfy the distance and orientation constraints.
+The best:
+
+| Network | Span Å | kcal/mol | Fold | Patches |
+|---------|-------:|---------:|-----:|---------|
+| D368 · H433 · D458 | 15.9 | 2.64 | 86× | 1, 2, 3 |
+| D368 · H433 · D460 | 15.1 | 2.64 | 86× | 1, 2, 3 |
+| H433 · D458 · D460 | 15.9 | 2.64 | 86× | 1, 2, 3 |
+| D368 · E455 · D458 | 17.1 | 2.54 | 73× | 5 |
+| D368 · D458 · D460 | 15.1 | 2.54 | 73× | 1, 2, 3, 5 |
+| D368 · H370 · H433 | 11.3 | 2.38 | 55× | 1, 3 |
+
+Under a 2.0-unit shift assumption the best three-group networks reach about
+86-fold, short of the ~100-fold that "no detectable binding" implies. Two
+routes close that gap: a larger pKa shift, which deeper burial against a
+carboxylate can plausibly deliver, or accepting a clearly demonstrated but
+sub-maximal switch — which the competition rules explicitly value over a
+high-affinity binder with no pH dependence at all.
+
+Patch 5 supports 73× purely binder-side, with no reliance on a receptor
+histidine. That makes it the family whose mechanism is entirely under our
+control, and the one that does not overlap the cetuximab epitope.
+
+### Limitations
+
+pKa values in the complex cannot be computed before the complex exists, so
+the assumed shift stands in for the quantity that actually decides the
+outcome. PROPKA is empirical with errors near one pKa unit, comparable to
+the effects being reasoned about. Every anchor is scored with the same
+engineered-histidine model, so all anchors return identical coupling and the
+ranking among anchor-only networks is driven by group count rather than
+quality; in this model anchor pKa governs reliability, not the magnitude of
+the shift it induces. Rigorous coupling free energies would require
+constant-pH molecular dynamics, which is out of scope.
+
+These are a screen and a geometric filter, not predictions of experimental
+pH selectivity.
 
 ## Target data
 
