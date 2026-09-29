@@ -1,0 +1,198 @@
+{
+  "generated_utc": "2026-09-29T16:54:05+00:00",
+  "generated_by": "scripts/02_select_epitope.py",
+  "scope_uniprot": [
+    335,
+    538
+  ],
+  "structure": "6ARU.pdb",
+  "chain": "A",
+  "numbering_note": "residues_uniprot is precursor numbering; residues_pdb and the BindCraft string are PDB numbering, 24 lower, because BindCraft indexes into the structure file it is given",
+  "parameters": {
+    "patch_radius_a": 11.0,
+    "shell_radius_a": 13.0,
+    "area_window_a2": [
+      600.0,
+      900.0
+    ],
+    "min_patch_residues": 8,
+    "max_overlap": 0.5,
+    "weights": {
+      "ph_potential": 0.4,
+      "conservation": 0.3,
+      "functional": 0.2,
+      "geometry": 0.1
+    }
+  },
+  "patches": [
+    {
+      "rank": 1,
+      "centre_uniprot": 430,
+      "score": 0.8461,
+      "n_residues": 10,
+      "area_a2": 784.8,
+      "histidines_uniprot": [
+        433
+      ],
+      "residues_uniprot": [
+        366,
+        427,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        458
+      ],
+      "residues_pdb": [
+        342,
+        403,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        434
+      ],
+      "bindcraft_target_hotspot_residues": "A342,A403,A405,A406,A407,A408,A409,A410,A411,A434"
+    },
+    {
+      "rank": 2,
+      "centre_uniprot": 460,
+      "score": 0.8001,
+      "n_residues": 11,
+      "area_a2": 846.1,
+      "histidines_uniprot": [
+        433
+      ],
+      "residues_uniprot": [
+        431,
+        432,
+        433,
+        434,
+        435,
+        458,
+        460,
+        483,
+        487,
+        488,
+        489
+      ],
+      "residues_pdb": [
+        407,
+        408,
+        409,
+        410,
+        411,
+        434,
+        436,
+        459,
+        463,
+        464,
+        465
+      ],
+      "bindcraft_target_hotspot_residues": "A407,A408,A409,A410,A411,A434,A436,A459,A463,A464,A465"
+    },
+    {
+      "rank": 3,
+      "centre_uniprot": 432,
+      "score": 0.755,
+      "n_residues": 8,
+      "area_a2": 565.9,
+      "histidines_uniprot": [
+        433
+      ],
+      "residues_uniprot": [
+        408,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        460
+      ],
+      "residues_pdb": [
+        384,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        436
+      ],
+      "bindcraft_target_hotspot_residues": "A384,A406,A407,A408,A409,A410,A411,A436"
+    },
+    {
+      "rank": 4,
+      "centre_uniprot": 490,
+      "score": 0.6809,
+      "n_residues": 9,
+      "area_a2": 638.4,
+      "histidines_uniprot": [],
+      "residues_uniprot": [
+        464,
+        473,
+        474,
+        487,
+        488,
+        489,
+        490,
+        493,
+        496
+      ],
+      "residues_pdb": [
+        440,
+        449,
+        450,
+        463,
+        464,
+        465,
+        466,
+        469,
+        472
+      ],
+      "bindcraft_target_hotspot_residues": "A440,A449,A450,A463,A464,A465,A466,A469,A472"
+    },
+    {
+      "rank": 5,
+      "centre_uniprot": 427,
+      "score": 0.6504,
+      "n_residues": 11,
+      "area_a2": 760.6,
+      "histidines_uniprot": [],
+      "residues_uniprot": [
+        366,
+        424,
+        427,
+        429,
+        430,
+        431,
+        455,
+        457,
+        458,
+        482,
+        483
+      ],
+      "residues_pdb": [
+        342,
+        400,
+        403,
+        405,
+        406,
+        407,
+        431,
+        433,
+        434,
+        458,
+        459
+      ],
+      "bindcraft_target_hotspot_residues": "A342,A400,A403,A405,A406,A407,A431,A433,A434,A458,A459"
+    }
+  ]
+}

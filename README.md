@@ -50,6 +50,8 @@ EGFR_ProteinDesign/
 ├── scripts/                   code, numbered in execution order
 │   ├── 00_download_data.py    download and verification of raw data
 │   ├── 01_annotate_target.py  per-residue annotation of the ectodomain
+│   ├── 01b_verify_numbering.py  independent checks on 01's derived claims
+│   ├── 02_select_epitope.py   candidate epitope patches and hotspot lists
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
@@ -299,6 +301,100 @@ carboxylate adds a protonation-sensitive contact on top of the histidines
 engineered into the binder. Domain III contributes H433 (relative SASA 0.80);
 domain II contributes H183 (0.86), H304 (0.78) and H233 (0.33).
 
+### `scripts/02_select_epitope.py` — epitope patch selection
+
+Step 01 yields a *pool* of residues a binder is structurally permitted to
+touch. That pool is not a hotspot list, and the distinction drives this step:
+a binder does not contact 45 scattered residues, it lands on a contiguous
+surface of roughly 600–900 Å², on the order of 15–25 residues.
+
+Every pool residue is taken as a patch centre and the patch is the pool
+residues within 11 Å of it, CB to CB. Patches are scored, ranked, and greedily
+deduplicated so the selection spans distinct surfaces rather than many views
+of one. Four terms, weighted to follow the competition's ranking order:
+
+| Term | Weight | Meaning |
+|------|--------|---------|
+| pH potential | 0.40 | exposure-weighted histidines in and beside the patch |
+| Conservation | 0.30 | fraction of the footprint identical in mouse, shell included |
+| Functional | 0.20 | overlap with the cetuximab interface |
+| Geometry | 0.10 | buriable area in window, clearance from glycans |
+
+Conservation is measured over the patch *and* a 13 Å shell. The patch core is
+identical by construction, so it carries no information; a binder footprint
+spills past it, and the shell is what actually decides cross-reactivity.
+
+Overlap with the cetuximab interface is scored as **positive**. The
+competition recommends targeting a functional epitope and names cetuximab's,
+and a surface with a therapeutic antibody bound to it is demonstrably
+druggable. The non-conserved residues within that interface are already
+excluded by the pool definition, so the risk they pose to objective 2 is
+handled upstream rather than by avoiding the region.
+
+```bash
+python scripts/02_select_epitope.py
+python scripts/02_select_epitope.py --scope 157 362     # domain II instead
+```
+
+Outputs a patch table, a readable report, a PyMOL session for visual checking,
+and `02_hotspots_bindcraft.json` carrying the `target_hotspot_residues` string
+**in PDB numbering**, since BindCraft indexes into the structure file it is
+given and 6ARU is numbered 24 lower than UniProt.
+
+The weights are a judgement, not a measurement, and the ranking is sensitive
+to them. They live in one dictionary in the source so the ranking can be
+re-derived under different assumptions.
+
+## Findings from step 02
+
+Searching domain III (335–538) gives 45 pool residues, 23 patches of at least
+8 residues, and 12 distinct surfaces after deduplication.
+
+**Three of the six literature residues cannot be interface contacts.** They
+were used as a blind test: the pipeline never reads them, so their fate is a
+check on whether structural filtering recovers what experiments found.
+
+| Residue | Rel. SASA | Exposed | Conservation | Glycan shadow | In pool |
+|---------|-----------|---------|--------------|---------------|---------|
+| H370 | 0.171 | no | identical | **yes** | no |
+| R377 | 0.704 | yes | **similar** | **yes** | no |
+| L406 | 0.053 | **no** | identical | no | no |
+| H433 | 0.801 | yes | identical | no | **yes** |
+| Q435 | 0.489 | yes | identical | no | **yes** |
+| K489 | 0.544 | yes | identical | no | **yes** |
+
+H370, described in the literature as a mechanistic pH-switch histidine, is
+both buried and glycan-shadowed, so it is not available to a binder. L406 at
+5% relative accessibility is a hydrophobic-core leucine. Their alanine-scan
+phenotypes are therefore most plausibly indirect — destabilisation rather
+than loss of contact. This matters as a method point: alanine scanning
+conflates direct contacts with structural effects, and structural annotation
+separates them.
+
+**The three that survive all land in the same top-ranked patch.** Patch 2
+contains H433, Q435 and K489 together. The scoring function never saw the
+literature; it saw exposure, conservation, glycan clearance, histidine
+content and cetuximab overlap. Recovering all three experimentally validated
+surface residues in one patch is convergent evidence that the filtering is
+selecting for something real.
+
+The two leading candidates trade off against each other:
+
+| | Patch 1 (centre 430) | Patch 2 (centre 460) |
+|---|---|---|
+| Score | 0.846 | 0.800 |
+| Area | 785 Å² | 846 Å² |
+| Histidine | H433, H358 adjacent | H433 |
+| Conservation of footprint | 94.3% | 88.2% |
+| Cetuximab overlap | 3 residues | 5 residues |
+| Literature residues | H433, Q435 | H433, Q435, K489 |
+
+Patch 1 ranks higher on conservation and on pH potential, helped by H358
+sitting just outside it. Patch 2 is larger, overlaps the validated interface
+more, and contains every literature residue that survived filtering. Which
+one leads depends on the weights, so both are carried forward rather than
+resolved on the score alone.
+
 ## Target data
 
 Downloaded 29 September 2026 from **UniProt release 2026_03** and the RCSB PDB.
@@ -358,7 +454,7 @@ report is not supporting documentation: it is part of what gets evaluated.
 - [x] Human/mouse conservation map
 - [x] Solvent accessibility and glycan occlusion
 - [x] Numbering and domain boundaries verified independently
-- [ ] Epitope patch selection
+- [x] Epitope patch selection
 - [ ] Binder generation
 - [ ] pH-sensitivity engineering
 - [ ] Filtering, ranking and submission
