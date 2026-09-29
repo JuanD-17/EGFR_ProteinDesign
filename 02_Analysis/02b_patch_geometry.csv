@@ -1,0 +1,7 @@
+rank,centre,score,n_residues,diameter_a,radius_gyration_a,planarity_rms_a,components,largest_component,fragmented,fab_min_dist_a,fab_relation,core_residues,detached_residues
+1,430,0.8461,10,20.2,7.3,1.68,2,9,yes,2.6,direct contact,427 429 430 431 432 433 434 435 458,366
+2,460,0.8001,11,17.4,7.5,1.89,1,11,no,2.6,direct contact,431 432 433 434 435 458 460 483 487 488 489,
+3,432,0.755,8,17.3,6.6,2.39,2,7,yes,2.6,direct contact,430 431 432 433 434 435 460,408
+4,490,0.6809,9,18.8,7.6,1.8,1,9,no,2.7,direct contact,464 473 474 487 488 489 490 493 496,
+5,427,0.6504,11,20.1,7.9,1.98,2,10,yes,9.1,same region,424 427 429 430 431 455 457 458 482 483,366
+6,487,0.6113,8,18.9,7.4,1.44,3,6,yes,2.8,direct contact,435 460 487 488 489 490,478 483

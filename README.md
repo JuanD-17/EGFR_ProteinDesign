@@ -364,19 +364,31 @@ check on whether structural filtering recovers what experiments found.
 | K489 | 0.544 | yes | identical | no | **yes** |
 
 H370, described in the literature as a mechanistic pH-switch histidine, is
-both buried and glycan-shadowed, so it is not available to a binder. L406 at
-5% relative accessibility is a hydrophobic-core leucine. Their alanine-scan
-phenotypes are therefore most plausibly indirect — destabilisation rather
-than loss of contact. This matters as a method point: alanine scanning
-conflates direct contacts with structural effects, and structural annotation
-separates them.
+both buried and glycan-shadowed in this structure. L406 sits at 5% relative
+accessibility, in the hydrophobic core.
 
-**The three that survive all land in the same top-ranked patch.** Patch 2
-contains H433, Q435 and K489 together. The scoring function never saw the
-literature; it saw exposure, conservation, glycan clearance, histidine
-content and cetuximab overlap. Recovering all three experimentally validated
-surface residues in one patch is convergent evidence that the filtering is
-selecting for something real.
+What follows from that is bounded, and worth stating carefully. Low
+structural accessibility makes it improbable that these residues act as
+direct interface contacts *in the crystallographic state analysed here*. It
+does not establish what mechanism produced their alanine-scan phenotypes;
+structural analysis alone cannot demonstrate that. An indirect effect such
+as destabilisation is one consistent explanation among others, and H370 may
+well be mechanistically relevant to binding or pH response without being an
+interface hotspot.
+
+The usable conclusion is narrower than a mechanistic claim and still
+decision-relevant: these positions are not candidates for direct contact, so
+designing a binder *at* them would be a mistake that the literature alone
+would have invited.
+
+**The three that survive all land in the same patch.** Patch 2 contains
+H433, Q435 and K489 together. The scoring function never saw the literature;
+it saw exposure, conservation, glycan clearance, histidine content and
+cetuximab overlap.
+
+This is independent convergence and it raises the interest of patch 2. It
+does not make patch 2 the correct epitope. Two filters agreeing is evidence,
+not proof, and both are looking at the same crystal structure.
 
 The two leading candidates trade off against each other:
 
@@ -393,7 +405,73 @@ Patch 1 ranks higher on conservation and on pH potential, helped by H358
 sitting just outside it. Patch 2 is larger, overlaps the validated interface
 more, and contains every literature residue that survived filtering. Which
 one leads depends on the weights, so both are carried forward rather than
-resolved on the score alone.
+resolved on the score alone. Step 02b then measures the geometry that
+composition scores cannot see.
+
+### `scripts/02b_characterize_patches.py` — patch geometry
+
+Step 02 groups residues by proximity and scores them by composition. Neither
+operation can tell whether a patch is a single usable binding face, and the
+residue-overlap deduplication cannot tell two genuinely different faces from
+one face found twice from different seeds. Two patches can share few
+residues and still sit on the same surface.
+
+This step measures compactness (diameter, radius of gyration, RMS deviation
+from the best-fit plane), continuity (connected components under a 5 Å
+heavy-atom contact rule), orientation (the outward normal of each patch),
+and a graded rather than binary relationship to the Fab.
+
+```bash
+python scripts/02b_characterize_patches.py --top 6
+```
+
+## Findings from step 02b
+
+**Three of the six top patches are not continuous surfaces.** Reporting
+*which* residues detach makes the defect actionable:
+
+| Patch | Components | Core | Detached |
+|-------|------------|------|----------|
+| 1 | 2 | 427–435, 458 | **S366** |
+| 2 | **1** | all 11 | — |
+| 3 | 2 | 430–435, 460 | Q408 |
+| 4 | **1** | all 9 | — |
+| 5 | 2 | 424–458, 482–483 | **S366** |
+| 6 | 3 | 435–490 | 478, 483 |
+
+S366 detaches from both patches that contain it. It lies some 60 sequence
+positions from the rest and was grouped by CB proximity, but its surface
+does not touch theirs. This is precisely the failure mode that a distance
+matrix cannot detect and a composition score cannot penalise.
+
+Patch 2 is the only one of the top three that forms a single connected
+surface, at 11 residues, 17.4 Å across and 1.89 Å from planar, in direct
+contact with the Fab.
+
+**The face count is soft, and is reported as such.** Two pairs fall within
+10° of the 45° orientation cutoff:
+
+| Pair | Centroid separation | Normal angle |
+|------|--------------------:|-------------:|
+| 1 vs 2 | 7.2 Å | 47.2° |
+| 2 vs 3 | 5.5 Å | 48.3° |
+
+At a 50° threshold, patches 1, 2 and 3 merge. The honest reading is that
+they are not three faces but one curved region around H433, sampled from
+three seeds. The script flags these pairs as unresolved rather than
+reporting a verdict that a small change of threshold would reverse.
+
+What survives that caveat:
+
+- **The H433 region** — patches 1, 2 and 3, most likely one surface, all in
+  direct Fab contact
+- **The 487–490 face** — patches 2, 4 and 6 group unambiguously
+- **Patch 5** — normal 135° from patch 1 and 9.1 Å from the Fab, so a
+  genuinely different surface that does not overlap the cetuximab epitope
+
+Patch 5 is the only real diversification available within domain III. For a
+20-design portfolio judged partly on novelty, that matters more than its
+rank.
 
 ## Target data
 
