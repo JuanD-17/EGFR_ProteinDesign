@@ -1,0 +1,101 @@
+{
+  "generated_utc": "2026-09-29T17:20:13+00:00",
+  "generated_by": "scripts/03_ph_mechanism.py",
+  "thermodynamics": {
+    "ph_high": 7.4,
+    "ph_low": 6.5,
+    "kcal_per_coupled_proton": 1.228,
+    "protons_for_100x": 2.22,
+    "protons_for_1000x": 3.33
+  },
+  "patches": [
+    {
+      "patch": 1,
+      "centre": 430,
+      "score": 0.8461,
+      "histidines": [
+        370,
+        433
+      ],
+      "acids": [
+        368,
+        458,
+        460
+      ],
+      "basics": [
+        427,
+        429,
+        431
+      ],
+      "net_charge": 0
+    },
+    {
+      "patch": 2,
+      "centre": 460,
+      "score": 0.8001,
+      "histidines": [
+        433
+      ],
+      "acids": [
+        368,
+        458,
+        460
+      ],
+      "basics": [
+        431,
+        487,
+        489
+      ],
+      "net_charge": 0
+    },
+    {
+      "patch": 3,
+      "centre": 432,
+      "score": 0.755,
+      "histidines": [
+        370,
+        433
+      ],
+      "acids": [
+        368,
+        458,
+        460
+      ],
+      "basics": [
+        431
+      ],
+      "net_charge": -2
+    },
+    {
+      "patch": 4,
+      "centre": 490,
+      "score": 0.6809,
+      "histidines": [],
+      "acids": [
+        496
+      ],
+      "basics": [
+        489
+      ],
+      "net_charge": 0
+    },
+    {
+      "patch": 5,
+      "centre": 427,
+      "score": 0.6504,
+      "histidines": [],
+      "acids": [
+        368,
+        455,
+        458,
+        460
+      ],
+      "basics": [
+        427,
+        429,
+        431
+      ],
+      "net_charge": -1
+    }
+  ]
+}

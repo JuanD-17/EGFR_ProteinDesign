@@ -53,6 +53,7 @@ EGFR_ProteinDesign/
 │   ├── 01b_verify_numbering.py  independent checks on 01's derived claims
 │   ├── 02_select_epitope.py   candidate epitope patches and hotspot lists
 │   ├── 02b_characterize_patches.py  patch geometry and face grouping
+│   ├── 03_ph_mechanism.py     pH-switch feasibility and design families
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
@@ -364,9 +365,12 @@ check on whether structural filtering recovers what experiments found.
 | Q435 | 0.489 | yes | identical | no | **yes** |
 | K489 | 0.544 | yes | identical | no | **yes** |
 
-H370, described in the literature as a mechanistic pH-switch histidine, is
-both buried and glycan-shadowed in this structure. L406 sits at 5% relative
-accessibility, in the hydrophobic core.
+H370, described in the literature as a mechanistic pH-switch histidine, sits
+below the exposure threshold and is glycan-shadowed in this structure. L406
+sits at 5% relative accessibility, in the hydrophobic core.
+
+*(Step 03 revisits H370 with a finer test and finds it marginal rather than
+unavailable — see* Findings from step 03 *below. L406 is unaffected.)*
 
 What follows from that is bounded, and worth stating carefully. Low
 structural accessibility makes it improbable that these residues act as
@@ -474,6 +478,102 @@ Patch 5 is the only real diversification available within domain III. For a
 20-design portfolio judged partly on novelty, that matters more than its
 rank.
 
+### `scripts/03_ph_mechanism.py` — pH-switch feasibility
+
+Objective 1 is the highest-weighted criterion and no design pipeline
+optimises for it, so the mechanism is specified before any sequence is
+generated. This script does not design anything; it establishes what a
+binder would have to do and whether each surface can support it.
+
+```bash
+python scripts/03_ph_mechanism.py --patches 1 2 3 4 5
+```
+
+## Findings from step 03
+
+### One histidine cannot do this
+
+Wyman linkage relates the pH dependence of binding to the number of protons
+taken up on binding:
+
+```
+d(ΔG_bind)/d(pH) = 2.303 · R · T · Δn(H⁺)
+```
+
+Over the 0.9 pH units between 7.4 and 6.5:
+
+| Coupled protonations | Max ΔΔG kcal/mol | Max affinity change |
+|---------------------:|-----------------:|--------------------:|
+| 1 | 1.23 | 8× |
+| 2 | 2.46 | 63× |
+| 3 | 3.68 | 502× |
+| 4 | 4.91 | 3987× |
+
+A 100-fold switch needs **2.2 coupled protonation events**; 1000-fold needs
+3.3. A single histidine, ideally placed and ideally titrating, buys about
+one order of magnitude — which is not "binding at 6.5, none detectable at
+7.4", and may not even be resolvable in the assay.
+
+This rules out the intuitive one-histidine design before any compute is
+spent on it, and it reframes the design families: the governing variable is
+*how many* protonation events couple to binding, not which histidine is
+chosen.
+
+These are ceilings, and real coupling falls short of them. pKa values shift
+at interfaces, protonation is not all-or-nothing across so narrow a window,
+and a neutral histidine can still hydrogen bond to a carboxylate, which
+erodes the difference between the two states.
+
+### H370 is marginal, not excluded
+
+Step 02 reported H370 as unavailable to a binder. That was too strong, and
+the correction comes from this step's own measurement.
+
+| | Rel. SASA | Glycan | Conservation | Clash-free partner positions |
+|---|---|---|---|---|
+| H370 | 0.171 | **yes** | identical | 29 |
+| H433 | 0.801 | no | identical | 44 |
+| D368 | 0.154 | no | identical | 29 |
+
+Relative SASA measures the whole residue against a 0.20 threshold that is a
+convention rather than physics. The question that matters for a pH switch is
+narrower: can a carboxylate reach the titratable nitrogen? Probing for
+clash-free partner positions at hydrogen-bond distance says yes, at 29
+positions.
+
+What stands is the glycan risk: H370 lies within 12 Å of an N-glycosylation
+site. That is a sequence-derived prediction, not an observation, since the
+crystal did not resolve that glycan.
+
+H370 is therefore **marginal with glycan risk** — neither the mechanistic
+hotspot the literature suggests nor the excluded position claimed here
+earlier. D368 sits two positions away, so H370 and D368 form an adjacent
+titratable pair.
+
+### The ionizable environment is not basic
+
+An earlier reading of patch composition suggested a basic surface that would
+oppose placing a protonated histidine on the binder. Counting only groups
+with room for a partner, net charge is zero or negative:
+
+| Patch | Target His | Target acids | Target basics | Net | Ceiling on Δn |
+|-------|-----------|--------------|---------------|-----|---------------|
+| 1 | H370, H433 | D368, D458, D460 | 3 | 0 | **5** |
+| 3 | H370, H433 | D368, D458, D460 | 1 | −2 | **5** |
+| 2 | H433 | D368, D458, D460 | 3 | 0 | 4 |
+| 5 | — | D368, E455, D458, D460 | 3 | 0 | 4 |
+| 4 | — | E496 | 1 | 0 | 1 |
+
+Reachability is tested by probing for clash-free positions at hydrogen-bond
+and salt-bridge distance, because a group can be solvent-exposed and still
+have no room for a partner. E400 is an example: 16% relative accessibility
+and only 3 clash-free positions, so it is not usable.
+
+Patch 4 is eliminated as a pH-switch candidate on a ceiling of Δn = 1.
+Patches 1 and 3 carry two target histidines each and support both
+mechanistic directions. Patch 5 has no histidine but four reachable acids,
+so it is a pure binder-side design.
+
 ## Target data
 
 Downloaded 29 September 2026 from **UniProt release 2026_03** and the RCSB PDB.
@@ -534,6 +634,7 @@ report is not supporting documentation: it is part of what gets evaluated.
 - [x] Solvent accessibility and glycan occlusion
 - [x] Numbering and domain boundaries verified independently
 - [x] Epitope patch selection
+- [x] pH-switch mechanism and design families
 - [ ] Binder generation
 - [ ] pH-sensitivity engineering
 - [ ] Filtering, ranking and submission

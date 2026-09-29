@@ -1,0 +1,32 @@
+patch,uniprot_pos,pdb_resnum,residue,aa,kind,in_patch,dist_to_centroid_a,rel_sasa,conservation,glycan_shadow,partner_positions,reachable,behaviour
+1,368,344,ASP,D,acid,no,5.1,0.154,identical,no,29,yes,carries -1 when deprotonated
+1,370,346,HIS,H,base,no,9.5,0.171,identical,yes,29,yes,acquires +1 on protonation
+1,427,403,ARG,R,fixed_positive,yes,11.7,0.275,identical,no,25,yes,carries +1 across this pH range
+1,429,405,ARG,R,fixed_positive,yes,9.7,0.701,identical,no,34,yes,carries +1 across this pH range
+1,431,407,LYS,K,fixed_positive,yes,4.4,0.258,identical,no,31,yes,carries +1 across this pH range
+1,433,409,HIS,H,base,yes,10.6,0.801,identical,no,44,yes,acquires +1 on protonation
+1,458,434,ASP,D,acid,yes,6.7,0.329,identical,no,33,yes,carries -1 when deprotonated
+1,460,436,ASP,D,acid,no,10.0,0.246,identical,no,37,yes,carries -1 when deprotonated
+2,368,344,ASP,D,acid,no,11.0,0.154,identical,no,29,yes,carries -1 when deprotonated
+2,431,407,LYS,K,fixed_positive,yes,6.8,0.258,identical,no,31,yes,carries +1 across this pH range
+2,433,409,HIS,H,base,yes,10.8,0.801,identical,no,44,yes,acquires +1 on protonation
+2,458,434,ASP,D,acid,yes,6.7,0.329,identical,no,33,yes,carries -1 when deprotonated
+2,460,436,ASP,D,acid,yes,3.7,0.246,identical,no,37,yes,carries -1 when deprotonated
+2,487,463,LYS,K,fixed_positive,yes,11.2,0.746,identical,no,72,yes,carries +1 across this pH range
+2,489,465,LYS,K,fixed_positive,yes,10.2,0.544,identical,no,71,yes,carries +1 across this pH range
+3,368,344,ASP,D,acid,no,7.3,0.154,identical,no,29,yes,carries -1 when deprotonated
+3,370,346,HIS,H,base,no,8.1,0.171,identical,yes,29,yes,acquires +1 on protonation
+3,431,407,LYS,K,fixed_positive,yes,7.4,0.258,identical,no,31,yes,carries +1 across this pH range
+3,433,409,HIS,H,base,yes,6.7,0.801,identical,no,44,yes,acquires +1 on protonation
+3,458,434,ASP,D,acid,no,9.7,0.329,identical,no,33,yes,carries -1 when deprotonated
+3,460,436,ASP,D,acid,yes,8.3,0.246,identical,no,37,yes,carries -1 when deprotonated
+4,489,465,LYS,K,fixed_positive,yes,10.7,0.544,identical,no,71,yes,carries +1 across this pH range
+4,496,472,GLU,E,acid,yes,8.5,0.584,identical,no,32,yes,carries -1 when deprotonated
+5,368,344,ASP,D,acid,no,9.2,0.154,identical,no,29,yes,carries -1 when deprotonated
+5,400,376,GLU,E,acid,no,9.0,0.161,identical,no,3,no,carries -1 when deprotonated
+5,427,403,ARG,R,fixed_positive,yes,6.6,0.275,identical,no,25,yes,carries +1 across this pH range
+5,429,405,ARG,R,fixed_positive,yes,6.8,0.701,identical,no,34,yes,carries +1 across this pH range
+5,431,407,LYS,K,fixed_positive,yes,7.2,0.258,identical,no,31,yes,carries +1 across this pH range
+5,455,431,GLU,E,acid,yes,6.6,0.413,identical,no,26,yes,carries -1 when deprotonated
+5,458,434,ASP,D,acid,yes,6.4,0.329,identical,no,33,yes,carries -1 when deprotonated
+5,460,436,ASP,D,acid,no,10.8,0.246,identical,no,37,yes,carries -1 when deprotonated
