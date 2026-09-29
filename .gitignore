@@ -22,6 +22,11 @@ __pycache__/
 03_Design/**/*.npz
 03_Design/**/*.pkl
 
+# The trimmed target is small and is the exact input to every design run,
+# so it is tracked despite the rule above. Reproducing a campaign needs the
+# same coordinates, not just the script that produced them.
+!03_Design/target/*.pdb
+
 # Credentials. Never.
 .env
 *.key
