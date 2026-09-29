@@ -1,0 +1,12 @@
+{
+    "design_path": "./designs_patch5/",
+    "binder_name": "EGFRd3_p5",
+    "starting_pdb": "./EGFR_domainIII.pdb",
+    "chains": "A",
+    "target_hotspot_residues": "400,403,405,406,407,431,433,434,458,459",
+    "lengths": [
+        55,
+        100
+    ],
+    "number_of_final_designs": 100
+}

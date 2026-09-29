@@ -55,6 +55,7 @@ EGFR_ProteinDesign/
 │   ├── 02b_characterize_patches.py  patch geometry and face grouping
 │   ├── 03_ph_mechanism.py     pH-switch feasibility and design families
 │   ├── 03b_protonation_networks.py  pKa estimates and network geometry
+│   ├── 04_prepare_target.py   trimmed target and BindCraft configuration
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
@@ -730,7 +731,8 @@ report is not supporting documentation: it is part of what gets evaluated.
 - [x] Numbering and domain boundaries verified independently
 - [x] Epitope patch selection
 - [x] pH-switch mechanism and design families
-- [ ] Binder generation
+- [x] Target trimmed and design configurations written
+- [ ] Binder generation (GPU)
 - [ ] pH-sensitivity engineering
 - [ ] Filtering, ranking and submission
 
