@@ -49,6 +49,7 @@ EGFR_ProteinDesign/
 ├── .gitignore
 ├── scripts/                   code, numbered in execution order
 │   ├── 00_download_data.py    download and verification of raw data
+│   ├── 01_annotate_target.py  per-residue annotation of the ectodomain
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
@@ -146,6 +147,105 @@ python scripts/citation.py
 python scripts/citation.py --format bibtex > docs/data_sources.bib
 ```
 
+### `scripts/01_annotate_target.py` — per-residue annotation
+
+Builds the table every downstream decision rests on. For each of the 621
+ectodomain residues it crosses four layers:
+
+1. **Conservation** — human versus mouse, from a global BLOSUM62 alignment,
+   classified as identical, similar or different.
+2. **Accessibility** — solvent-accessible surface area computed with FreeSASA
+   from chain A of 6ARU, absolute and relative to the residue maximum. A
+   residue is called exposed above 20% relative SASA.
+3. **Glycan occlusion** — distance to the nearest glycan, using the sugar
+   residues the crystal resolved and falling back to the ND2 atom of the
+   glycosylated asparagine where it did not. Surface within 12 Å is treated as
+   buried.
+4. **Architecture** — domain boundaries derived from the disulfide pattern.
+
+It also computes the cetuximab interface by ΔSASA between the free receptor
+and the complex. That measurement is used as an exclusion and as a positive
+control that the geometry code works, not as a design target.
+
+A residue is called **designable** when it is exposed, identical between
+human and mouse, free of glycan shadow, and not disulfide-bonded.
+
+```bash
+python scripts/01_annotate_target.py
+python scripts/01_annotate_target.py --glycan-radius 15 --exposure 0.25
+```
+
+Outputs `02_Analysis/01_residue_annotation.csv` (the full table),
+`01_annotation_summary.md` (a readable report) and
+`01_annotation_metadata.json` (parameters and provenance).
+
+#### Why domain boundaries are derived rather than looked up
+
+UniProt does not annotate the ectodomain subdomains I–IV. Its only `Domain`
+feature is the intracellular kinase, at 712–979. The two `Repeat` features
+that cover the L-domains, at 75–300 and 390–600, are explicitly flagged
+*Approximate* and do not agree with the boundaries commonly quoted in the
+literature.
+
+Domains are therefore inferred from the disulfide distribution. Domains II
+and IV are furin-like modules packed with disulfides; domains I and III are
+leucine-rich L-domains almost free of them. Long gaps between consecutive
+disulfide-bonded cysteines locate the L-domain cores directly from the data:
+
+| Range | Length | Character | Assignment |
+|-------|--------|-----------|------------|
+| 25–58 | 34 aa | cysteine-rich | I/II N-terminal |
+| 59–156 | 98 aa | cysteine-free | I (L-domain core) |
+| 157–362 | 206 aa | cysteine-rich | II (furin-like) |
+| 363–469 | 107 aa | cysteine-free | **III (L-domain core)** |
+| 470–645 | 176 aa | cysteine-rich | IV (furin-like) |
+
+This places domain III at **363–469**, which matches neither the 335–538
+range circulating in derived material nor UniProt's approximate 390–600.
+
+## Findings from step 01
+
+**The structure uses mature numbering.** The alignment gives an offset of
+exactly +24 across all 609 resolved residues, so 6ARU residue *n* is UniProt
+residue *n*+24. Nothing in the file announces this. Any analysis that assumed
+the two numberings agreed would be wrong by 24 positions throughout, and
+would still run without error.
+
+**Glycans remove more surface than expected.** Thirteen N-glycosylation sites
+sit in the ectodomain, two of them (N413, N444) inside the domain III core.
+The crystal resolved only 28 sugar atoms, so most of that occlusion is
+invisible in the structure and has to be reconstructed from the sequence
+annotation.
+
+**Only 168 of 621 residues are designable.** Broken down by domain:
+
+| Domain | Residues | Designable | Fraction |
+|--------|----------|------------|----------|
+| II (furin-like) | 206 | 74 | 35.9% |
+| IV (furin-like) | 176 | 52 | 29.5% |
+| III (L-domain core) | 107 | 20 | 18.7% |
+| I (L-domain core) | 98 | 9 | 9.2% |
+
+Domain III, the epitope the competition recommends, has the *lowest*
+designable density of the large domains. It is small, and two glycosylation
+sites land in its core. Domain II offers roughly three times as much usable
+conserved surface, and it is the dimerization arm — blocking it is a
+functional mechanism rather than an epitope of convenience.
+
+**The cetuximab epitope is more conserved than expected.** Of its 27
+residues, 20 are identical between human and mouse, 7 are conservative
+substitutions and none differ outright. Cetuximab nonetheless fails to
+recognise murine EGFR, which is the useful lesson: seven substitutions across
+a 27-residue footprint are enough to abolish antibody binding. For objective
+2 the bar is therefore not "mostly conserved" but *zero* substitutions, which
+is what the `designable` criterion enforces.
+
+**Candidate histidines.** Exposed, conserved and unshadowed histidines are
+worth cataloguing for objective 1, since a target histidine facing a binder
+carboxylate adds a protonation-sensitive contact on top of the histidines
+engineered into the binder. Domain III contributes H433 (relative SASA 0.80);
+domain II contributes H183 (0.86), H304 (0.78) and H233 (0.33).
+
 ## Target data
 
 Downloaded 29 September 2026 from **UniProt release 2026_03** and the RCSB PDB.
@@ -201,9 +301,10 @@ report is not supporting documentation: it is part of what gets evaluated.
 ## Status
 
 - [x] Target data downloaded and verified
-- [ ] Domain annotation and domain III boundaries
-- [ ] Human/mouse conservation map
-- [ ] Solvent accessibility and epitope selection
+- [x] Domain annotation and domain III boundaries
+- [x] Human/mouse conservation map
+- [x] Solvent accessibility and glycan occlusion
+- [ ] Epitope patch selection
 - [ ] Binder generation
 - [ ] pH-sensitivity engineering
 - [ ] Filtering, ranking and submission

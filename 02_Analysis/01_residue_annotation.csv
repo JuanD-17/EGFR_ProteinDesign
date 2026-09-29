@@ -1,0 +1,622 @@
+uniprot_pos,aa_human,aa_mouse,mouse_pos,conservation,domain,pdb_resnum,resolved,sasa_free,rel_sasa,exposed,dsasa_cetuximab,cetuximab_epitope,is_glycosite,dist_to_glycan,glycan_shadow,ss_bonded_cys,designable
+25,L,L,25,identical,"I/II (N-terminal, cysteine-rich)",,no,,,no,,no,no,,no,no,no
+26,E,E,26,identical,"I/II (N-terminal, cysteine-rich)",,no,,,no,,no,no,,no,no,no
+27,E,E,27,identical,"I/II (N-terminal, cysteine-rich)",,no,,,no,,no,no,,no,no,no
+28,K,K,28,identical,"I/II (N-terminal, cysteine-rich)",4,yes,171.6,0.837,yes,0.0,no,no,14.2,no,no,yes
+29,K,K,29,identical,"I/II (N-terminal, cysteine-rich)",5,yes,121.2,0.591,yes,0.0,no,no,8.9,yes,no,no
+30,V,V,30,identical,"I/II (N-terminal, cysteine-rich)",6,yes,52.8,0.347,yes,0.0,no,no,11.2,yes,no,no
+31,C,C,31,identical,"I/II (N-terminal, cysteine-rich)",7,yes,19.0,0.143,no,0.0,no,no,10.6,yes,yes,no
+32,Q,Q,32,identical,"I/II (N-terminal, cysteine-rich)",8,yes,93.6,0.523,yes,0.0,no,no,13.3,no,no,yes
+33,G,G,33,identical,"I/II (N-terminal, cysteine-rich)",9,yes,4.6,0.057,no,0.0,no,no,13.8,no,no,no
+34,T,T,34,identical,"I/II (N-terminal, cysteine-rich)",10,yes,34.9,0.249,yes,0.0,no,no,14.5,no,no,yes
+35,S,S,35,identical,"I/II (N-terminal, cysteine-rich)",11,yes,69.9,0.591,yes,0.0,no,no,18.7,no,no,yes
+36,N,N,36,identical,"I/II (N-terminal, cysteine-rich)",12,yes,49.2,0.339,yes,0.0,no,no,17.3,no,no,yes
+37,K,R,37,similar,"I/II (N-terminal, cysteine-rich)",13,yes,85.4,0.417,yes,0.0,no,no,15.6,no,no,no
+38,L,L,38,identical,"I/II (N-terminal, cysteine-rich)",14,yes,82.0,0.457,yes,0.0,no,no,17.0,no,no,yes
+39,T,T,39,identical,"I/II (N-terminal, cysteine-rich)",15,yes,77.5,0.551,yes,0.0,no,no,17.9,no,no,yes
+40,Q,Q,40,identical,"I/II (N-terminal, cysteine-rich)",16,yes,70.5,0.394,yes,0.0,no,no,12.4,no,no,yes
+41,L,L,41,identical,"I/II (N-terminal, cysteine-rich)",17,yes,63.3,0.353,yes,0.0,no,no,16.4,no,no,yes
+42,G,G,42,identical,"I/II (N-terminal, cysteine-rich)",18,yes,53.1,0.655,yes,0.0,no,no,15.3,no,no,yes
+43,T,T,43,identical,"I/II (N-terminal, cysteine-rich)",19,yes,96.0,0.683,yes,0.0,no,no,13.8,no,no,yes
+44,F,F,44,identical,"I/II (N-terminal, cysteine-rich)",20,yes,88.4,0.442,yes,0.0,no,no,7.8,yes,no,no
+45,E,E,45,identical,"I/II (N-terminal, cysteine-rich)",21,yes,101.2,0.581,yes,0.0,no,no,12.3,no,no,yes
+46,D,D,46,identical,"I/II (N-terminal, cysteine-rich)",22,yes,63.6,0.446,yes,0.0,no,no,13.7,no,no,yes
+47,H,H,47,identical,"I/II (N-terminal, cysteine-rich)",23,yes,10.8,0.059,no,0.0,no,no,13.1,no,no,no
+48,F,F,48,identical,"I/II (N-terminal, cysteine-rich)",24,yes,17.3,0.086,no,0.0,no,no,10.2,yes,no,no
+49,L,L,49,identical,"I/II (N-terminal, cysteine-rich)",25,yes,80.6,0.449,yes,0.0,no,no,8.9,yes,no,no
+50,S,S,50,identical,"I/II (N-terminal, cysteine-rich)",26,yes,25.8,0.218,yes,0.0,no,no,10.0,yes,no,no
+51,L,L,51,identical,"I/II (N-terminal, cysteine-rich)",27,yes,11.0,0.061,no,0.0,no,no,8.5,yes,no,no
+52,Q,Q,52,identical,"I/II (N-terminal, cysteine-rich)",28,yes,64.7,0.362,yes,0.0,no,no,5.1,yes,no,no
+53,R,R,53,identical,"I/II (N-terminal, cysteine-rich)",29,yes,165.9,0.697,yes,0.0,no,no,6.3,yes,no,no
+54,M,M,54,identical,"I/II (N-terminal, cysteine-rich)",30,yes,63.4,0.328,yes,0.0,no,no,7.8,yes,no,no
+55,F,Y,55,similar,"I/II (N-terminal, cysteine-rich)",31,yes,0.2,0.001,no,0.0,no,no,6.1,yes,no,no
+56,N,N,56,identical,"I/II (N-terminal, cysteine-rich)",32,yes,80.5,0.555,yes,0.0,no,yes,0.0,yes,no,no
+57,N,N,57,identical,"I/II (N-terminal, cysteine-rich)",33,yes,76.9,0.531,yes,0.0,no,no,3.2,yes,no,no
+58,C,C,58,identical,"I/II (N-terminal, cysteine-rich)",34,yes,3.5,0.026,no,0.0,no,no,7.0,yes,yes,no
+59,E,E,59,identical,I (L-domain core),35,yes,38.7,0.222,yes,0.0,no,no,10.5,yes,no,no
+60,V,V,60,identical,I (L-domain core),36,yes,15.1,0.099,no,0.0,no,no,13.0,no,no,no
+61,V,V,61,identical,I (L-domain core),37,yes,0.0,0.0,no,0.0,no,no,13.3,no,no,no
+62,L,L,62,identical,I (L-domain core),38,yes,49.7,0.277,yes,0.0,no,no,16.2,no,no,yes
+63,G,G,63,identical,I (L-domain core),39,yes,21.1,0.26,yes,0.0,no,no,17.5,no,no,yes
+64,N,N,64,identical,I (L-domain core),40,yes,1.6,0.011,no,0.0,no,no,15.7,no,no,no
+65,L,L,65,identical,I (L-domain core),41,yes,0.0,0.0,no,0.0,no,no,13.3,no,no,no
+66,E,E,66,identical,I (L-domain core),42,yes,8.4,0.048,no,0.0,no,no,14.8,no,no,no
+67,I,I,67,identical,I (L-domain core),43,yes,0.0,0.0,no,0.0,no,no,14.3,no,no,no
+68,T,T,68,identical,I (L-domain core),44,yes,3.4,0.024,no,0.0,no,no,13.7,no,no,no
+69,Y,Y,69,identical,I (L-domain core),45,yes,39.4,0.184,no,0.0,no,no,10.9,yes,no,no
+70,V,V,70,identical,I (L-domain core),46,yes,0.5,0.003,no,0.0,no,no,10.0,yes,no,no
+71,Q,Q,71,identical,I (L-domain core),47,yes,41.1,0.23,yes,0.0,no,no,5.6,yes,no,no
+72,R,R,72,identical,I (L-domain core),48,yes,126.1,0.529,yes,0.0,no,no,4.9,yes,no,no
+73,N,N,73,identical,I (L-domain core),49,yes,140.3,0.968,yes,0.0,no,yes,0.0,yes,no,no
+74,Y,Y,74,identical,I (L-domain core),50,yes,60.4,0.282,yes,0.0,no,no,5.5,yes,no,no
+75,D,D,75,identical,I (L-domain core),51,yes,89.1,0.624,yes,0.0,no,no,7.8,yes,no,no
+76,L,L,76,identical,I (L-domain core),52,yes,5.3,0.029,no,0.0,no,no,10.2,yes,no,no
+77,S,S,77,identical,I (L-domain core),53,yes,63.3,0.535,yes,0.0,no,no,9.2,yes,no,no
+78,F,F,78,identical,I (L-domain core),54,yes,20.6,0.103,no,0.0,no,no,5.9,yes,no,no
+79,L,L,79,identical,I (L-domain core),55,yes,0.0,0.0,no,0.0,no,no,9.1,yes,no,no
+80,K,K,80,identical,I (L-domain core),56,yes,102.4,0.499,yes,0.0,no,no,10.9,yes,no,no
+81,T,T,81,identical,I (L-domain core),57,yes,55.1,0.392,yes,0.0,no,no,8.3,yes,no,no
+82,I,I,82,identical,I (L-domain core),58,yes,0.0,0.0,no,0.0,no,no,11.2,yes,no,no
+83,Q,Q,83,identical,I (L-domain core),59,yes,38.6,0.216,yes,0.0,no,no,14.5,no,no,yes
+84,E,E,84,identical,I (L-domain core),60,yes,29.5,0.169,no,0.0,no,no,15.9,no,no,no
+85,V,V,85,identical,I (L-domain core),61,yes,0.0,0.0,no,0.0,no,no,16.6,no,no,no
+86,A,A,86,identical,I (L-domain core),62,yes,11.5,0.105,no,0.0,no,no,17.4,no,no,no
+87,G,G,87,identical,I (L-domain core),63,yes,2.9,0.036,no,0.0,no,no,15.8,no,no,no
+88,Y,Y,88,identical,I (L-domain core),64,yes,0.2,0.001,no,0.0,no,no,14.3,no,no,no
+89,V,V,89,identical,I (L-domain core),65,yes,0.3,0.002,no,0.0,no,no,15.6,no,no,no
+90,L,L,90,identical,I (L-domain core),66,yes,0.0,0.0,no,0.0,no,no,16.1,no,no,no
+91,I,I,91,identical,I (L-domain core),67,yes,0.0,0.0,no,0.0,no,no,16.8,no,no,no
+92,A,A,92,identical,I (L-domain core),68,yes,1.4,0.013,no,0.0,no,no,13.6,no,no,no
+93,L,L,93,identical,I (L-domain core),69,yes,56.7,0.316,yes,0.0,no,no,10.0,yes,no,no
+94,N,N,94,identical,I (L-domain core),70,yes,0.0,0.0,no,0.0,no,no,9.5,yes,no,no
+95,T,T,95,identical,I (L-domain core),71,yes,7.0,0.05,no,0.0,no,no,5.7,yes,no,no
+96,V,V,96,identical,I (L-domain core),72,yes,8.3,0.055,no,0.0,no,no,8.3,yes,no,no
+97,E,E,97,identical,I (L-domain core),73,yes,70.8,0.407,yes,0.0,no,no,6.7,yes,no,no
+98,R,R,98,identical,I (L-domain core),74,yes,90.5,0.38,yes,0.0,no,no,9.7,yes,no,no
+99,I,I,99,identical,I (L-domain core),75,yes,0.0,0.0,no,0.0,no,no,12.5,no,no,no
+100,P,P,100,identical,I (L-domain core),76,yes,13.6,0.099,no,0.0,no,no,13.1,no,no,no
+101,L,L,101,identical,I (L-domain core),77,yes,0.0,0.0,no,0.0,no,no,14.5,no,no,no
+102,E,E,102,identical,I (L-domain core),78,yes,15.5,0.089,no,0.0,no,no,16.2,no,no,no
+103,N,N,103,identical,I (L-domain core),79,yes,32.9,0.227,yes,0.0,no,no,14.6,no,no,yes
+104,L,L,104,identical,I (L-domain core),80,yes,0.0,0.0,no,0.0,no,no,17.0,no,no,no
+105,Q,Q,105,identical,I (L-domain core),81,yes,35.3,0.197,no,0.0,no,no,19.4,no,no,no
+106,I,I,106,identical,I (L-domain core),82,yes,0.0,0.0,no,0.0,no,no,19.4,no,no,no
+107,I,I,107,identical,I (L-domain core),83,yes,0.0,0.0,no,0.0,no,no,15.8,no,no,no
+108,R,R,108,identical,I (L-domain core),84,yes,12.6,0.053,no,0.0,no,no,14.9,no,no,no
+109,G,G,109,identical,I (L-domain core),85,yes,2.7,0.034,no,0.0,no,no,12.9,no,no,no
+110,N,N,110,identical,I (L-domain core),86,yes,114.5,0.789,yes,0.0,no,no,14.9,no,no,yes
+111,M,A,111,different,I (L-domain core),87,yes,93.0,0.482,yes,0.0,no,no,13.0,no,no,no
+112,Y,L,112,different,I (L-domain core),88,yes,75.0,0.35,yes,0.0,no,no,7.7,yes,no,no
+113,Y,Y,113,identical,I (L-domain core),89,yes,17.8,0.083,no,0.0,no,no,11.5,yes,no,no
+114,E,E,114,identical,I (L-domain core),90,yes,89.7,0.515,yes,0.0,no,no,7.9,yes,no,no
+115,N,N,115,identical,I (L-domain core),91,yes,117.9,0.813,yes,0.0,no,no,5.7,yes,no,no
+116,S,T,116,similar,I (L-domain core),92,yes,15.3,0.13,no,0.0,no,no,3.1,yes,no,no
+117,Y,Y,117,identical,I (L-domain core),93,yes,20.7,0.096,no,0.0,no,no,6.5,yes,no,no
+118,A,A,118,identical,I (L-domain core),94,yes,0.4,0.004,no,0.0,no,no,10.0,yes,no,no
+119,L,L,119,identical,I (L-domain core),95,yes,0.0,0.0,no,0.0,no,no,12.0,no,no,no
+120,A,A,120,identical,I (L-domain core),96,yes,0.7,0.007,no,0.0,no,no,12.9,no,no,no
+121,V,I,121,similar,I (L-domain core),97,yes,0.0,0.0,no,0.0,no,no,15.3,no,no,no
+122,L,L,122,identical,I (L-domain core),98,yes,16.4,0.091,no,0.0,no,no,14.3,no,no,no
+123,S,S,123,identical,I (L-domain core),99,yes,32.4,0.273,yes,0.0,no,no,11.6,yes,no,no
+124,N,N,124,identical,I (L-domain core),100,yes,0.0,0.0,no,0.0,no,no,10.4,yes,no,no
+125,Y,Y,125,identical,I (L-domain core),101,yes,94.7,0.442,yes,0.0,no,no,7.5,yes,no,no
+126,D,G,126,different,I (L-domain core),102,yes,35.1,0.246,yes,0.0,no,no,2.7,yes,no,no
+127,A,T,127,similar,I (L-domain core),103,yes,103.6,0.952,yes,0.0,no,no,5.0,yes,no,no
+128,N,N,128,identical,I (L-domain core),104,yes,108.3,0.747,yes,0.0,no,yes,0.0,yes,no,no
+129,K,R,129,similar,I (L-domain core),105,yes,158.0,0.771,yes,0.0,no,no,5.7,yes,no,no
+130,T,T,130,identical,I (L-domain core),106,yes,43.9,0.312,yes,0.0,no,no,5.1,yes,no,no
+131,G,G,131,identical,I (L-domain core),107,yes,4.0,0.049,no,0.0,no,no,8.5,yes,no,no
+132,L,L,132,identical,I (L-domain core),108,yes,0.1,0.0,no,0.0,no,no,11.2,yes,no,no
+133,K,R,133,similar,I (L-domain core),109,yes,76.2,0.372,yes,0.0,no,no,11.9,yes,no,no
+134,E,E,134,identical,I (L-domain core),110,yes,68.2,0.391,yes,0.0,no,no,13.0,no,no,yes
+135,L,L,135,identical,I (L-domain core),111,yes,0.0,0.0,no,0.0,no,no,16.1,no,no,no
+136,P,P,136,identical,I (L-domain core),112,yes,1.8,0.013,no,0.0,no,no,16.1,no,no,no
+137,M,M,137,identical,I (L-domain core),113,yes,0.0,0.0,no,0.0,no,no,17.7,no,no,no
+138,R,R,138,identical,I (L-domain core),114,yes,44.2,0.186,no,0.0,no,no,16.6,no,no,no
+139,N,N,139,identical,I (L-domain core),115,yes,36.0,0.248,yes,0.0,no,no,18.4,no,no,yes
+140,L,L,140,identical,I (L-domain core),116,yes,2.1,0.012,no,0.0,no,no,16.5,no,no,no
+141,Q,Q,141,identical,I (L-domain core),117,yes,12.2,0.068,no,0.0,no,no,15.2,no,no,no
+142,E,E,142,identical,I (L-domain core),118,yes,14.9,0.086,no,0.0,no,no,17.1,no,no,no
+143,I,I,143,identical,I (L-domain core),119,yes,0.1,0.0,no,0.0,no,no,12.7,no,no,no
+144,L,L,144,identical,I (L-domain core),120,yes,22.8,0.127,no,0.0,no,no,13.1,no,no,no
+145,H,I,145,different,I (L-domain core),121,yes,85.6,0.468,yes,0.0,no,no,10.6,yes,no,no
+146,G,G,146,identical,I (L-domain core),122,yes,0.0,0.0,no,0.0,no,no,8.3,yes,no,no
+147,A,A,147,identical,I (L-domain core),123,yes,0.0,0.0,no,0.0,no,no,6.3,yes,no,no
+148,V,V,148,identical,I (L-domain core),124,yes,0.0,0.0,no,0.0,no,no,9.0,yes,no,no
+149,R,R,149,identical,I (L-domain core),125,yes,62.7,0.263,yes,0.0,no,no,10.5,yes,no,no
+150,F,F,150,identical,I (L-domain core),126,yes,0.1,0.001,no,0.0,no,no,13.0,no,no,no
+151,S,S,151,identical,I (L-domain core),127,yes,10.5,0.089,no,0.0,no,no,14.0,no,no,no
+152,N,N,152,identical,I (L-domain core),128,yes,80.1,0.553,yes,0.0,no,no,14.2,no,no,yes
+153,N,N,153,identical,I (L-domain core),129,yes,10.4,0.072,no,0.0,no,no,14.9,no,no,no
+154,P,P,154,identical,I (L-domain core),130,yes,28.5,0.208,yes,0.0,no,no,12.7,no,no,yes
+155,A,I,155,different,I (L-domain core),131,yes,4.1,0.037,no,0.0,no,no,12.4,no,no,no
+156,L,L,156,identical,I (L-domain core),132,yes,5.0,0.028,no,0.0,no,no,15.4,no,no,no
+157,C,C,157,identical,II (furin-like),133,yes,14.0,0.106,no,0.0,no,no,17.2,no,yes,no
+158,N,N,158,identical,II (furin-like),134,yes,30.6,0.211,yes,0.0,no,no,13.6,no,no,yes
+159,V,M,159,similar,II (furin-like),135,yes,0.7,0.004,no,0.0,no,no,13.8,no,no,no
+160,E,D,160,similar,II (furin-like),136,yes,114.0,0.654,yes,0.0,no,no,11.9,yes,no,no
+161,S,T,161,similar,II (furin-like),137,yes,38.0,0.321,yes,0.0,no,no,8.8,yes,no,no
+162,I,I,162,identical,II (furin-like),138,yes,10.0,0.057,no,0.0,no,no,10.3,yes,no,no
+163,Q,Q,163,identical,II (furin-like),139,yes,42.0,0.235,yes,0.0,no,no,5.1,yes,no,no
+164,W,W,164,identical,II (furin-like),140,yes,22.3,0.09,no,0.0,no,no,11.7,yes,no,no
+165,R,R,165,identical,II (furin-like),141,yes,159.3,0.669,yes,0.0,no,no,11.3,yes,no,no
+166,D,D,166,identical,II (furin-like),142,yes,0.4,0.003,no,0.0,no,no,11.3,yes,no,no
+167,I,I,167,identical,II (furin-like),143,yes,1.0,0.006,no,0.0,no,no,14.0,no,no,no
+168,V,V,168,identical,II (furin-like),144,yes,0.5,0.003,no,0.0,no,no,10.5,yes,no,no
+169,S,Q,169,similar,II (furin-like),145,yes,31.4,0.265,yes,0.0,no,no,10.2,yes,no,no
+170,S,N,170,similar,II (furin-like),146,yes,74.4,0.629,yes,0.0,no,no,9.8,yes,no,no
+171,D,V,171,different,II (furin-like),147,yes,115.1,0.806,yes,0.0,no,no,6.8,yes,no,no
+172,F,F,172,identical,II (furin-like),148,yes,37.7,0.189,no,0.0,no,no,6.1,yes,no,no
+173,L,M,173,similar,II (furin-like),149,yes,62.1,0.346,yes,0.0,no,no,7.7,yes,no,no
+174,S,S,174,identical,II (furin-like),150,yes,98.0,0.828,yes,0.0,no,no,5.3,yes,no,no
+175,N,N,175,identical,II (furin-like),151,yes,84.7,0.584,yes,0.0,no,yes,0.0,yes,no,no
+176,M,M,176,identical,II (furin-like),152,yes,43.5,0.225,yes,0.0,no,no,5.9,yes,no,no
+177,S,S,177,identical,II (furin-like),153,yes,36.2,0.306,yes,0.0,no,no,8.6,yes,no,no
+178,M,M,178,identical,II (furin-like),154,yes,62.1,0.322,yes,0.0,no,no,11.7,yes,no,no
+179,D,D,179,identical,II (furin-like),155,yes,63.2,0.443,yes,0.0,no,no,14.8,no,no,yes
+180,F,L,180,similar,II (furin-like),156,yes,45.7,0.229,yes,0.0,no,no,16.6,no,no,no
+181,Q,Q,181,identical,II (furin-like),157,yes,130.8,0.732,yes,0.0,no,no,17.6,no,no,yes
+182,N,S,182,similar,II (furin-like),158,yes,85.2,0.587,yes,0.0,no,no,17.9,no,no,no
+183,H,H,183,identical,II (furin-like),159,yes,158.0,0.864,yes,0.0,no,no,14.9,no,no,yes
+184,L,P,184,different,II (furin-like),160,yes,54.8,0.305,yes,0.0,no,no,10.3,yes,no,no
+185,G,S,185,similar,II (furin-like),161,yes,35.5,0.438,yes,0.0,no,no,15.3,no,no,no
+186,S,S,186,identical,II (furin-like),162,yes,115.4,0.975,yes,0.0,no,no,17.3,no,no,yes
+187,C,C,187,identical,II (furin-like),163,yes,39.4,0.298,yes,0.0,no,no,19.1,no,yes,no
+188,Q,P,188,different,II (furin-like),164,yes,120.6,0.675,yes,0.0,no,no,16.5,no,no,no
+189,K,K,189,identical,II (furin-like),165,yes,183.3,0.894,yes,0.0,no,no,14.8,no,no,yes
+190,C,C,190,identical,II (furin-like),166,yes,38.0,0.288,yes,0.0,no,no,11.4,yes,yes,no
+191,D,D,191,identical,II (furin-like),167,yes,37.2,0.261,yes,0.0,no,no,10.5,yes,no,no
+192,P,P,192,identical,II (furin-like),168,yes,131.9,0.961,yes,0.0,no,no,9.2,yes,no,no
+193,S,S,193,identical,II (furin-like),169,yes,81.2,0.686,yes,0.0,no,no,9.5,yes,no,no
+194,C,C,194,identical,II (furin-like),170,yes,8.8,0.066,no,0.0,no,no,6.6,yes,yes,no
+195,P,P,195,identical,II (furin-like),171,yes,45.9,0.335,yes,0.0,no,no,4.3,yes,no,no
+196,N,N,196,identical,II (furin-like),172,yes,131.4,0.906,yes,0.0,no,yes,0.0,yes,no,no
+197,G,G,197,identical,II (furin-like),173,yes,34.7,0.427,yes,0.0,no,no,5.4,yes,no,no
+198,S,S,198,identical,II (furin-like),174,yes,1.4,0.012,no,0.0,no,no,6.8,yes,no,no
+199,C,C,199,identical,II (furin-like),175,yes,0.1,0.001,no,0.0,no,no,10.3,yes,yes,no
+200,W,W,200,identical,II (furin-like),176,yes,3.6,0.014,no,0.0,no,no,13.9,no,no,no
+201,G,G,201,identical,II (furin-like),177,yes,7.2,0.088,no,0.0,no,no,15.6,no,no,no
+202,A,G,202,similar,II (furin-like),178,yes,34.4,0.316,yes,0.0,no,no,17.7,no,no,no
+203,G,G,203,identical,II (furin-like),179,yes,37.1,0.457,yes,0.0,no,no,15.5,no,no,yes
+204,E,E,204,identical,II (furin-like),180,yes,127.0,0.729,yes,0.0,no,no,15.1,no,no,yes
+205,E,E,205,identical,II (furin-like),181,yes,115.0,0.66,yes,0.0,no,no,16.9,no,no,yes
+206,N,N,206,identical,II (furin-like),182,yes,6.1,0.042,no,0.0,no,no,14.1,no,no,no
+207,C,C,207,identical,II (furin-like),183,yes,16.2,0.123,no,0.0,no,no,11.8,yes,yes,no
+208,Q,Q,208,identical,II (furin-like),184,yes,7.4,0.041,no,0.0,no,no,9.5,yes,no,no
+209,K,K,209,identical,II (furin-like),185,yes,127.9,0.624,yes,0.0,no,no,11.6,yes,no,no
+210,L,L,210,identical,II (furin-like),186,yes,21.4,0.119,no,0.0,no,no,6.7,yes,no,no
+211,T,T,211,identical,II (furin-like),187,yes,14.1,0.101,no,0.0,no,no,12.4,no,no,no
+212,K,K,212,identical,II (furin-like),188,yes,73.3,0.357,yes,0.0,no,no,12.5,no,no,yes
+213,I,I,213,identical,II (furin-like),189,yes,79.0,0.45,yes,0.0,no,no,7.8,yes,no,no
+214,I,I,214,identical,II (furin-like),190,yes,42.8,0.244,yes,0.0,no,no,7.9,yes,no,no
+215,C,C,215,identical,II (furin-like),191,yes,26.1,0.197,no,0.0,no,no,12.3,no,yes,no
+216,A,A,216,identical,II (furin-like),192,yes,25.4,0.233,yes,0.0,no,no,15.2,no,no,yes
+217,Q,Q,217,identical,II (furin-like),193,yes,191.0,1.068,yes,0.0,no,no,17.0,no,no,yes
+218,Q,Q,218,identical,II (furin-like),194,yes,141.4,0.791,yes,0.0,no,no,19.6,no,no,yes
+219,C,C,219,identical,II (furin-like),195,yes,18.3,0.138,no,0.0,no,no,18.4,no,yes,no
+220,S,S,220,identical,II (furin-like),196,yes,82.6,0.698,yes,0.0,no,no,20.8,no,no,yes
+221,G,H,221,different,II (furin-like),197,yes,30.6,0.377,yes,0.0,no,no,17.6,no,no,no
+222,R,R,222,identical,II (furin-like),198,yes,13.2,0.055,no,0.0,no,no,15.7,no,no,no
+223,C,C,223,identical,II (furin-like),199,yes,0.2,0.001,no,0.0,no,no,14.7,no,yes,no
+224,R,R,224,identical,II (furin-like),200,yes,87.7,0.368,yes,0.0,no,no,16.5,no,no,yes
+225,G,G,225,identical,II (furin-like),201,yes,17.1,0.211,yes,0.0,no,no,14.8,no,no,yes
+226,K,R,226,similar,II (furin-like),202,yes,140.8,0.687,yes,0.0,no,no,9.3,yes,no,no
+227,S,S,227,identical,II (furin-like),203,yes,46.3,0.392,yes,0.0,no,no,16.1,no,no,yes
+228,P,P,228,identical,II (furin-like),204,yes,85.0,0.62,yes,0.0,no,no,19.3,no,no,yes
+229,S,S,229,identical,II (furin-like),205,yes,84.8,0.716,yes,0.0,no,no,21.6,no,no,yes
+230,D,D,230,identical,II (furin-like),206,yes,41.3,0.289,yes,0.0,no,no,18.6,no,no,yes
+231,C,C,231,identical,II (furin-like),207,yes,31.5,0.238,yes,0.0,no,no,20.6,no,yes,no
+232,C,C,232,identical,II (furin-like),208,yes,6.0,0.045,no,0.0,no,no,20.3,no,yes,no
+233,H,H,233,identical,II (furin-like),209,yes,61.2,0.334,yes,0.0,no,no,18.3,no,no,yes
+234,N,N,234,identical,II (furin-like),210,yes,73.7,0.508,yes,0.0,no,no,21.8,no,no,yes
+235,Q,Q,235,identical,II (furin-like),211,yes,23.7,0.132,no,0.0,no,no,19.0,no,no,no
+236,C,C,236,identical,II (furin-like),212,yes,9.1,0.069,no,0.0,no,no,22.8,no,yes,no
+237,A,A,237,identical,II (furin-like),213,yes,0.3,0.003,no,0.0,no,no,21.5,no,no,no
+238,A,A,238,identical,II (furin-like),214,yes,0.0,0.0,no,0.0,no,no,17.6,no,no,no
+239,G,G,239,identical,II (furin-like),215,yes,0.7,0.009,no,0.0,no,no,19.5,no,no,no
+240,C,C,240,identical,II (furin-like),216,yes,11.5,0.087,no,0.0,no,no,20.6,no,yes,no
+241,T,T,241,identical,II (furin-like),217,yes,108.3,0.77,yes,0.0,no,no,23.0,no,no,yes
+242,G,G,242,identical,II (furin-like),218,yes,8.9,0.11,no,0.0,no,no,24.2,no,no,no
+243,P,P,243,identical,II (furin-like),219,yes,81.8,0.596,yes,0.0,no,no,22.6,no,no,yes
+244,R,R,244,identical,II (furin-like),220,yes,166.4,0.699,yes,0.0,no,no,20.9,no,no,yes
+245,E,E,245,identical,II (furin-like),221,yes,57.3,0.329,yes,0.0,no,no,16.7,no,no,yes
+246,S,S,246,identical,II (furin-like),222,yes,31.1,0.263,yes,0.0,no,no,20.9,no,no,yes
+247,D,D,247,identical,II (furin-like),223,yes,33.9,0.238,yes,0.0,no,no,23.5,no,no,yes
+248,C,C,248,identical,II (furin-like),224,yes,7.1,0.054,no,0.0,no,no,23.7,no,yes,no
+249,L,L,249,identical,II (furin-like),225,yes,78.8,0.439,yes,0.0,no,no,20.6,no,no,yes
+250,V,V,250,identical,II (furin-like),226,yes,6.1,0.04,no,0.0,no,no,22.7,no,no,no
+251,C,C,251,identical,II (furin-like),227,yes,1.7,0.013,no,0.0,no,no,23.0,no,yes,no
+252,R,Q,252,similar,II (furin-like),228,yes,93.9,0.394,yes,0.0,no,no,20.1,no,no,no
+253,K,K,253,identical,II (furin-like),229,yes,83.1,0.405,yes,0.0,no,no,21.2,no,no,yes
+254,F,F,254,identical,II (furin-like),230,yes,47.4,0.237,yes,0.0,no,no,20.4,no,no,yes
+255,R,Q,255,similar,II (furin-like),231,yes,69.0,0.29,yes,0.0,no,no,21.0,no,no,no
+256,D,D,256,identical,II (furin-like),232,yes,7.5,0.052,no,0.0,no,no,16.1,no,no,no
+257,E,E,257,identical,II (furin-like),233,yes,148.0,0.85,yes,0.0,no,no,18.5,no,no,yes
+258,A,A,258,identical,II (furin-like),234,yes,54.1,0.497,yes,0.0,no,no,20.9,no,no,yes
+259,T,T,259,identical,II (furin-like),235,yes,41.6,0.296,yes,0.0,no,no,16.9,no,no,yes
+260,C,C,260,identical,II (furin-like),236,yes,4.6,0.035,no,0.0,no,no,17.6,no,yes,no
+261,K,K,261,identical,II (furin-like),237,yes,78.9,0.385,yes,0.0,no,no,13.4,no,no,yes
+262,D,D,262,identical,II (furin-like),238,yes,86.2,0.604,yes,0.0,no,no,16.3,no,no,yes
+263,T,T,263,identical,II (furin-like),239,yes,92.7,0.659,yes,0.0,no,no,15.2,no,no,yes
+264,C,C,264,identical,II (furin-like),240,yes,8.3,0.063,no,0.0,no,no,15.4,no,yes,no
+265,P,P,265,identical,II (furin-like),241,yes,18.6,0.136,no,0.0,no,no,13.0,no,no,no
+266,P,P,266,identical,II (furin-like),242,yes,40.7,0.297,yes,0.0,no,no,12.0,no,no,yes
+267,L,L,267,identical,II (furin-like),243,yes,59.8,0.333,yes,0.0,no,no,15.0,no,no,yes
+268,M,M,268,identical,II (furin-like),244,yes,95.3,0.494,yes,0.0,no,no,12.7,no,no,yes
+269,L,L,269,identical,II (furin-like),245,yes,17.1,0.095,no,0.0,no,no,8.2,yes,no,no
+270,Y,Y,270,identical,II (furin-like),246,yes,8.6,0.04,no,0.0,no,no,8.4,yes,no,no
+271,N,N,271,identical,II (furin-like),247,yes,30.6,0.211,yes,0.0,no,no,9.9,yes,no,no
+272,P,P,272,identical,II (furin-like),248,yes,66.8,0.487,yes,0.0,no,no,7.8,yes,no,no
+273,T,T,273,identical,II (furin-like),249,yes,108.1,0.769,yes,0.0,no,no,10.8,yes,no,no
+274,T,T,274,identical,II (furin-like),250,yes,59.2,0.421,yes,0.0,no,no,13.5,no,no,yes
+275,Y,Y,275,identical,II (furin-like),251,yes,76.9,0.359,yes,0.0,no,no,14.3,no,no,yes
+276,Q,Q,276,identical,II (furin-like),252,yes,91.6,0.512,yes,0.0,no,no,13.8,no,no,yes
+277,M,M,277,identical,II (furin-like),253,yes,79.5,0.412,yes,0.0,no,no,13.8,no,no,yes
+278,D,D,278,identical,II (furin-like),254,yes,43.6,0.305,yes,0.0,no,no,13.5,no,no,yes
+279,V,V,279,identical,II (furin-like),255,yes,107.8,0.709,yes,0.0,no,no,13.7,no,no,yes
+280,N,N,280,identical,II (furin-like),256,yes,14.9,0.103,no,0.0,no,no,10.0,yes,no,no
+281,P,P,281,identical,II (furin-like),257,yes,118.0,0.86,yes,0.0,no,no,11.6,yes,no,no
+282,E,E,282,identical,II (furin-like),258,yes,132.9,0.763,yes,0.0,no,no,9.6,yes,no,no
+283,G,G,283,identical,II (furin-like),259,yes,18.0,0.222,yes,0.0,no,no,14.2,no,no,yes
+284,K,K,284,identical,II (furin-like),260,yes,23.5,0.114,no,0.0,no,no,16.5,no,no,no
+285,Y,Y,285,identical,II (furin-like),261,yes,23.4,0.109,no,0.0,no,no,19.9,no,no,no
+286,S,S,286,identical,II (furin-like),262,yes,29.8,0.252,yes,0.0,no,no,21.9,no,no,yes
+287,F,F,287,identical,II (furin-like),263,yes,16.9,0.085,no,0.0,no,no,18.0,no,no,no
+288,G,G,288,identical,II (furin-like),264,yes,43.7,0.539,yes,0.0,no,no,21.8,no,no,yes
+289,A,A,289,identical,II (furin-like),265,yes,20.6,0.19,no,0.0,no,no,22.6,no,no,no
+290,T,T,290,identical,II (furin-like),266,yes,59.8,0.425,yes,0.0,no,no,21.0,no,no,yes
+291,C,C,291,identical,II (furin-like),267,yes,5.6,0.043,no,0.0,no,no,19.1,no,yes,no
+292,V,V,292,identical,II (furin-like),268,yes,28.3,0.186,no,0.0,no,no,21.1,no,no,no
+293,K,K,293,identical,II (furin-like),269,yes,161.6,0.788,yes,0.0,no,no,19.9,no,no,yes
+294,K,K,294,identical,II (furin-like),270,yes,128.1,0.625,yes,0.0,no,no,23.4,no,no,yes
+295,C,C,295,identical,II (furin-like),271,yes,11.4,0.086,no,0.0,no,no,22.0,no,yes,no
+296,P,P,296,identical,II (furin-like),272,yes,45.0,0.328,yes,0.0,no,no,18.5,no,no,yes
+297,R,R,297,identical,II (furin-like),273,yes,218.0,0.915,yes,0.0,no,no,16.2,no,no,yes
+298,N,N,298,identical,II (furin-like),274,yes,123.3,0.851,yes,0.0,no,no,17.7,no,no,yes
+299,Y,Y,299,identical,II (furin-like),275,yes,43.6,0.204,yes,0.0,no,no,16.7,no,no,yes
+300,V,V,300,identical,II (furin-like),276,yes,1.6,0.011,no,0.0,no,no,19.2,no,no,no
+301,V,V,301,identical,II (furin-like),277,yes,2.8,0.018,no,0.0,no,no,19.3,no,no,no
+302,T,T,302,identical,II (furin-like),278,yes,22.7,0.161,no,0.0,no,no,18.1,no,no,no
+303,D,D,303,identical,II (furin-like),279,yes,82.6,0.579,yes,0.0,no,no,15.1,no,no,yes
+304,H,H,304,identical,II (furin-like),280,yes,141.8,0.775,yes,0.0,no,no,18.0,no,no,yes
+305,G,G,305,identical,II (furin-like),281,yes,6.7,0.083,no,0.0,no,no,22.4,no,no,no
+306,S,S,306,identical,II (furin-like),282,yes,28.4,0.24,yes,0.0,no,no,20.9,no,no,yes
+307,C,C,307,identical,II (furin-like),283,yes,17.7,0.134,no,0.0,no,no,22.2,no,yes,no
+308,V,V,308,identical,II (furin-like),284,yes,46.1,0.303,yes,0.0,no,no,18.2,no,no,yes
+309,R,R,309,identical,II (furin-like),285,yes,157.0,0.659,yes,0.0,no,no,18.3,no,no,yes
+310,A,A,310,identical,II (furin-like),286,yes,74.2,0.682,yes,0.0,no,no,15.5,no,no,yes
+311,C,C,311,identical,II (furin-like),287,yes,29.3,0.222,yes,0.0,no,no,12.6,no,yes,no
+312,G,G,312,identical,II (furin-like),288,yes,54.8,0.676,yes,0.0,no,no,9.8,yes,no,no
+313,A,P,313,different,II (furin-like),289,yes,95.4,0.877,yes,0.0,no,no,6.4,yes,no,no
+314,D,D,314,identical,II (furin-like),290,yes,108.7,0.762,yes,0.0,no,no,5.2,yes,no,no
+315,S,Y,315,different,II (furin-like),291,yes,19.8,0.167,no,0.0,no,no,9.4,yes,no,no
+316,Y,Y,316,identical,II (furin-like),292,yes,104.8,0.489,yes,0.0,no,no,12.4,no,no,yes
+317,E,E,317,identical,II (furin-like),293,yes,78.4,0.45,yes,0.0,no,no,15.5,no,no,yes
+318,M,V,318,similar,II (furin-like),294,yes,57.9,0.3,yes,0.0,no,no,18.8,no,no,no
+319,E,E,319,identical,II (furin-like),295,yes,112.7,0.647,yes,0.0,no,no,22.3,no,no,yes
+320,E,E,320,identical,II (furin-like),296,yes,72.6,0.417,yes,0.0,no,no,23.6,no,no,yes
+321,D,D,321,identical,II (furin-like),297,yes,146.3,1.025,yes,0.0,no,no,22.9,no,no,yes
+322,G,G,322,identical,II (furin-like),298,yes,46.6,0.575,yes,0.0,no,no,28.1,no,no,yes
+323,V,I,323,similar,II (furin-like),299,yes,15.7,0.103,no,0.0,no,no,24.7,no,no,no
+324,R,R,324,identical,II (furin-like),300,yes,112.3,0.472,yes,0.0,no,no,22.0,no,no,yes
+325,K,K,325,identical,II (furin-like),301,yes,46.6,0.227,yes,0.0,no,no,18.6,no,no,yes
+326,C,C,326,identical,II (furin-like),302,yes,6.8,0.051,no,0.0,no,no,16.1,no,yes,no
+327,K,K,327,identical,II (furin-like),303,yes,74.3,0.363,yes,0.0,no,no,13.4,no,no,yes
+328,K,K,328,identical,II (furin-like),304,yes,149.8,0.731,yes,0.0,no,no,12.1,no,no,yes
+329,C,C,329,identical,II (furin-like),305,yes,24.6,0.186,no,0.0,no,no,9.9,yes,yes,no
+330,E,D,330,similar,II (furin-like),306,yes,186.1,1.069,yes,0.0,no,no,11.3,yes,no,no
+331,G,G,331,identical,II (furin-like),307,yes,44.9,0.554,yes,0.0,no,no,8.7,yes,no,no
+332,P,P,332,identical,II (furin-like),308,yes,63.1,0.46,yes,0.0,no,no,7.1,yes,no,no
+333,C,C,333,identical,II (furin-like),309,yes,40.0,0.302,yes,0.0,no,no,7.3,yes,yes,no
+334,R,R,334,identical,II (furin-like),310,yes,174.9,0.734,yes,0.0,no,no,9.2,yes,no,no
+335,K,K,335,identical,II (furin-like),311,yes,101.2,0.494,yes,0.0,no,no,4.3,yes,no,no
+336,V,V,336,identical,II (furin-like),312,yes,76.4,0.503,yes,0.0,no,no,10.2,yes,no,no
+337,C,C,337,identical,II (furin-like),313,yes,17.5,0.132,no,0.0,no,no,8.8,yes,yes,no
+338,N,N,338,identical,II (furin-like),314,yes,51.3,0.354,yes,0.0,no,no,12.8,no,no,yes
+339,G,G,339,identical,II (furin-like),315,yes,0.0,0.0,no,0.0,no,no,11.2,yes,no,no
+340,I,I,340,identical,II (furin-like),316,yes,12.5,0.071,no,0.0,no,no,7.8,yes,no,no
+341,G,G,341,identical,II (furin-like),317,yes,27.3,0.336,yes,0.0,no,no,9.8,yes,no,no
+342,I,I,342,identical,II (furin-like),318,yes,92.3,0.525,yes,0.0,no,no,11.6,yes,no,no
+343,G,G,343,identical,II (furin-like),319,yes,39.1,0.482,yes,0.0,no,no,12.1,no,no,yes
+344,E,E,344,identical,II (furin-like),320,yes,103.5,0.594,yes,0.0,no,no,9.2,yes,no,no
+345,F,F,345,identical,II (furin-like),321,yes,2.5,0.013,no,0.0,no,no,8.1,yes,no,no
+346,K,K,346,identical,II (furin-like),322,yes,143.2,0.699,yes,0.0,no,no,9.0,yes,no,no
+347,D,D,347,identical,II (furin-like),323,yes,129.9,0.91,yes,0.0,no,no,7.6,yes,no,no
+348,S,T,348,similar,II (furin-like),324,yes,29.8,0.252,yes,0.0,no,no,5.0,yes,no,no
+349,L,L,349,identical,II (furin-like),325,yes,120.8,0.673,yes,0.0,no,no,5.4,yes,no,no
+350,S,S,350,identical,II (furin-like),326,yes,0.3,0.003,no,0.0,no,no,3.8,yes,no,no
+351,I,I,351,identical,II (furin-like),327,yes,0.4,0.002,no,0.0,no,no,4.9,yes,no,no
+352,N,N,352,identical,II (furin-like),328,yes,18.4,0.127,no,0.0,no,yes,0.0,yes,no,no
+353,A,A,353,identical,II (furin-like),329,yes,17.7,0.163,no,0.0,no,no,4.8,yes,no,no
+354,T,T,354,identical,II (furin-like),330,yes,71.7,0.51,yes,0.0,no,no,5.0,yes,no,no
+355,N,N,355,identical,II (furin-like),331,yes,9.7,0.067,no,0.0,no,no,4.0,yes,no,no
+356,I,I,356,identical,II (furin-like),332,yes,0.0,0.0,no,0.0,no,no,7.0,yes,no,no
+357,K,K,357,identical,II (furin-like),333,yes,144.6,0.705,yes,0.0,no,no,5.5,yes,no,no
+358,H,H,358,identical,II (furin-like),334,yes,106.7,0.583,yes,0.0,no,no,6.6,yes,no,no
+359,F,F,359,identical,II (furin-like),335,yes,0.0,0.0,no,0.0,no,no,6.7,yes,no,no
+360,K,K,360,identical,II (furin-like),336,yes,124.6,0.608,yes,0.0,no,no,3.7,yes,no,no
+361,N,Y,361,different,II (furin-like),337,yes,75.6,0.522,yes,0.0,no,yes,0.0,yes,no,no
+362,C,C,362,identical,II (furin-like),338,yes,0.2,0.002,no,0.0,no,no,6.0,yes,yes,no
+363,T,T,363,identical,III (L-domain core),339,yes,5.2,0.037,no,0.0,no,no,8.4,yes,no,no
+364,S,A,364,similar,III (L-domain core),340,yes,2.8,0.023,no,0.0,no,no,11.3,yes,no,no
+365,I,I,365,identical,III (L-domain core),341,yes,0.0,0.0,no,0.0,no,no,12.3,no,no,no
+366,S,S,366,identical,III (L-domain core),342,yes,47.4,0.401,yes,0.0,no,no,15.3,no,no,yes
+367,G,G,367,identical,III (L-domain core),343,yes,12.2,0.151,no,0.0,no,no,15.7,no,no,no
+368,D,D,368,identical,III (L-domain core),344,yes,22.0,0.154,no,0.0,no,no,12.3,no,no,no
+369,L,L,369,identical,III (L-domain core),345,yes,0.0,0.0,no,0.0,no,no,11.6,yes,no,no
+370,H,H,370,identical,III (L-domain core),346,yes,31.3,0.171,no,0.0,no,no,8.4,yes,no,no
+371,I,I,371,identical,III (L-domain core),347,yes,0.3,0.002,no,0.0,no,no,9.6,yes,no,no
+372,L,L,372,identical,III (L-domain core),348,yes,23.9,0.133,no,2.7,yes,no,8.6,yes,no,no
+373,P,P,373,identical,III (L-domain core),349,yes,52.4,0.382,yes,44.6,yes,no,9.6,yes,no,no
+374,V,V,374,identical,III (L-domain core),350,yes,29.5,0.194,no,2.3,yes,no,6.2,yes,no,no
+375,A,A,375,identical,III (L-domain core),351,yes,0.7,0.006,no,0.0,no,no,6.2,yes,no,no
+376,F,F,376,identical,III (L-domain core),352,yes,49.1,0.246,yes,0.0,no,no,8.5,yes,no,no
+377,R,K,377,similar,III (L-domain core),353,yes,167.7,0.704,yes,27.6,yes,no,9.8,yes,no,no
+378,G,G,378,identical,III (L-domain core),354,yes,13.7,0.169,no,0.0,no,no,7.9,yes,no,no
+379,D,D,379,identical,III (L-domain core),355,yes,27.9,0.195,no,0.0,no,no,6.5,yes,no,no
+380,S,S,380,identical,III (L-domain core),356,yes,86.9,0.735,yes,0.0,no,no,9.4,yes,no,no
+381,F,F,381,identical,III (L-domain core),357,yes,180.5,0.903,yes,0.0,no,no,9.3,yes,no,no
+382,T,T,382,identical,III (L-domain core),358,yes,79.2,0.564,yes,0.0,no,no,5.1,yes,no,no
+383,H,R,383,similar,III (L-domain core),359,yes,161.4,0.882,yes,0.0,no,no,7.6,yes,no,no
+384,T,T,384,identical,III (L-domain core),360,yes,18.9,0.135,no,0.0,no,no,4.0,yes,no,no
+385,P,P,385,identical,III (L-domain core),361,yes,78.3,0.571,yes,0.0,no,no,6.7,yes,no,no
+386,P,P,386,identical,III (L-domain core),362,yes,85.0,0.619,yes,0.0,no,no,8.7,yes,no,no
+387,L,L,387,identical,III (L-domain core),363,yes,6.8,0.038,no,0.0,no,no,8.0,yes,no,no
+388,D,D,388,identical,III (L-domain core),364,yes,77.5,0.543,yes,0.0,no,no,6.8,yes,no,no
+389,P,P,389,identical,III (L-domain core),365,yes,55.7,0.406,yes,0.0,no,no,6.5,yes,no,no
+390,Q,R,390,similar,III (L-domain core),366,yes,128.0,0.716,yes,0.0,no,no,7.1,yes,no,no
+391,E,E,391,identical,III (L-domain core),367,yes,57.2,0.329,yes,0.0,no,no,9.5,yes,no,no
+392,L,L,392,identical,III (L-domain core),368,yes,0.2,0.001,no,0.0,no,no,10.2,yes,no,no
+393,D,E,393,similar,III (L-domain core),369,yes,60.5,0.424,yes,0.0,no,no,8.0,yes,no,no
+394,I,I,394,identical,III (L-domain core),370,yes,26.0,0.148,no,0.0,no,no,8.4,yes,no,no
+395,L,L,395,identical,III (L-domain core),371,yes,0.0,0.0,no,0.0,no,no,10.8,yes,no,no
+396,K,K,396,identical,III (L-domain core),372,yes,63.0,0.307,yes,0.0,no,no,10.6,yes,no,no
+397,T,T,397,identical,III (L-domain core),373,yes,32.8,0.233,yes,0.0,no,no,7.0,yes,no,no
+398,V,V,398,identical,III (L-domain core),374,yes,0.1,0.001,no,0.0,no,no,10.7,yes,no,no
+399,K,K,399,identical,III (L-domain core),375,yes,62.5,0.305,yes,0.0,no,no,11.8,yes,no,no
+400,E,E,400,identical,III (L-domain core),376,yes,28.0,0.161,no,0.0,no,no,15.0,no,no,no
+401,I,I,401,identical,III (L-domain core),377,yes,0.0,0.0,no,0.0,no,no,16.9,no,no,no
+402,T,T,402,identical,III (L-domain core),378,yes,18.3,0.13,no,0.0,no,no,18.8,no,no,no
+403,G,G,403,identical,III (L-domain core),379,yes,0.3,0.003,no,0.0,no,no,18.7,no,no,no
+404,F,F,404,identical,III (L-domain core),380,yes,11.2,0.056,no,0.0,no,no,14.7,no,no,no
+405,L,L,405,identical,III (L-domain core),381,yes,0.3,0.002,no,0.0,no,no,15.4,no,no,no
+406,L,L,406,identical,III (L-domain core),382,yes,9.5,0.053,no,4.3,yes,no,12.8,no,no,no
+407,I,I,407,identical,III (L-domain core),383,yes,0.0,0.0,no,0.0,no,no,12.8,no,no,no
+408,Q,Q,408,identical,III (L-domain core),384,yes,72.7,0.407,yes,62.0,yes,no,12.1,no,no,yes
+409,A,A,409,identical,III (L-domain core),385,yes,13.5,0.124,no,0.3,no,no,10.9,yes,no,no
+410,W,W,410,identical,III (L-domain core),386,yes,14.0,0.056,no,0.0,no,no,7.6,yes,no,no
+411,P,P,411,identical,III (L-domain core),387,yes,13.7,0.1,no,0.0,no,no,6.2,yes,no,no
+412,E,D,412,similar,III (L-domain core),388,yes,131.7,0.756,yes,0.0,no,no,2.9,yes,no,no
+413,N,N,413,identical,III (L-domain core),389,yes,134.2,0.926,yes,0.0,no,yes,0.0,yes,no,no
+414,R,W,414,different,III (L-domain core),390,yes,92.6,0.389,yes,0.0,no,no,4.0,yes,no,no
+415,T,T,415,identical,III (L-domain core),391,yes,80.2,0.571,yes,0.0,no,no,6.5,yes,no,no
+416,D,D,416,identical,III (L-domain core),392,yes,23.4,0.164,no,0.0,no,no,8.5,yes,no,no
+417,L,L,417,identical,III (L-domain core),393,yes,0.0,0.0,no,0.0,no,no,10.9,yes,no,no
+418,H,H,418,identical,III (L-domain core),394,yes,6.9,0.038,no,0.0,no,no,7.4,yes,no,no
+419,A,A,419,identical,III (L-domain core),395,yes,0.1,0.001,no,0.0,no,no,11.2,yes,no,no
+420,F,F,420,identical,III (L-domain core),396,yes,0.0,0.0,no,0.0,no,no,14.0,no,no,no
+421,E,E,421,identical,III (L-domain core),397,yes,41.4,0.238,yes,0.0,no,no,12.6,no,no,yes
+422,N,N,422,identical,III (L-domain core),398,yes,68.3,0.471,yes,0.0,no,no,13.3,no,no,yes
+423,L,L,423,identical,III (L-domain core),399,yes,0.0,0.0,no,0.0,no,no,16.4,no,no,no
+424,E,E,424,identical,III (L-domain core),400,yes,87.0,0.5,yes,0.0,no,no,17.3,no,no,yes
+425,I,I,425,identical,III (L-domain core),401,yes,21.5,0.122,no,0.0,no,no,19.2,no,no,no
+426,I,I,426,identical,III (L-domain core),402,yes,0.0,0.0,no,0.0,no,no,20.8,no,no,no
+427,R,R,427,identical,III (L-domain core),403,yes,65.5,0.275,yes,0.0,no,no,20.5,no,no,yes
+428,G,G,428,identical,III (L-domain core),404,yes,0.0,0.0,no,0.0,no,no,22.5,no,no,no
+429,R,R,429,identical,III (L-domain core),405,yes,166.9,0.701,yes,0.0,no,no,22.3,no,no,yes
+430,T,T,430,identical,III (L-domain core),406,yes,76.5,0.544,yes,0.0,no,no,18.7,no,no,yes
+431,K,K,431,identical,III (L-domain core),407,yes,52.9,0.258,yes,0.0,no,no,19.4,no,no,yes
+432,Q,Q,432,identical,III (L-domain core),408,yes,36.0,0.202,yes,13.6,yes,no,16.0,no,no,yes
+433,H,H,433,identical,III (L-domain core),409,yes,146.6,0.801,yes,71.6,yes,no,18.5,no,no,yes
+434,G,G,434,identical,III (L-domain core),410,yes,58.6,0.723,yes,0.0,no,no,21.3,no,no,yes
+435,Q,Q,435,identical,III (L-domain core),411,yes,87.5,0.489,yes,17.3,yes,no,22.7,no,no,yes
+436,F,F,436,identical,III (L-domain core),412,yes,32.8,0.164,no,25.2,yes,no,20.1,no,no,no
+437,S,S,437,identical,III (L-domain core),413,yes,0.0,0.0,no,0.0,no,no,19.9,no,no,no
+438,L,L,438,identical,III (L-domain core),414,yes,0.1,0.001,no,0.0,no,no,18.6,no,no,no
+439,A,A,439,identical,III (L-domain core),415,yes,4.9,0.046,no,3.5,yes,no,16.3,no,no,no
+440,V,V,440,identical,III (L-domain core),416,yes,0.0,0.0,no,0.0,no,no,12.2,no,no,no
+441,V,V,441,identical,III (L-domain core),417,yes,41.9,0.276,yes,41.9,yes,no,11.6,yes,no,no
+442,S,G,442,similar,III (L-domain core),418,yes,63.5,0.537,yes,46.4,yes,no,9.1,yes,no,no
+443,L,L,443,identical,III (L-domain core),419,yes,6.4,0.036,no,0.0,no,no,5.9,yes,no,no
+444,N,N,444,identical,III (L-domain core),420,yes,48.6,0.335,yes,0.0,no,yes,0.0,yes,no,no
+445,I,I,445,identical,III (L-domain core),421,yes,0.3,0.002,no,0.0,no,no,4.8,yes,no,no
+446,T,T,446,identical,III (L-domain core),422,yes,33.8,0.24,yes,0.0,no,no,6.3,yes,no,no
+447,S,S,447,identical,III (L-domain core),423,yes,7.6,0.064,no,0.0,no,no,9.2,yes,no,no
+448,L,L,448,identical,III (L-domain core),424,yes,2.3,0.013,no,0.0,no,no,12.1,no,no,no
+449,G,G,449,identical,III (L-domain core),425,yes,0.7,0.009,no,0.0,no,no,13.6,no,no,no
+450,L,L,450,identical,III (L-domain core),426,yes,0.0,0.0,no,0.0,no,no,16.3,no,no,no
+451,R,R,451,identical,III (L-domain core),427,yes,37.0,0.156,no,0.0,no,no,12.9,no,no,no
+452,S,S,452,identical,III (L-domain core),428,yes,29.4,0.248,yes,0.0,no,no,18.9,no,no,yes
+453,L,L,453,identical,III (L-domain core),429,yes,4.9,0.027,no,0.0,no,no,21.1,no,no,no
+454,K,K,454,identical,III (L-domain core),430,yes,127.3,0.621,yes,0.0,no,no,17.1,no,no,yes
+455,E,E,455,identical,III (L-domain core),431,yes,71.9,0.413,yes,0.0,no,no,23.8,no,no,yes
+456,I,I,456,identical,III (L-domain core),432,yes,0.0,0.0,no,0.0,no,no,23.1,no,no,no
+457,S,S,457,identical,III (L-domain core),433,yes,24.8,0.21,yes,0.0,no,no,25.5,no,no,yes
+458,D,D,458,identical,III (L-domain core),434,yes,46.9,0.329,yes,0.0,no,no,25.1,no,no,yes
+459,G,G,459,identical,III (L-domain core),435,yes,5.1,0.063,no,0.0,no,no,25.4,no,no,no
+460,D,D,460,identical,III (L-domain core),436,yes,35.1,0.246,yes,0.0,no,no,23.6,no,no,yes
+461,V,V,461,identical,III (L-domain core),437,yes,0.2,0.002,no,0.0,no,no,20.1,no,no,no
+462,I,I,462,identical,III (L-domain core),438,yes,26.2,0.149,no,25.9,yes,no,17.3,no,no,no
+463,I,I,463,identical,III (L-domain core),439,yes,0.0,0.0,no,0.0,no,no,14.2,no,no,no
+464,S,S,464,identical,III (L-domain core),440,yes,25.8,0.218,yes,25.8,yes,no,12.7,no,no,yes
+465,G,G,465,identical,III (L-domain core),441,yes,25.9,0.319,yes,25.3,yes,no,9.9,yes,no,no
+466,N,N,466,identical,III (L-domain core),442,yes,0.0,0.0,no,0.0,no,no,8.8,yes,no,no
+467,K,R,467,similar,III (L-domain core),443,yes,137.6,0.671,yes,71.5,yes,no,6.5,yes,no,no
+468,N,N,468,identical,III (L-domain core),444,yes,36.9,0.255,yes,0.0,no,no,3.8,yes,no,no
+469,L,L,469,identical,III (L-domain core),445,yes,2.7,0.015,no,0.0,no,no,8.5,yes,no,no
+470,C,C,470,identical,IV (furin-like),446,yes,2.5,0.019,no,0.0,no,no,11.2,yes,yes,no
+471,Y,Y,471,identical,IV (furin-like),447,yes,6.2,0.029,no,0.0,no,no,12.8,no,no,no
+472,A,A,472,identical,IV (furin-like),448,yes,3.6,0.033,no,0.0,no,no,15.5,no,no,no
+473,N,N,473,identical,IV (furin-like),449,yes,59.9,0.413,yes,0.0,no,no,16.8,no,no,yes
+474,T,T,474,identical,IV (furin-like),450,yes,52.8,0.375,yes,0.0,no,no,18.5,no,no,yes
+475,I,I,475,identical,IV (furin-like),451,yes,11.5,0.065,no,0.0,no,no,18.3,no,no,no
+476,N,N,476,identical,IV (furin-like),452,yes,80.5,0.555,yes,0.0,no,no,19.9,no,no,yes
+477,W,W,477,identical,IV (furin-like),453,yes,14.8,0.059,no,0.0,no,no,19.0,no,no,no
+478,K,K,478,identical,IV (furin-like),454,yes,163.1,0.796,yes,0.0,no,no,24.0,no,no,yes
+479,K,K,479,identical,IV (furin-like),455,yes,124.9,0.61,yes,0.0,no,no,16.4,no,no,yes
+480,L,L,480,identical,IV (furin-like),456,yes,13.5,0.075,no,0.0,no,no,22.4,no,no,no
+481,F,F,481,identical,IV (furin-like),457,yes,25.2,0.126,no,0.0,no,no,25.7,no,no,no
+482,G,G,482,identical,IV (furin-like),458,yes,52.3,0.645,yes,0.0,no,no,28.7,no,no,yes
+483,T,T,483,identical,IV (furin-like),459,yes,68.5,0.487,yes,0.0,no,no,30.7,no,no,yes
+484,S,P,484,different,IV (furin-like),460,yes,118.0,0.997,yes,0.0,no,no,33.0,no,no,no
+485,G,N,485,similar,IV (furin-like),461,yes,57.6,0.711,yes,0.0,no,no,30.8,no,no,no
+486,Q,Q,486,identical,IV (furin-like),462,yes,14.8,0.083,no,0.0,no,no,27.8,no,no,no
+487,K,K,487,identical,IV (furin-like),463,yes,152.9,0.746,yes,2.7,yes,no,25.1,no,no,yes
+488,T,T,488,identical,IV (furin-like),464,yes,49.6,0.353,yes,0.0,no,no,21.7,no,no,yes
+489,K,K,489,identical,IV (furin-like),465,yes,111.5,0.544,yes,59.2,yes,no,19.3,no,no,yes
+490,I,I,490,identical,IV (furin-like),466,yes,51.5,0.293,yes,13.5,yes,no,17.1,no,no,yes
+491,I,M,491,similar,IV (furin-like),467,yes,83.5,0.475,yes,82.1,yes,no,15.4,no,no,no
+492,S,N,492,similar,IV (furin-like),468,yes,92.2,0.779,yes,91.9,yes,no,13.0,no,no,no
+493,N,N,493,identical,IV (furin-like),469,yes,32.8,0.226,yes,25.0,yes,no,12.3,no,no,yes
+494,R,R,494,identical,IV (furin-like),470,yes,68.1,0.286,yes,3.2,yes,no,9.1,yes,no,no
+495,G,A,495,similar,IV (furin-like),471,yes,36.4,0.449,yes,29.5,yes,no,13.9,no,no,no
+496,E,E,496,identical,IV (furin-like),472,yes,101.6,0.584,yes,17.9,yes,no,16.8,no,no,yes
+497,N,K,497,similar,IV (furin-like),473,yes,122.6,0.845,yes,46.8,yes,no,18.1,no,no,no
+498,S,D,498,similar,IV (furin-like),474,yes,38.3,0.323,yes,0.0,no,no,13.8,no,no,no
+499,C,C,499,identical,IV (furin-like),475,yes,1.9,0.014,no,0.0,no,no,13.8,no,yes,no
+500,K,K,500,identical,IV (furin-like),476,yes,151.9,0.741,yes,0.0,no,no,17.5,no,no,yes
+501,A,A,501,identical,IV (furin-like),477,yes,84.0,0.773,yes,0.0,no,no,17.9,no,no,yes
+502,T,V,502,similar,IV (furin-like),478,yes,76.8,0.546,yes,0.0,no,no,13.7,no,no,no
+503,G,N,503,similar,IV (furin-like),479,yes,54.6,0.674,yes,0.0,no,no,16.6,no,no,no
+504,Q,H,504,similar,IV (furin-like),480,yes,48.5,0.271,yes,0.0,no,no,10.2,yes,no,no
+505,V,V,505,identical,IV (furin-like),481,yes,65.8,0.433,yes,0.0,no,no,16.8,no,no,yes
+506,C,C,506,identical,IV (furin-like),482,yes,33.7,0.255,yes,0.0,no,no,14.1,no,yes,no
+507,H,N,507,similar,IV (furin-like),483,yes,70.8,0.387,yes,0.0,no,no,11.1,yes,no,no
+508,A,P,508,different,IV (furin-like),484,yes,80.3,0.738,yes,0.0,no,no,7.9,yes,no,no
+509,L,L,509,identical,IV (furin-like),485,yes,27.5,0.153,no,0.0,no,no,6.7,yes,no,no
+510,C,C,510,identical,IV (furin-like),486,yes,11.9,0.09,no,0.0,no,no,8.7,yes,yes,no
+511,S,S,511,identical,IV (furin-like),487,yes,13.5,0.114,no,0.0,no,no,9.3,yes,no,no
+512,P,S,512,different,IV (furin-like),488,yes,143.1,1.043,yes,0.0,no,no,10.4,yes,no,no
+513,E,E,513,identical,IV (furin-like),489,yes,55.1,0.316,yes,0.0,no,no,13.2,no,no,yes
+514,G,G,514,identical,IV (furin-like),490,yes,3.1,0.039,no,0.0,no,no,14.5,no,no,no
+515,C,C,515,identical,IV (furin-like),491,yes,0.0,0.0,no,0.0,no,no,15.8,no,yes,no
+516,W,W,516,identical,IV (furin-like),492,yes,7.2,0.029,no,0.0,no,no,14.5,no,no,no
+517,G,G,517,identical,IV (furin-like),493,yes,0.8,0.01,no,0.0,no,no,15.0,no,no,no
+518,P,P,518,identical,IV (furin-like),494,yes,62.0,0.452,yes,0.0,no,no,14.1,no,no,yes
+519,E,E,519,identical,IV (furin-like),495,yes,81.3,0.467,yes,0.0,no,no,14.8,no,no,yes
+520,P,P,520,identical,IV (furin-like),496,yes,18.8,0.137,no,0.0,no,no,12.2,no,no,no
+521,R,R,521,identical,IV (furin-like),497,yes,110.1,0.462,yes,0.0,no,no,12.4,no,no,yes
+522,D,D,522,identical,IV (furin-like),498,yes,2.6,0.018,no,0.0,no,no,15.6,no,no,no
+523,C,C,523,identical,IV (furin-like),499,yes,10.3,0.078,no,0.0,no,no,11.6,yes,yes,no
+524,V,V,524,identical,IV (furin-like),500,yes,35.3,0.232,yes,0.0,no,no,13.6,no,no,yes
+525,S,S,525,identical,IV (furin-like),501,yes,39.0,0.329,yes,0.0,no,no,10.0,yes,no,no
+526,C,C,526,identical,IV (furin-like),502,yes,34.8,0.263,yes,0.0,no,no,6.7,yes,yes,no
+527,R,Q,527,similar,IV (furin-like),503,yes,131.9,0.554,yes,0.0,no,no,3.3,yes,no,no
+528,N,N,528,identical,IV (furin-like),504,yes,53.6,0.369,yes,0.0,no,yes,0.0,yes,no,no
+529,V,V,529,identical,IV (furin-like),505,yes,22.5,0.148,no,0.0,no,no,4.8,yes,no,no
+530,S,S,530,identical,IV (furin-like),506,yes,19.2,0.162,no,0.0,no,no,8.4,yes,no,no
+531,R,R,531,identical,IV (furin-like),507,yes,64.4,0.27,yes,0.0,no,no,11.4,yes,no,no
+532,G,G,532,identical,IV (furin-like),508,yes,55.6,0.685,yes,0.0,no,no,14.3,no,no,yes
+533,R,R,533,identical,IV (furin-like),509,yes,217.2,0.912,yes,0.0,no,no,14.2,no,no,yes
+534,E,E,534,identical,IV (furin-like),510,yes,74.6,0.429,yes,0.0,no,no,11.1,yes,no,no
+535,C,C,535,identical,IV (furin-like),511,yes,5.1,0.039,no,0.0,no,no,8.9,yes,yes,no
+536,V,V,536,identical,IV (furin-like),512,yes,20.8,0.137,no,0.0,no,no,5.5,yes,no,no
+537,D,E,537,similar,IV (furin-like),513,yes,86.5,0.606,yes,0.0,no,no,4.2,yes,no,no
+538,K,K,538,identical,IV (furin-like),514,yes,141.2,0.689,yes,0.0,no,no,6.3,yes,no,no
+539,C,C,539,identical,IV (furin-like),515,yes,4.9,0.037,no,0.0,no,no,8.5,yes,yes,no
+540,N,N,540,identical,IV (furin-like),516,yes,66.4,0.324,yes,0.0,no,no,12.0,no,no,yes
+541,L,I,541,similar,IV (furin-like),517,yes,67.4,0.376,yes,0.0,no,no,9.5,yes,no,no
+542,L,L,542,identical,IV (furin-like),518,yes,85.5,0.476,yes,0.0,no,no,7.2,yes,no,no
+543,E,E,543,identical,IV (furin-like),519,yes,149.5,0.858,yes,0.0,no,no,11.0,yes,no,no
+544,G,G,544,identical,IV (furin-like),520,yes,17.9,0.221,yes,0.0,no,no,13.6,no,no,yes
+545,E,E,545,identical,IV (furin-like),521,yes,157.6,0.905,yes,0.0,no,no,15.8,no,no,yes
+546,P,P,546,identical,IV (furin-like),522,yes,58.2,0.424,yes,0.0,no,no,16.1,no,no,yes
+547,R,R,547,identical,IV (furin-like),523,yes,28.2,0.118,no,0.0,no,no,9.0,yes,no,no
+548,E,E,548,identical,IV (furin-like),524,yes,3.2,0.018,no,0.0,no,no,12.9,no,no,no
+549,F,F,549,identical,IV (furin-like),525,yes,21.7,0.109,no,0.0,no,no,13.5,no,no,no
+550,V,V,550,identical,IV (furin-like),526,yes,62.0,0.408,yes,0.0,no,no,9.7,yes,no,no
+551,E,E,551,identical,IV (furin-like),527,yes,87.4,0.502,yes,0.0,no,no,12.8,no,no,yes
+552,N,N,552,identical,IV (furin-like),528,yes,142.0,0.98,yes,0.0,no,no,11.4,yes,no,no
+553,S,S,553,identical,IV (furin-like),529,yes,64.8,0.548,yes,0.0,no,no,8.4,yes,no,no
+554,E,E,554,identical,IV (furin-like),530,yes,93.9,0.539,yes,0.0,no,no,10.7,yes,no,no
+555,C,C,555,identical,IV (furin-like),531,yes,10.8,0.082,no,0.0,no,no,9.9,yes,yes,no
+556,I,I,556,identical,IV (furin-like),532,yes,29.6,0.169,no,0.0,no,no,14.5,no,no,no
+557,Q,Q,557,identical,IV (furin-like),533,yes,110.9,0.62,yes,0.0,no,no,17.4,no,no,yes
+558,C,C,558,identical,IV (furin-like),534,yes,15.3,0.116,no,0.0,no,no,13.5,no,yes,no
+559,H,H,559,identical,IV (furin-like),535,yes,59.5,0.325,yes,0.0,no,no,16.7,no,no,yes
+560,P,P,560,identical,IV (furin-like),536,yes,113.0,0.823,yes,0.0,no,no,18.1,no,no,yes
+561,E,E,561,identical,IV (furin-like),537,yes,16.4,0.094,no,0.0,no,no,16.3,no,no,no
+562,C,C,562,identical,IV (furin-like),538,yes,7.7,0.058,no,0.0,no,no,13.9,no,yes,no
+563,L,L,563,identical,IV (furin-like),539,yes,65.9,0.367,yes,0.0,no,no,10.5,yes,no,no
+564,P,P,564,identical,IV (furin-like),540,yes,64.2,0.468,yes,0.0,no,no,9.4,yes,no,no
+565,Q,Q,565,identical,IV (furin-like),541,yes,32.4,0.181,no,0.0,no,no,5.6,yes,no,no
+566,A,A,566,identical,IV (furin-like),542,yes,87.2,0.801,yes,0.0,no,no,4.3,yes,no,no
+567,M,M,567,identical,IV (furin-like),543,yes,173.0,0.896,yes,0.0,no,no,3.4,yes,no,no
+568,N,N,568,identical,IV (furin-like),544,yes,92.1,0.635,yes,0.0,no,yes,0.0,yes,no,no
+569,I,I,569,identical,IV (furin-like),545,yes,76.7,0.436,yes,0.0,no,no,5.4,yes,no,no
+570,T,T,570,identical,IV (furin-like),546,yes,0.7,0.005,no,0.0,no,no,8.2,yes,no,no
+571,C,C,571,identical,IV (furin-like),547,yes,4.0,0.031,no,0.0,no,no,10.3,yes,yes,no
+572,T,T,572,identical,IV (furin-like),548,yes,89.5,0.637,yes,0.0,no,no,11.3,yes,no,no
+573,G,G,573,identical,IV (furin-like),549,yes,7.1,0.087,no,0.0,no,no,14.9,no,no,no
+574,R,R,574,identical,IV (furin-like),550,yes,158.0,0.663,yes,0.0,no,no,18.3,no,no,yes
+575,G,G,575,identical,IV (furin-like),551,yes,14.1,0.174,no,0.0,no,no,17.6,no,no,no
+576,P,P,576,identical,IV (furin-like),552,yes,34.9,0.254,yes,0.0,no,no,17.6,no,no,yes
+577,D,D,577,identical,IV (furin-like),553,yes,79.1,0.554,yes,0.0,no,no,16.1,no,no,yes
+578,N,N,578,identical,IV (furin-like),554,yes,52.2,0.36,yes,0.0,no,no,13.2,no,no,yes
+579,C,C,579,identical,IV (furin-like),555,yes,23.2,0.175,no,0.0,no,no,11.9,yes,yes,no
+580,I,I,580,identical,IV (furin-like),556,yes,88.8,0.506,yes,0.0,no,no,7.3,yes,no,no
+581,Q,Q,581,identical,IV (furin-like),557,yes,83.3,0.466,yes,0.0,no,no,9.5,yes,no,no
+582,C,C,582,identical,IV (furin-like),558,yes,34.6,0.262,yes,0.0,no,no,13.6,no,yes,no
+583,A,A,583,identical,IV (furin-like),559,yes,32.6,0.3,yes,0.0,no,no,15.8,no,no,yes
+584,H,H,584,identical,IV (furin-like),560,yes,85.9,0.47,yes,0.0,no,no,18.4,no,no,yes
+585,Y,Y,585,identical,IV (furin-like),561,yes,69.3,0.324,yes,0.0,no,no,20.3,no,no,yes
+586,I,I,586,identical,IV (furin-like),562,yes,52.5,0.299,yes,0.0,no,no,18.6,no,no,yes
+587,D,D,587,identical,IV (furin-like),563,yes,1.7,0.012,no,0.0,no,no,16.4,no,no,no
+588,G,G,588,identical,IV (furin-like),564,yes,27.6,0.34,yes,0.0,no,no,18.8,no,no,yes
+589,P,P,589,identical,IV (furin-like),565,yes,73.3,0.534,yes,0.0,no,no,19.0,no,no,yes
+590,H,H,590,identical,IV (furin-like),566,yes,18.8,0.103,no,0.0,no,no,18.7,no,no,no
+591,C,C,591,identical,IV (furin-like),567,yes,6.2,0.047,no,0.0,no,no,16.6,no,yes,no
+592,V,V,592,identical,IV (furin-like),568,yes,35.5,0.233,yes,0.0,no,no,21.1,no,no,yes
+593,K,K,593,identical,IV (furin-like),569,yes,148.6,0.725,yes,0.0,no,no,23.1,no,no,yes
+594,T,T,594,identical,IV (furin-like),570,yes,95.9,0.682,yes,0.0,no,no,21.1,no,no,yes
+595,C,C,595,identical,IV (furin-like),571,yes,14.0,0.106,no,0.0,no,no,18.8,no,yes,no
+596,P,P,596,identical,IV (furin-like),572,yes,17.5,0.127,no,0.0,no,no,15.4,no,no,no
+597,A,A,597,identical,IV (furin-like),573,yes,62.0,0.57,yes,0.0,no,no,16.3,no,no,yes
+598,G,G,598,identical,IV (furin-like),574,yes,26.4,0.325,yes,0.0,no,no,14.4,no,no,yes
+599,V,I,599,similar,IV (furin-like),575,yes,49.0,0.322,yes,0.0,no,no,11.2,yes,no,no
+600,M,M,600,identical,IV (furin-like),576,yes,63.3,0.328,yes,0.0,no,no,9.8,yes,no,no
+601,G,G,601,identical,IV (furin-like),577,yes,1.8,0.022,no,0.0,no,no,6.4,yes,no,no
+602,E,E,602,identical,IV (furin-like),578,yes,87.9,0.505,yes,0.0,no,no,3.8,yes,no,no
+603,N,N,603,identical,IV (furin-like),579,yes,146.5,1.01,yes,0.0,no,yes,0.0,yes,no,no
+604,N,N,604,identical,IV (furin-like),580,yes,113.7,0.784,yes,0.0,no,no,5.6,yes,no,no
+605,T,T,605,identical,IV (furin-like),581,yes,80.6,0.573,yes,0.0,no,no,5.0,yes,no,no
+606,L,L,606,identical,IV (furin-like),582,yes,76.7,0.427,yes,0.0,no,no,9.0,yes,no,no
+607,V,V,607,identical,IV (furin-like),583,yes,18.9,0.124,no,0.0,no,no,9.0,yes,no,no
+608,W,W,608,identical,IV (furin-like),584,yes,61.1,0.245,yes,0.0,no,no,11.9,yes,no,no
+609,K,K,609,identical,IV (furin-like),585,yes,16.3,0.08,no,0.0,no,no,13.5,no,no,no
+610,Y,Y,610,identical,IV (furin-like),586,yes,30.1,0.14,no,0.0,no,no,14.5,no,no,no
+611,A,A,611,identical,IV (furin-like),587,yes,39.2,0.361,yes,0.0,no,no,19.0,no,no,yes
+612,D,D,612,identical,IV (furin-like),588,yes,54.7,0.383,yes,0.0,no,no,20.9,no,no,yes
+613,A,A,613,identical,IV (furin-like),589,yes,107.8,0.991,yes,0.0,no,no,22.4,no,no,yes
+614,G,N,614,similar,IV (furin-like),590,yes,55.4,0.683,yes,0.0,no,no,20.1,no,no,no
+615,H,N,615,similar,IV (furin-like),591,yes,93.2,0.51,yes,0.0,no,no,20.9,no,no,no
+616,V,V,616,identical,IV (furin-like),592,yes,49.6,0.327,yes,0.0,no,no,21.0,no,no,yes
+617,C,C,617,identical,IV (furin-like),593,yes,5.2,0.039,no,0.0,no,no,17.6,no,yes,no
+618,H,H,618,identical,IV (furin-like),594,yes,84.7,0.463,yes,0.0,no,no,15.5,no,no,yes
+619,L,L,619,identical,IV (furin-like),595,yes,100.2,0.558,yes,0.0,no,no,10.3,yes,no,no
+620,C,C,620,identical,IV (furin-like),596,yes,15.0,0.113,no,0.0,no,no,9.8,yes,yes,no
+621,H,H,621,identical,IV (furin-like),597,yes,62.6,0.342,yes,0.0,no,no,4.8,yes,no,no
+622,P,A,622,different,IV (furin-like),598,yes,129.5,0.944,yes,0.0,no,no,5.2,yes,no,no
+623,N,N,623,identical,IV (furin-like),599,yes,104.0,0.717,yes,0.0,no,yes,0.0,yes,no,no
+624,C,C,624,identical,IV (furin-like),600,yes,6.7,0.051,no,0.0,no,no,5.8,yes,yes,no
+625,T,T,625,identical,IV (furin-like),601,yes,94.3,0.671,yes,0.0,no,no,6.9,yes,no,no
+626,Y,Y,626,identical,IV (furin-like),602,yes,194.0,0.906,yes,0.0,no,no,10.2,yes,no,no
+627,G,G,627,identical,IV (furin-like),603,yes,22.4,0.276,yes,0.0,no,no,10.9,yes,no,no
+628,C,C,628,identical,IV (furin-like),604,yes,15.2,0.115,no,0.0,no,no,11.3,yes,yes,no
+629,T,A,629,similar,IV (furin-like),605,yes,131.1,0.932,yes,0.0,no,no,14.2,no,no,no
+630,G,G,630,identical,IV (furin-like),606,yes,12.1,0.149,no,0.0,no,no,12.7,no,no,no
+631,P,P,631,identical,IV (furin-like),607,yes,83.0,0.605,yes,0.0,no,no,12.1,no,no,yes
+632,G,G,632,identical,IV (furin-like),608,yes,31.2,0.385,yes,0.0,no,no,9.2,yes,no,no
+633,L,L,633,identical,IV (furin-like),609,yes,108.2,0.603,yes,0.0,no,no,4.9,yes,no,no
+634,E,Q,634,similar,IV (furin-like),610,yes,234.7,0.985,yes,0.0,no,no,10.3,yes,no,no
+635,G,G,635,identical,IV (furin-like),611,yes,16.5,0.204,yes,0.0,no,no,11.6,yes,no,no
+636,C,C,636,identical,IV (furin-like),612,yes,97.9,0.74,yes,0.0,no,no,8.4,yes,yes,no
+637,P,E,637,different,IV (furin-like),,no,,,no,,no,no,,no,no,no
+638,T,V,638,similar,IV (furin-like),,no,,,no,,no,no,,no,no,no
+639,N,S,641,similar,IV (furin-like),,no,,,no,,no,no,,no,no,no
+640,G,G,642,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no
+641,P,P,643,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no
+642,K,K,644,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no
+643,I,I,645,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no
+644,P,P,646,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no
+645,S,S,647,identical,IV (furin-like),,no,,,no,,no,no,,no,no,no

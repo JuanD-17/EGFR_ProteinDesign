@@ -1,0 +1,86 @@
+{
+  "generated_utc": "2026-09-29T15:56:47+00:00",
+  "generated_by": "scripts/01_annotate_target.py",
+  "numbering": "UniProt precursor (P00533)",
+  "ectodomain": [
+    25,
+    645
+  ],
+  "structure": "6ARU.pdb",
+  "egfr_chain": "A",
+  "fab_chains": [
+    "B",
+    "C"
+  ],
+  "uniprot_minus_pdb_offset": 24,
+  "parameters": {
+    "exposure_threshold": 0.2,
+    "glycan_radius_angstrom": 12.0,
+    "epitope_dsasa_angstrom2": 1.0,
+    "disulfide_gap": 80
+  },
+  "domains": [
+    {
+      "start": 25,
+      "end": 58,
+      "character": "cysteine-rich",
+      "domain": "I/II (N-terminal, cysteine-rich)",
+      "length": 34
+    },
+    {
+      "start": 59,
+      "end": 156,
+      "character": "cysteine-free",
+      "domain": "I (L-domain core)",
+      "length": 98
+    },
+    {
+      "start": 157,
+      "end": 362,
+      "character": "cysteine-rich",
+      "domain": "II (furin-like)",
+      "length": 206
+    },
+    {
+      "start": 363,
+      "end": 469,
+      "character": "cysteine-free",
+      "domain": "III (L-domain core)",
+      "length": 107
+    },
+    {
+      "start": 470,
+      "end": 645,
+      "character": "cysteine-rich",
+      "domain": "IV (furin-like)",
+      "length": 176
+    }
+  ],
+  "counts": {
+    "ectodomain_residues": 621,
+    "resolved": 609,
+    "exposed": 360,
+    "cetuximab_epitope": 27,
+    "designable": 168
+  },
+  "conservation": {
+    "identical": 551,
+    "similar": 52,
+    "different": 18
+  },
+  "glycosylation_sites": [
+    56,
+    73,
+    128,
+    175,
+    196,
+    352,
+    361,
+    413,
+    444,
+    528,
+    568,
+    603,
+    623
+  ]
+}
