@@ -52,6 +52,7 @@ EGFR_ProteinDesign/
 │   ├── 01_annotate_target.py  per-residue annotation of the ectodomain
 │   ├── 01b_verify_numbering.py  independent checks on 01's derived claims
 │   ├── 02_select_epitope.py   candidate epitope patches and hotspot lists
+│   ├── 02b_characterize_patches.py  patch geometry and face grouping
 │   └── citation.py            manuscript provenance text from the manifest
 ├── 00_Competition/            challenge rules, FAQ, submission requirements
 ├── 01_Target/                 raw target data (not version-controlled)
