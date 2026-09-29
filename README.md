@@ -46,6 +46,7 @@ human/mouse conservation map crossed with solvent accessibility.
 EGFR_ProteinDesign/
 ├── README.md                  this file
 ├── requirements.txt           pinned dependencies
+├── LICENSES.md                third-party terms and outstanding actions
 ├── .gitignore
 ├── scripts/                   code, numbered in execution order
 │   ├── 00_download_data.py    download and verification of raw data
