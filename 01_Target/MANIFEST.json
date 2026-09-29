@@ -1,0 +1,93 @@
+{
+  "project": "Conditional EGFR binder design",
+  "competition": "Anthropic x Adaptyv 2026, Challenge 01 (EGFR)",
+  "generated_by": "scripts/00_download_data.py",
+  "generated_utc": "2026-09-29T15:05:08+00:00",
+  "python": "3.14.6",
+  "files": [
+    {
+      "id": "egfr_human_fasta",
+      "file": "01_Target/human/P00533.fasta",
+      "url": "https://rest.uniprot.org/uniprotkb/P00533.fasta",
+      "source": "UniProtKB",
+      "accession": "P00533",
+      "description": "Human EGFR, canonical precursor sequence (isoform P00533-1, 1210 aa, includes the 1-24 signal peptide). This is the challenge target.",
+      "bytes": 1328,
+      "sha256": "684e2da1f3ef05d0ce90d0aefe9125c6f7e9cdcfeac27ae72ed35243b64a73e8",
+      "downloaded_utc": "2026-09-29T15:05:04+00:00",
+      "uniprot_release": "2026_03",
+      "fasta_header": ">sp|P00533|EGFR_HUMAN Epidermal growth factor receptor OS=Homo sapiens OX=9606 GN=EGFR PE=1 SV=2",
+      "length_aa": 1210
+    },
+    {
+      "id": "egfr_mouse_fasta",
+      "file": "01_Target/mouse/Q01279.fasta",
+      "url": "https://rest.uniprot.org/uniprotkb/Q01279.fasta",
+      "source": "UniProtKB",
+      "accession": "Q01279",
+      "description": "Mouse (Mus musculus) EGFR precursor. Required for challenge objective 2, cross-species reactivity.",
+      "bytes": 1329,
+      "sha256": "92bffc461d90e034548943881b342d5ef42a6a3c6f57d4d6246b7c76f6ece8ea",
+      "downloaded_utc": "2026-09-29T15:05:05+00:00",
+      "uniprot_release": "2026_03",
+      "fasta_header": ">sp|Q01279|EGFR_MOUSE Epidermal growth factor receptor OS=Mus musculus OX=10090 GN=Egfr PE=1 SV=1",
+      "length_aa": 1210
+    },
+    {
+      "id": "egfr_human_json",
+      "file": "01_Target/human/P00533.json",
+      "url": "https://rest.uniprot.org/uniprotkb/P00533.json",
+      "source": "UniProtKB",
+      "accession": "P00533",
+      "description": "Full UniProt entry for human EGFR in JSON. Carries the domain annotations (I-IV), glycosylation sites, disulfide bonds and sequence variants. Domain III boundaries are read from here rather than assumed.",
+      "bytes": 418611,
+      "sha256": "90c459656751eac791efc2f369f49145d38cc949f5b41bf628180ac0a6874b02",
+      "downloaded_utc": "2026-09-29T15:05:06+00:00",
+      "uniprot_release": "2026_03",
+      "entry_version": 301,
+      "last_sequence_update": "1997-11-01"
+    },
+    {
+      "id": "egfr_mouse_json",
+      "file": "01_Target/mouse/Q01279.json",
+      "url": "https://rest.uniprot.org/uniprotkb/Q01279.json",
+      "source": "UniProtKB",
+      "accession": "Q01279",
+      "description": "Full UniProt entry for mouse EGFR in JSON.",
+      "bytes": 91268,
+      "sha256": "0abc115c5883c877f33490d53afeb869761bf0d9b33d4ca367bcabf62dbb5fa8",
+      "downloaded_utc": "2026-09-29T15:05:07+00:00",
+      "uniprot_release": "2026_03",
+      "entry_version": 253,
+      "last_sequence_update": "1996-02-01"
+    },
+    {
+      "id": "structure_6aru_pdb",
+      "file": "01_Target/structure/6ARU.pdb",
+      "url": "https://files.rcsb.org/download/6ARU.pdb",
+      "source": "RCSB PDB",
+      "accession": "6ARU",
+      "description": "Human EGFR extracellular region in complex with a cetuximab Fab mutant. Chain A = EGFR, chain B = Fab light chain, chain C = Fab heavy chain. This is the reference structure named on the challenge page.",
+      "bytes": 1372383,
+      "sha256": "6009474a03942ad6d6b01f3145cb6f102f549290001c240b7ae1fcc0e071d5c0",
+      "downloaded_utc": "2026-09-29T15:05:08+00:00",
+      "title": "STRUCTURE OF CETUXIMAB FAB MUTANT IN COMPLEX WITH EGFR EXTRACELLULAR DOMAIN",
+      "atoms_per_chain": {
+        "A": 4686,
+        "B": 1622,
+        "C": 1615
+      }
+    },
+    {
+      "id": "structure_6aru_cif",
+      "file": "01_Target/structure/6ARU.cif",
+      "url": "https://files.rcsb.org/download/6ARU.cif",
+      "source": "RCSB PDB",
+      "accession": "6ARU",
+      "description": "The same 6ARU structure in mmCIF format. Kept because the legacy PDB format can truncate residue numbering and chain identifiers; mmCIF is the authoritative version.",
+      "bytes": 1548867,
+      "sha256": "6cb216f09a7af6eae45a3f1b7745589ed955e2d65155e1b5f3261e3b88c1e110",
+      "downloaded_utc": "2026-09-29T15:05:08+00:00"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Virtual environment: rebuilt from requirements.txt, not tracked.
+.venv/
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Raw downloadable data: reconstructed by scripts/00_download_data.py, with
+# integrity guaranteed by 01_Target/MANIFEST.json, which IS tracked. Keeping
+# these in git would inflate the repository without adding anything.
+01_Target/human/*.fasta
+01_Target/human/*.json
+01_Target/mouse/*.fasta
+01_Target/mouse/*.json
+01_Target/structure/*.pdb
+01_Target/structure/*.cif
+
+# Heavy model outputs (predicted structures, design trajectories).
+03_Design/**/*.pdb
+03_Design/**/*.cif
+03_Design/**/*.npz
+03_Design/**/*.pkl
+
+# Credentials. Never.
+.env
+*.key
