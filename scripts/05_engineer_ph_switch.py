@@ -85,10 +85,15 @@ TITRATABLE_ATOMS = {
     "GLU": ["OE1", "OE2"],
 }
 
-# A histidine imidazole reaches about 6 A from CB. Allowing 4-10 A between
-# the binder CB and the target's titratable atom covers rotamers that can
-# form the contact without demanding one that already does.
-BRIDGE_RANGE = (4.0, 10.0)
+# How far a histidine can actually span. Measured on the 23 histidines in
+# 6ARU, CB-NE2 is 3.67 A; adding a 4.0 A charge-assisted contact puts the
+# ceiling at 7.7 A from CB to the handle's titratable atom.
+#
+# An earlier version used 10.0 A, which proposed substitutions no rotamer
+# can realise: of 33 proposals, 14 were later vetoed on reach alone and not
+# one on steric clash. The bound is now derived from the structure rather
+# than estimated.
+BRIDGE_RANGE = (3.5, 7.7)
 
 # Positions whose side chain points away from the handle cannot reach it
 # however favourable the distance.
@@ -174,8 +179,15 @@ def map_target_to_uniprot(target_chain) -> dict[int, object]:
     aligner.open_gap_score = -11
     aligner.extend_gap_score = -1
     aligner.mode = "global"
-    aligner.target_end_gap_score = 0.0
-    aligner.query_end_gap_score = 0.0
+    # Free end gaps: a 204-residue fragment is being placed inside a
+    # 1210-residue sequence, so overhangs must not be penalised. Biopython
+    # renamed these attributes; support both spellings.
+    for name, value in (("end_insertion_score", 0.0),
+                        ("end_deletion_score", 0.0)):
+        try:
+            setattr(aligner, name, value)
+        except AttributeError:
+            pass
 
     alignment = aligner.align(sequence, human)[0]
     mapping: dict[int, object] = {}

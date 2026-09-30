@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Step 07 - Negative control for the histidine placement method.
+Step 06 - Negative control for the histidine placement method.
 
 Step 05 places histidines where they face an ionizable group on the target,
 and reports a coupling estimate for each variant. That number means nothing
@@ -39,12 +39,12 @@ than from a handful of matched controls.
 
 Inputs:  03_Design/accepted/*.pdb, 03_Design/ph_variants/05_variants.csv
          02_Analysis/03b_pka_estimates.csv
-Outputs: 03_Design/negative_control/07_null_distribution.csv
-         03_Design/negative_control/07_control_report.md
+Outputs: 03_Design/negative_control/06_null_distribution.csv
+         03_Design/negative_control/06_control_report.md
 
 Usage:
-    python scripts/07_negative_control.py
-    python scripts/07_negative_control.py --samples 5000 --seed 20260930
+    python scripts/06_negative_control.py
+    python scripts/06_negative_control.py --samples 5000 --seed 20260930
 """
 
 from __future__ import annotations
@@ -270,7 +270,7 @@ def main() -> int:
         print("No variants to test.")
         return 1
 
-    csv_path = OUT_DIR / "07_null_distribution.csv"
+    csv_path = OUT_DIR / "06_null_distribution.csv"
     with csv_path.open("w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0]))
         writer.writeheader()
@@ -280,12 +280,12 @@ def main() -> int:
     beats_all = [r for r in rows
                  if r["observed_kcal_mol"] > r["null_max"]]
 
-    report = OUT_DIR / "07_control_report.md"
+    report = OUT_DIR / "06_control_report.md"
     with report.open("w") as fh:
         w = fh.write
-        w("# Step 07 - Negative control\n\n")
+        w("# Step 06 - Negative control\n\n")
         w(f"Generated {datetime.now(timezone.utc).isoformat(timespec='seconds')} "
-          f"by `scripts/07_negative_control.py`, seed {args.seed}, "
+          f"by `scripts/06_negative_control.py`, seed {args.seed}, "
           f"{args.samples} draws per design and substitution count.\n\n")
 
         w("## The question\n\n")
@@ -342,7 +342,7 @@ def main() -> int:
           "designed variant that beats the null is a better candidate, not "
           "a demonstrated pH switch.\n\n")
         w("Nor does this test structural plausibility. A variant can win "
-          "here and still fail to fold or to bind, which is what step 06 "
+          "here and still fail to fold or to bind, which is what step 07 "
           "exists to check.\n\n")
         w("Two statistical caveats. No designed variant exceeds the maximum "
           "of its null distribution: chance does occasionally find "

@@ -1,6 +1,6 @@
-# Step 07 - Negative control
+# Step 06 - Negative control
 
-Generated 2026-09-30T14:23:11+00:00 by `scripts/07_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
+Generated 2026-09-30T14:36:48+00:00 by `scripts/06_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
 
 ## The question
 
@@ -24,23 +24,17 @@ This is deliberately the hard version of the control. A null that scattered hist
 
 | Design | Substitutions | Observed | Null mean ± SD | Null max | p |
 |--------|---------------|---------:|----------------|--------:|--:|
-| EGFRd3_p2g0_l66_s408238_mpnn | Q23H V12H | 1.791 | 0.251 ± 0.383 | 1.791 | 0.003 |
-| EGFRd3_p2g0_l66_s408238_mpnn | Q23H V12H | 1.436 | 0.251 ± 0.383 | 1.791 | 0.01899 |
-| EGFRd3_p2g0_l66_s408238_mpnn | Q23H | 0.943 | 0.118 ± 0.271 | 0.943 | 0.03299 |
-| EGFRd3_p2g0_l73_s455990_mpnn | Y63H F59H M9H | 2.379 | 0.39 ± 0.493 | 2.379 | 0.00267 |
-| EGFRd3_p2g0_l73_s455990_mpnn | F59H M9H | 1.791 | 0.259 ± 0.406 | 1.791 | 0.005 |
-| EGFRd3_p2g0_l73_s455990_mpnn | Y63H F59H | 1.531 | 0.259 ± 0.406 | 1.791 | 0.01466 |
-| EGFRd3_p2g0_l74_s203049_mpnn | H59 V2H W70H | 2.379 | 0.556 ± 0.536 | 2.379 | 0.003 |
-| EGFRd3_p2g0_l74_s203049_mpnn | V2H W70H | 1.791 | 0.381 ± 0.481 | 1.791 | 0.015 |
-| EGFRd3_p2g0_l74_s203049_mpnn | H59 V2H | 1.531 | 0.381 ± 0.481 | 1.791 | 0.02932 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H Q57H W60H | 2.639 | 0.638 ± 0.549 | 2.639 | 0.00233 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H T52H Q57H | 2.379 | 0.638 ± 0.549 | 2.639 | 0.00633 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | T52H Q57H W60H | 2.379 | 0.638 ± 0.549 | 2.639 | 0.00633 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | M10H H11 | 1.791 | 0.492 ± 0.522 | 1.791 | 0.03632 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | M10H H11 | 1.531 | 0.492 ± 0.522 | 1.791 | 0.04499 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | H11 | 0.943 | 0.258 ± 0.396 | 0.943 | 0.12163 |
+| EGFRd3_p2g0_l66_s408238_mpnn | Q23H | 0.943 | 0.034 ± 0.175 | 0.943 | 0.03599 |
+| EGFRd3_p2g0_l73_s455990_mpnn | F59H | 0.943 | 0.097 ± 0.287 | 0.943 | 0.1033 |
+| EGFRd3_p2g0_l74_s203049_mpnn | W63H | 0.943 | 0.038 ± 0.186 | 0.943 | 0.04065 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H Q57H | 1.531 | 0.207 ± 0.378 | 1.531 | 0.00866 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | Q57H | 0.943 | 0.099 ± 0.273 | 0.943 | 0.07931 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H | 0.588 | 0.099 ± 0.273 | 0.943 | 0.12063 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 M10H H11 | 2.379 | 0.541 ± 0.548 | 2.379 | 0.00333 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 H11 | 1.791 | 0.368 ± 0.488 | 1.791 | 0.02466 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | M10H H11 | 1.531 | 0.368 ± 0.488 | 1.791 | 0.03266 |
 
-14 of 15 variants reach p < 0.05. 0 exceed every random draw.
+6 of 9 variants reach p < 0.05. 0 exceed every random draw.
 
 ## Reading this
 
@@ -52,6 +46,6 @@ A small p means the mechanistic rule found something chance rarely finds. A larg
 
 Both arms are scored by the same model, with the same assumed pKa shift. The control tests whether the placement rule beats chance *under that model*; it does not validate the model. A designed variant that beats the null is a better candidate, not a demonstrated pH switch.
 
-Nor does this test structural plausibility. A variant can win here and still fail to fold or to bind, which is what step 06 exists to check.
+Nor does this test structural plausibility. A variant can win here and still fail to fold or to bind, which is what step 07 exists to check.
 
 Two statistical caveats. No designed variant exceeds the maximum of its null distribution: chance does occasionally find placements as good, it just does so rarely, so the claim is about frequency and not about reaching something unreachable. And the p-values are uncorrected. Fifteen tests were run, and variants within a design share positions so they are not independent, which makes a clean correction awkward; under a conservative Bonferroni threshold the strongest variants survive and the marginal ones do not.
