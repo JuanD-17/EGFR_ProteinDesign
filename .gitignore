@@ -30,3 +30,7 @@ __pycache__/
 # Credentials. Never.
 .env
 *.key
+
+# Raw BindCraft run output: large, and reproducible from the Kaggle notebook.
+# The accepted designs and the engineered variants are tracked.
+03_Design/run1/

@@ -58,19 +58,26 @@ import argparse
 import csv
 import itertools
 import json
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+import freesasa
 import numpy as np
-from Bio.PDB import PDBParser
+from Bio import Align
+from Bio.Align import substitution_matrices
+from Bio.PDB import PDBIO, PDBParser, Select
 from Bio.PDB.Polypeptide import protein_letters_3to1
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "03_Design" / "ph_variants"
 PKA_TABLE = ROOT / "02_Analysis" / "03b_pka_estimates.csv"
 TARGET_PDB = ROOT / "03_Design" / "target" / "EGFR_domainIII.pdb"
+HUMAN_FASTA = ROOT / "01_Target" / "human" / "P00533.fasta"
 
 UNIPROT_MINUS_PDB = 24
+
+freesasa.setVerbosity(freesasa.silent)
 
 TITRATABLE_ATOMS = {
     "HIS": ["ND1", "NE2"],
@@ -94,9 +101,10 @@ PROTECTED = {
     "G": "may occupy a position requiring positive phi",
 }
 
-# Burial above this fraction means the position is in the binder core, where
-# an introduced charge is destabilising rather than switch-forming.
-MAX_BURIAL = 0.75
+# Relative SASA in the unbound binder below which a position counts as core.
+# A charge introduced there destabilises the fold instead of forming a switch.
+# Same 0.20 convention used for the target in step 01.
+MIN_EXPOSURE = 0.20
 
 MAX_SUBSTITUTIONS = 3
 
@@ -136,6 +144,47 @@ def chain_sequence(chain) -> tuple[str, list]:
     return "".join(letters), residues
 
 
+def map_target_to_uniprot(target_chain) -> dict[int, object]:
+    """Map UniProt positions to residues of a design's target chain.
+
+    BindCraft renumbers the target in its output: the trimmed domain III
+    arrives as 311-514 and comes back as 1-204. Assuming any fixed offset
+    would break the moment the trim or the tool changes, so the
+    correspondence is derived by aligning the chain against the human
+    sequence, exactly as step 01 does for the crystal structure.
+    """
+    human = "".join(
+        line.strip() for line in HUMAN_FASTA.read_text().splitlines()
+        if not line.startswith(">")
+    )
+
+    letters, residues = [], []
+    for residue in target_chain:
+        if residue.id[0] != " ":
+            continue
+        try:
+            letters.append(protein_letters_3to1[residue.get_resname()])
+        except KeyError:
+            continue
+        residues.append(residue)
+    sequence = "".join(letters)
+
+    aligner = Align.PairwiseAligner()
+    aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")
+    aligner.open_gap_score = -11
+    aligner.extend_gap_score = -1
+    aligner.mode = "global"
+    aligner.target_end_gap_score = 0.0
+    aligner.query_end_gap_score = 0.0
+
+    alignment = aligner.align(sequence, human)[0]
+    mapping: dict[int, object] = {}
+    for (s_start, s_end), (h_start, h_end) in zip(*alignment.aligned):
+        for offset in range(s_end - s_start):
+            mapping[int(h_start + offset) + 1] = residues[s_start + offset]
+    return mapping
+
+
 def identify_chains(model, target_length: int) -> tuple[str, str]:
     """Work out which chain is the target and which the binder.
 
@@ -166,19 +215,55 @@ def side_chain_direction(residue) -> np.ndarray | None:
     return vector / norm if norm > 0 else None
 
 
-def relative_burial(residue, all_atoms: np.ndarray) -> float:
-    """Crude burial: neighbouring heavy atoms within 10 A, normalised.
+def binder_exposure(model, binder_id: str) -> dict[int, float]:
+    """Relative SASA of each binder residue, computed on the binder alone.
 
-    Full SASA on every design would be slow and is not needed: the point is
-    only to exclude positions packed into the binder core, and a neighbour
-    count separates those from surface positions reliably enough.
+    An earlier version approximated burial by counting heavy atoms within
+    10 A and dividing by a constant. That does not discriminate: in a
+    60-residue binder even a fully exposed position has upwards of a hundred
+    neighbours, so the metric returned ~0.9 for everything and rejected 37 of
+    52 candidate positions as "core".
+
+    SASA is measured on the unbound binder deliberately. A position that is
+    exposed in the free binder and contacts the target in the complex is
+    exactly the position we want; measuring in the complex would score it as
+    buried and discard it.
     """
-    if "CB" not in residue and "CA" not in residue:
-        return 1.0
-    centre = (residue["CB"] if "CB" in residue else residue["CA"]).coord
-    distances = np.linalg.norm(all_atoms - centre, axis=1)
-    neighbours = int((distances < 10.0).sum())
-    return min(1.0, neighbours / 120.0)
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "binder.pdb"
+        io = PDBIO()
+        io.set_structure(model)
+        io.save(str(path), select=SingleChain(binder_id))
+
+        structure = freesasa.Structure(str(path))
+        result = freesasa.calc(structure)
+
+        exposure: dict[int, float] = {}
+        for chain_id, residues in result.residueAreas().items():
+            if chain_id != binder_id:
+                continue
+            for number, area in residues.items():
+                try:
+                    exposure[int(number)] = (area.relativeTotal
+                                             if area.hasRelativeAreas else 1.0)
+                except ValueError:
+                    continue
+    return exposure
+
+
+class SingleChain(Select):
+    def __init__(self, chain_id: str):
+        self.chain_id = chain_id
+
+    def accept_chain(self, chain):
+        return chain.id == self.chain_id
+
+    def accept_residue(self, residue):
+        return (residue.id[0] == " "
+                and residue.get_resname() in protein_letters_3to1)
+
+    def accept_atom(self, atom):
+        return atom.element != "H" and atom.get_altloc() in (" ", "A")
 
 
 def evaluate_design(path: Path, handles: dict[int, dict],
@@ -195,15 +280,20 @@ def evaluate_design(path: Path, handles: dict[int, dict],
     binder_chain = model[binder_id]
     binder_sequence, binder_residues = chain_sequence(binder_chain)
 
-    binder_atoms = np.array([a.coord for r in binder_residues for a in r
-                             if a.element != "H"])
+    exposure = binder_exposure(model, binder_id)
 
-    # Locate the handles that are actually present in this complex.
+    # Locate the handles that are actually present in this complex, keyed by
+    # UniProt position through the alignment rather than by residue number.
+    uniprot_to_residue = map_target_to_uniprot(target_chain)
+
     present = {}
     for position, handle in handles.items():
-        try:
-            residue = target_chain[(" ", handle["pdb_resnum"], " ")]
-        except KeyError:
+        residue = uniprot_to_residue.get(position)
+        if residue is None:
+            continue
+        if residue.get_resname() != handle["residue"]:
+            # The alignment put a different residue here; trust the sequence
+            # over the expectation and skip rather than mis-assign.
             continue
         atoms = [residue[n] for n in TITRATABLE_ATOMS[handle["residue"]]
                  if n in residue]
@@ -214,6 +304,8 @@ def evaluate_design(path: Path, handles: dict[int, dict],
             }
 
     if not present:
+        print(f"  {path.stem}: no target handle found in the complex "
+              f"({len(uniprot_to_residue)} target residues mapped)")
         return None
 
     # For each handle, which binder positions could bridge to it.
@@ -238,13 +330,15 @@ def evaluate_design(path: Path, handles: dict[int, dict],
                 continue
 
             current = binder_sequence[index]
-            burial = relative_burial(residue, binder_atoms)
+            rel_sasa = exposure.get(residue.id[1], 1.0)
 
             blocked = PROTECTED.get(current)
-            if burial > MAX_BURIAL:
-                blocked = f"buried in the binder core ({burial:.2f})"
-            if current == "H":
-                blocked = "already histidine"
+            if rel_sasa < MIN_EXPOSURE:
+                blocked = f"core of the binder (rel SASA {rel_sasa:.2f})"
+            # A histidine already facing a handle needs no substitution: it
+            # is an existing switch, and discarding it would throw away the
+            # cheapest protonation event available.
+            already = (current == "H" and blocked is None)
 
             candidates.append({
                 "binder_index": index,
@@ -256,7 +350,8 @@ def evaluate_design(path: Path, handles: dict[int, dict],
                 "handle_coupling": handle["coupling"],
                 "distance_a": round(separation, 2),
                 "orientation": round(orientation, 3),
-                "burial": round(burial, 2),
+                "rel_sasa": round(rel_sasa, 2),
+                "already_histidine": already,
                 "blocked": blocked,
             })
 
@@ -300,7 +395,12 @@ def evaluate_design(path: Path, handles: dict[int, dict],
                 "design": path.stem,
                 "n_substitutions": size,
                 "substitutions": " ".join(
-                    f"{p['current_aa']}{p['binder_position']}H" for p in picks),
+                    (f"{p['current_aa']}{p['binder_position']}"
+                     if p.get("already_histidine")
+                     else f"{p['current_aa']}{p['binder_position']}H")
+                    for p in picks),
+                "n_new_histidines": sum(
+                    0 if p.get("already_histidine") else 1 for p in picks),
                 "engages": " ".join(
                     f"{p['handle_aa']}{p['handle_uniprot']}" for p in picks),
                 "mean_distance_a": round(
@@ -446,9 +546,14 @@ def main() -> int:
           f"bridge, and its side chain points towards the handle.\n")
         w(f"- Cysteine, proline and glycine are not substituted: "
           f"{', '.join(f'{k} ({v})' for k, v in PROTECTED.items())}.\n")
-        w(f"- Positions with burial above {MAX_BURIAL} are excluded. A charge "
-          f"introduced into the binder core destabilises the fold instead of "
-          f"forming a switch.\n")
+        w(f"- Positions below {MIN_EXPOSURE} relative SASA in the unbound "
+          f"binder are excluded as core: a charge introduced there "
+          f"destabilises the fold instead of forming a switch. SASA is "
+          f"measured on the binder alone, so a position that is exposed "
+          f"when free and contacts the target when bound still qualifies.\n")
+        w("- A position that is already histidine and faces a handle is kept "
+          "as an existing switch rather than discarded, since it supplies a "
+          "protonation event at no cost in substitutions.\n")
         w("- One binder residue cannot serve two handles, so combinations "
           "reusing a position are discarded.\n")
 
