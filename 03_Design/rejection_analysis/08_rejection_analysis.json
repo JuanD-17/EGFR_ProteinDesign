@@ -1,36 +1,38 @@
 {
-  "generated_utc": "2026-09-30T15:11:25+00:00",
+  "generated_utc": "2026-09-30T23:32:48+00:00",
   "runs": [
     "03_Design/run1/gpu0",
-    "03_Design/run1/gpu1"
+    "03_Design/run1/gpu1",
+    "03_Design/run2/gpu0",
+    "03_Design/run2/gpu1"
   ],
   "totals": {
-    "trajectories_started": 29,
-    "accepted": 5,
-    "rejections_logged": 322,
-    "confidence_rejections": 273,
-    "other_rejections": 49
+    "trajectories_started": 59,
+    "accepted": 8,
+    "rejections_logged": 628,
+    "confidence_rejections": 483,
+    "other_rejections": 145
   },
   "by_filter": {
-    "Trajectory_logits_pLDDT": 1,
-    "Trajectory_final_pLDDT": 3,
-    "Trajectory_Clashes": 2,
-    "pLDDT": 65,
-    "i_pTM": 89,
-    "i_pAE": 108,
-    "Surface_Hydrophobicity": 9,
-    "ShapeComplementarity": 7,
-    "n_InterfaceHbonds": 5,
-    "n_InterfaceUnsatHbonds": 21,
-    "Binder_pLDDT": 4,
-    "Binder_RMSD": 5,
+    "Trajectory_logits_pLDDT": 2,
+    "Trajectory_final_pLDDT": 9,
+    "Trajectory_Clashes": 3,
+    "pLDDT": 106,
+    "i_pTM": 157,
+    "i_pAE": 196,
+    "Surface_Hydrophobicity": 30,
+    "ShapeComplementarity": 20,
+    "n_InterfaceHbonds": 9,
+    "n_InterfaceUnsatHbonds": 75,
+    "Binder_pLDDT": 5,
+    "Binder_RMSD": 8,
     "Trajectory_softmax_pLDDT": 1,
-    "Trajectory_one-hot_pLDDT": 2
+    "Trajectory_one-hot_pLDDT": 7
   },
   "per_run": [
     {
       "run": "03_Design/run1/gpu0",
-      "group": "gpu0",
+      "group": "run1",
       "trajectories_started": 15,
       "trajectories_successful": 12,
       "trajectory_success_pct": 80.0,
@@ -46,7 +48,7 @@
     },
     {
       "run": "03_Design/run1/gpu1",
-      "group": "gpu1",
+      "group": "run1",
       "trajectories_started": 14,
       "trajectories_successful": 10,
       "trajectory_success_pct": 71.4,
@@ -59,6 +61,38 @@
       "median_trajectory_s": 2029,
       "total_rejections_logged": 141,
       "log": "bc_gpu1.log"
+    },
+    {
+      "run": "03_Design/run2/gpu0",
+      "group": "run2",
+      "trajectories_started": 15,
+      "trajectories_successful": 10,
+      "trajectory_success_pct": 66.7,
+      "no_mpnn_accepted": 9,
+      "accepted_pdb": 1,
+      "rejected_pdb": 31,
+      "trajectory_pdb": 0,
+      "mpnn_pdb": 0,
+      "acceptance_per_trajectory_pct": 6.67,
+      "median_trajectory_s": 1687,
+      "total_rejections_logged": 163,
+      "log": "run2_bc_gpu0.log"
+    },
+    {
+      "run": "03_Design/run2/gpu1",
+      "group": "run2",
+      "trajectories_started": 15,
+      "trajectories_successful": 12,
+      "trajectory_success_pct": 80.0,
+      "no_mpnn_accepted": 9,
+      "accepted_pdb": 2,
+      "rejected_pdb": 29,
+      "trajectory_pdb": 1,
+      "mpnn_pdb": 2,
+      "acceptance_per_trajectory_pct": 13.33,
+      "median_trajectory_s": 1645,
+      "total_rejections_logged": 143,
+      "log": "run2_bc_gpu1.log"
     }
   ]
 }

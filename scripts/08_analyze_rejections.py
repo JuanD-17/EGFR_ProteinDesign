@@ -116,7 +116,11 @@ def count_pdbs(run: Path, folder: str) -> int:
 def find_log(run: Path) -> Path | None:
     """The log belonging to a run, searched by the run's directory name."""
     stem = run.name
+    parent = run.parent.name
+    # Logs from different runs share a device name, so the run directory's
+    # parent disambiguates them: run1/gpu0 and run2/gpu0 both end in gpu0.
     for candidate in [
+        ROOT / "03_Design" / "logs" / f"{parent}_bc_{stem}.log",
         ROOT / "03_Design" / "logs" / f"bc_{stem}.log",
         run.parent / f"bc_{stem}.log",
         run / "log.txt",

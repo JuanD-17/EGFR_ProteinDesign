@@ -1,3 +1,5 @@
 run,group,trajectories_started,trajectories_successful,trajectory_success_pct,no_mpnn_accepted,accepted_pdb,rejected_pdb,trajectory_pdb,mpnn_pdb,acceptance_per_trajectory_pct,median_trajectory_s,total_rejections_logged,log
-03_Design/run1/gpu0,gpu0,15,12,80.0,9,3,17,0,0,20.0,1800,181,bc_gpu0.log
-03_Design/run1/gpu1,gpu1,14,10,71.4,8,2,10,0,0,14.29,2029,141,bc_gpu1.log
+03_Design/run1/gpu0,run1,15,12,80.0,9,3,17,0,0,20.0,1800,181,bc_gpu0.log
+03_Design/run1/gpu1,run1,14,10,71.4,8,2,10,0,0,14.29,2029,141,bc_gpu1.log
+03_Design/run2/gpu0,run2,15,10,66.7,9,1,31,0,0,6.67,1687,163,run2_bc_gpu0.log
+03_Design/run2/gpu1,run2,15,12,80.0,9,2,29,1,2,13.33,1645,143,run2_bc_gpu1.log

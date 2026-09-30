@@ -1,6 +1,6 @@
 # Step 07 - Structural validation, preparation
 
-Generated 2026-09-30T14:49:24+00:00 by `scripts/07_validate_ph_variants.py --prepare`.
+Generated 2026-09-30T23:32:13+00:00 by `scripts/07_validate_ph_variants.py --prepare`.
 
 ## Why the scores stay separate
 
@@ -12,11 +12,11 @@ For each substitution, an imidazole nitrogen is placed at 200 orientations on sp
 
 This is a feasibility test rather than a rotamer library search. It answers whether the contact is geometrically possible at all, which is a veto AlphaFold2 does not provide and which is worth applying before spending GPU time.
 
-12 of 14 substitutions can reach their handle; 2 cannot.
+18 of 23 substitutions can reach their handle; 5 cannot.
 
 ## Prepared for prediction
 
-7 variants and 5 unmodified parents, as complex records in `07_variants_for_af2.fasta`.
+11 variants and 8 unmodified parents, as complex records in `07_variants_for_af2.fasta`.
 
 The parents matter as much as the variants. Without predicting the unmodified design under identical settings there is no baseline, and any change in interface confidence could not be attributed to the substitutions rather than to prediction noise.
 

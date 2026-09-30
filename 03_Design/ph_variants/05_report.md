@@ -1,8 +1,8 @@
 # Step 05 - Histidine engineering
 
-Generated 2026-09-30T14:48:54+00:00 by `scripts/05_engineer_ph_switch.py`.
+Generated 2026-09-30T23:31:57+00:00 by `scripts/05_engineer_ph_switch.py`.
 
-5 designs examined, 9 variants proposed.
+8 designs examined, 16 variants proposed.
 
 ## Why substitutions come in sets
 
@@ -27,9 +27,16 @@ Wyman linkage caps the pH dependence of binding at about 1.23 kcal/mol per coupl
 | EGFRd3_p2g0_l66_s408238_mpnn4_model2 | Q23H | H433 | 6.26 | 0.943 | 4.9× |
 | EGFRd3_p2g0_l73_s455990_mpnn4_model1 | F59H | H433 | 4.79 | 0.943 | 4.9× |
 | EGFRd3_p2g0_l74_s203049_mpnn7_model1 | W63H | H433 | 5.17 | 0.943 | 4.9× |
+| EGFRd3_p2g0_l74_s258459_mpnn1_model1 | W24H M25H | H433 D460 | 6.13 | 1.791 | 20.6× |
+| EGFRd3_p2g0_l74_s258459_mpnn1_model1 | W24H | H433 | 6.63 | 0.943 | 4.9× |
+| EGFRd3_p2g0_l74_s258459_mpnn1_model1 | M25H | D460 | 5.63 | 0.848 | 4.2× |
+| EGFRd3_p2g1_l55_s473498_mpnn1_model2 | M52H M55H | H433 D460 | 5.73 | 1.791 | 20.6× |
+| EGFRd3_p2g1_l55_s473498_mpnn1_model2 | M52H | H433 | 6.22 | 0.943 | 4.9× |
+| EGFRd3_p2g1_l55_s473498_mpnn1_model2 | M55H | D460 | 5.24 | 0.848 | 4.2× |
 | EGFRd3_p2g1_l63_s42253_mpnn4_model2 | R49H Q57H | H370 H433 | 5.33 | 1.531 | 13.3× |
 | EGFRd3_p2g1_l63_s42253_mpnn4_model2 | Q57H | H433 | 4.46 | 0.943 | 4.9× |
 | EGFRd3_p2g1_l63_s42253_mpnn4_model2 | R49H | H370 | 6.19 | 0.588 | 2.7× |
+| EGFRd3_p2g1_l66_s66715_mpnn4_model2 | W37H | H433 | 6.12 | 0.943 | 4.9× |
 | EGFRd3_p2g1_l68_s39881_mpnn3_model1 | H7 M10H H11 | D368 H370 H433 | 6.23 | 2.379 | 55.4× |
 | EGFRd3_p2g1_l68_s39881_mpnn3_model1 | H7 H11 | D368 H433 | 6.34 | 1.791 | 20.6× |
 | EGFRd3_p2g1_l68_s39881_mpnn3_model1 | M10H H11 | H370 H433 | 5.89 | 1.531 | 13.3× |
