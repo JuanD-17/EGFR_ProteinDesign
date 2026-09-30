@@ -1,6 +1,6 @@
 # Step 06 - Negative control
 
-Generated 2026-09-30T14:36:48+00:00 by `scripts/06_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
+Generated 2026-09-30T14:49:06+00:00 by `scripts/06_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
 
 ## The question
 

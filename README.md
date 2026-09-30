@@ -94,6 +94,44 @@ To confirm later that the data has not changed:
 python scripts/00_download_data.py --verify
 ```
 
+## Running the pipeline
+
+Scripts are numbered in execution order and each one requires the outputs of
+those before it. Arguments that vary between runs are required rather than
+defaulted, so that a stale input directory cannot be analysed by accident.
+
+**Target analysis.** Runs on CPU in a few minutes, no arguments needed.
+
+```bash
+python scripts/00_download_data.py
+python scripts/01_annotate_target.py
+python scripts/01b_verify_numbering.py
+python scripts/02_select_epitope.py
+python scripts/02b_characterize_patches.py
+python scripts/03_ph_mechanism.py --patches 1 2 3 4 5
+python scripts/03b_protonation_networks.py
+python scripts/04_prepare_target.py
+```
+
+**Binder generation.** Requires a CUDA GPU and is run separately, in the
+environment described under *Compute*. It consumes `03_Design/target/` and
+returns accepted complexes, which are placed in `03_Design/accepted/`.
+
+**pH engineering and validation.** CPU again, seconds each.
+
+```bash
+python scripts/05_engineer_ph_switch.py --designs 03_Design/accepted/
+python scripts/06_negative_control.py --samples 3000
+python scripts/07_validate_ph_variants.py --prepare
+```
+
+`05` takes the directory of designed complexes explicitly. `06` reads the
+variants `05` wrote and needs only the number of random draws. `07` reads
+both and writes the records for re-prediction.
+
+These three are rerun as a group whenever new designs arrive, since `06`
+and `07` both depend on `05`'s output.
+
 Developed on macOS (Apple Silicon) with Python 3.14. The analysis stages run
 on CPU; the generative design stages require a CUDA GPU and are run on rented
 hardware (see *Compute*).
