@@ -35,3 +35,4 @@ __pycache__/
 # The accepted designs and the engineered variants are tracked.
 03_Design/run1/
 03_Design/run2/
+03_Design/validation/predictions/

@@ -1,0 +1,12 @@
+design,substitutions,engages,coupling_kcal_mol,i_ptm,i_ptm_parent,d_i_ptm,plddt,d_plddt,i_pae,d_i_pae,verdict
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,D368 H370 H433,2.379,0.78,0.778,0.002,0.83,-0.004,0.217,0.001,interface retained
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H M25H,H433 D460,1.791,0.742,0.842,-0.1,0.875,-0.045,0.243,0.071,interface degraded
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 H11,D368 H433,1.791,0.778,0.778,0.0,0.834,0.0,0.216,0.0,interface retained
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,M10H H11,H370 H433,1.531,0.78,0.778,0.002,0.83,-0.004,0.217,0.001,interface retained
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H,H433,0.943,0.774,0.842,-0.068,0.891,-0.029,0.216,0.044,interface degraded
+EGFRd3_p2g0_l74_s203049_mpnn7_model1,W63H,H433,0.943,0.774,0.81,-0.036,0.827,-0.032,0.225,0.026,interface retained
+EGFRd3_p2g0_l66_s408238_mpnn4_model2,Q23H,H433,0.943,0.752,0.759,-0.006,0.836,0.003,0.24,0.003,interface retained
+EGFRd3_p2g0_l73_s455990_mpnn4_model1,F59H,H433,0.943,0.872,0.877,-0.005,0.937,-0.007,0.145,0.004,interface retained
+EGFRd3_p2g1_l55_s473498_mpnn1_model2,M55H,D460,0.848,0.653,0.763,-0.11,0.734,-0.068,0.304,0.075,interface degraded
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,M25H,D460,0.848,0.806,0.842,-0.036,0.905,-0.015,0.2,0.028,interface retained
+EGFRd3_p2g1_l63_s42253_mpnn4_model2,R49H,H370,0.588,0.243,0.819,-0.576,0.626,-0.253,0.644,0.453,interface destroyed

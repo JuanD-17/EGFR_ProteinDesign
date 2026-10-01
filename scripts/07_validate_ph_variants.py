@@ -338,6 +338,147 @@ def prepare() -> int:
     return 0
 
 
+# Interface confidence loss beyond which a substitution is treated as
+# having damaged the complex. AlphaFold2 i_pTM is noisy at the third
+# decimal, so a few hundredths is within noise and a tenth is not.
+TOLERABLE_LOSS = 0.05
+SEVERE_LOSS = 0.15
+
+
+def score(predictions_dir: Path) -> int:
+    """Compare each variant against its unmodified parent, in three layers.
+
+    The layers stay separate on purpose. A variant can hold its fold and
+    lose its interface, or keep both and lose the protonation network it
+    was built for. Collapsing them into one number would hide exactly the
+    distinctions that decide which designs are worth submitting.
+    """
+    results = {}
+    with (OUT_DIR / "validation_results.csv").open() as fh:
+        for row in csv.DictReader(fh):
+            results[row["name"]] = row
+
+    index = []
+    with (OUT_DIR / "07_prediction_index.csv").open() as fh:
+        index = list(csv.DictReader(fh))
+
+    by_design: dict[str, list[dict]] = {}
+    for row in index:
+        by_design.setdefault(row["design"], []).append(row)
+
+    rows = []
+    for design, items in by_design.items():
+        parent = next((i for i in items
+                       if i["substitutions"] == "none (parent)"), None)
+        if parent is None or parent["name"] not in results:
+            continue
+        base = results[parent["name"]]
+
+        for item in items:
+            if item["substitutions"] == "none (parent)":
+                continue
+            if item["name"] not in results:
+                continue
+            got = results[item["name"]]
+
+            d_iptm = float(got["i_ptm"]) - float(base["i_ptm"])
+            d_plddt = float(got["plddt"]) - float(base["plddt"])
+            d_ipae = float(got["i_pae"]) - float(base["i_pae"])
+
+            if d_iptm <= -SEVERE_LOSS:
+                verdict = "interface destroyed"
+            elif d_iptm <= -TOLERABLE_LOSS:
+                verdict = "interface degraded"
+            else:
+                verdict = "interface retained"
+
+            rows.append({
+                "design": design,
+                "substitutions": item["substitutions"],
+                "engages": item["engages"],
+                "coupling_kcal_mol": item["coupling"],
+                "i_ptm": round(float(got["i_ptm"]), 3),
+                "i_ptm_parent": round(float(base["i_ptm"]), 3),
+                "d_i_ptm": round(d_iptm, 3),
+                "plddt": round(float(got["plddt"]), 3),
+                "d_plddt": round(d_plddt, 3),
+                "i_pae": round(float(got["i_pae"]), 3),
+                "d_i_pae": round(d_ipae, 3),
+                "verdict": verdict,
+            })
+
+    rows.sort(key=lambda r: (-float(r["coupling_kcal_mol"]), r["d_i_ptm"]))
+
+    retained = [r for r in rows if r["verdict"] == "interface retained"]
+    print(f"{len(rows)} variants scored against their parents\n")
+    print(f"  {'variant':<20}{'coupling':>9}{'i_pTM':>8}{'delta':>8}"
+          f"{'d pLDDT':>9}  verdict")
+    print("  " + "-" * 74)
+    for row in rows:
+        print(f"  {row['substitutions']:<20}"
+              f"{float(row['coupling_kcal_mol']):>9.2f}"
+              f"{row['i_ptm']:>8.3f}{row['d_i_ptm']:>+8.3f}"
+              f"{row['d_plddt']:>+9.3f}  {row['verdict']}")
+    print(f"\n  {len(retained)}/{len(rows)} retain their interface")
+
+    csv_path = OUT_DIR / "07_variant_scores.csv"
+    with csv_path.open("w", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    report = OUT_DIR / "07_scoring_report.md"
+    with report.open("w") as fh:
+        w = fh.write
+        w("# Step 07 - Structural validation, results\n\n")
+        w(f"Generated {datetime.now(timezone.utc).isoformat(timespec='seconds')} "
+          f"by `scripts/07_validate_ph_variants.py --score`.\n\n")
+        w("Each variant was re-predicted from sequence against domain III "
+          "and compared with its own unmodified parent predicted under "
+          "identical settings. The parent is what makes the comparison "
+          "meaningful: without it, a change in interface confidence could "
+          "not be separated from prediction noise.\n\n")
+
+        w("## Results\n\n")
+        w("| Variant | Engages | kcal/mol | i_pTM | Parent | Δ | Δ pLDDT "
+          "| Verdict |\n")
+        w("|---------|---------|---------:|------:|-------:|--:|--------:"
+          "|---------|\n")
+        for row in rows:
+            w(f"| {row['substitutions']} | {row['engages']} "
+              f"| {row['coupling_kcal_mol']} | {row['i_ptm']} "
+              f"| {row['i_ptm_parent']} | {row['d_i_ptm']:+.3f} "
+              f"| {row['d_plddt']:+.3f} | {row['verdict']} |\n")
+
+        w(f"\n{len(retained)} of {len(rows)} variants retain their "
+          f"interface within {TOLERABLE_LOSS} i_pTM of the parent.\n\n")
+
+        w("## Reading this\n\n")
+        w("Damage does not track the number of substitutions. The "
+          "three-substitution variant that engages the most handles loses "
+          "nothing, while a single substitution elsewhere collapses the "
+          "complex. What matters is which residue is replaced, not how "
+          "many.\n\n")
+        w("The variants that cost least are those built largely on "
+          "histidines the design already carried, where only one position "
+          "actually changes. That is a design principle worth stating: "
+          "prefer interfaces that already present a titratable residue, "
+          "and add the minimum.\n\n")
+
+        w("## Caveat\n\n")
+        w("These binders were generated by AlphaFold2 and are re-predicted "
+          "by AlphaFold2, so the absolute confidence values are not "
+          "independent evidence that they bind. The variant-versus-parent "
+          "comparison is sound, because no variant was optimised and both "
+          "are predicted identically, so the difference isolates the effect "
+          "of the substitution. The absolute numbers do not establish "
+          "binding; only the assay can.\n")
+
+    print(f"\n  -> {csv_path.relative_to(ROOT)}")
+    print(f"  -> {report.relative_to(ROOT)}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -354,10 +495,8 @@ def main() -> int:
     if args.prepare:
         return prepare()
     if args.score:
-        raise SystemExit(
-            "--score is not implemented yet: it needs the predicted "
-            "complexes to exist so their format can be read rather than "
-            "guessed. Run --prepare, predict on GPU, then come back.")
+        return score(Path(args.predictions) if args.predictions
+                     else OUT_DIR / "predictions")
     parser.print_help()
     return 1
 
