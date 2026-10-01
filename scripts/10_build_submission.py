@@ -262,7 +262,7 @@ def main() -> int:
 
     variants_n = sum(1 for e in selected if e["kind"] == "variant")
     native_n = sum(1 for e in selected if e["kind"] == "native network")
-    parents_n = len(selected) - variants_n
+    parents_n = sum(1 for e in selected if e["kind"] == "parent")
     retained = sum(1 for e in selected
                    if e["interface"] == "interface retained")
     significant = sum(1 for e in selected
@@ -286,8 +286,51 @@ def main() -> int:
           f"{max(e['length'] for e in selected)} residues, targeting domain "
           f"III of the human EGFR extracellular region. "
           f"{variants_n} carry an engineered histidine network intended to "
-          f"make binding pH-dependent; {parents_n} are the unmodified "
-          f"parent binders, included as a fallback should the switch fail.\n\n")
+          f"make binding pH-dependent. {native_n} already presented such a "
+          f"network without modification and is submitted unchanged. "
+          f"{parents_n} are parent binders with no network, included as a "
+          f"fallback should the switch fail.\n\n")
+        if native_n:
+            w("That a design arrived with a usable protonation network "
+              "already in place is reported rather than absorbed into the "
+              "engineered count. BindCraft optimises interface confidence "
+              "and has no notion of pH, so the network is incidental, and "
+              "counting it as engineered would claim credit for something "
+              "the pipeline did not do. It is submitted regardless, because "
+              "an incidental network is as real as a designed one.\n\n")
+
+        w("## Objectives addressed\n\n")
+        w("The challenge asks for three properties, ranked with pH "
+          "selectivity first.\n\n")
+        w("*Cross-species reactivity* is handled upstream rather than "
+          "designed for. A residue entered the designable pool only if it "
+          "is **identical** between human and mouse, not merely conserved. "
+          "The bar is deliberately absolute: the cetuximab epitope is 20 of "
+          "27 residues identical with none differing outright, and "
+          "cetuximab still fails to recognise murine EGFR, so a handful of "
+          "conservative substitutions across a footprint is enough to "
+          "abolish antibody binding. Every submitted binder therefore "
+          "targets a surface with no human-mouse difference at all.\n\n")
+        w("*pH selectivity* is engineered, since the target cannot be "
+          "mutated and no binder-design pipeline optimises for it.\n\n")
+        w("*Affinity* is what BindCraft optimises, and is the property "
+          "these designs are least differentiated on.\n\n")
+
+        w("## Software\n\n")
+        w("| Tool | Version | Role |\n|------|---------|------|\n")
+        w("| BindCraft | `martinpacesa/BindCraft`, cloned 2026-09-29 "
+          "| binder generation |\n")
+        w("| AlphaFold2 | `alphafold_params_2022-12-06`, multimer v3 "
+          "| backbone hallucination and complex prediction |\n")
+        w("| ProteinMPNN | as vendored by BindCraft | sequence design |\n")
+        w("| PyRosetta | `2026.29+release.quarterly` "
+          "| interface relaxation and scoring |\n")
+        w("| PROPKA | 3.5.1 | free-state pKa estimation |\n")
+        w("| FreeSASA | 2.2.1 | solvent accessibility |\n")
+        w("| Biopython | 1.88 | structure and sequence handling |\n")
+        w("\nPyRosetta and the AlphaFold2 parameters carry non-commercial "
+          "licences; this work is academic. Full terms are recorded in the "
+          "repository.\n\n")
 
         w("## Target definition\n\n")
         w(f"Human EGFR (UniProt P00533, entry version 301) and mouse EGFR "
@@ -401,10 +444,12 @@ def main() -> int:
           "uncorrected.\n\n")
         w("**Structural revalidation.** Every variant and its unmodified "
           "parent were re-predicted from sequence under identical settings. "
-          f"{retained} of the submitted designs retain interface confidence "
+          f"{retained} of the {variants_n + native_n} submitted designs "
+          "that carry a network retain interface confidence "
           "within 0.05 i_pTM of their parent. Damage does not track the "
-          "number of substitutions: the three-substitution lead variant "
-          "changes i_pTM by +0.002, while one single substitution collapsed "
+          "number of substitutions: the lead variant, which engages three "
+          "handles, changes i_pTM by +0.002, while one single substitution "
+          "collapsed "
           "its complex from 0.819 to 0.243 and was excluded. The variants "
           "that cost least are those built on histidines the design already "
           "carried.\n\n")

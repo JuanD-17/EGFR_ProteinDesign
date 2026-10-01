@@ -2,13 +2,39 @@
 
 Conditional EGFR binder design for Challenge 01 of the Anthropic × Adaptyv 2026 competition, Track 3.
 
-Generated 2026-10-01T14:44:01+00:00 from the pipeline outputs by `scripts/10_build_submission.py`. Every figure below is read from the analysis files rather than transcribed.
+Generated 2026-10-01T14:54:20+00:00 from the pipeline outputs by `scripts/10_build_submission.py`. Every figure below is read from the analysis files rather than transcribed.
 
 ---
 
 ## Summary
 
-16 single-chain de novo proteins of 55–74 residues, targeting domain III of the human EGFR extracellular region. 8 carry an engineered histidine network intended to make binding pH-dependent; 8 are the unmodified parent binders, included as a fallback should the switch fail.
+16 single-chain de novo proteins of 55–74 residues, targeting domain III of the human EGFR extracellular region. 8 carry an engineered histidine network intended to make binding pH-dependent. 1 already presented such a network without modification and is submitted unchanged. 7 are parent binders with no network, included as a fallback should the switch fail.
+
+That a design arrived with a usable protonation network already in place is reported rather than absorbed into the engineered count. BindCraft optimises interface confidence and has no notion of pH, so the network is incidental, and counting it as engineered would claim credit for something the pipeline did not do. It is submitted regardless, because an incidental network is as real as a designed one.
+
+## Objectives addressed
+
+The challenge asks for three properties, ranked with pH selectivity first.
+
+*Cross-species reactivity* is handled upstream rather than designed for. A residue entered the designable pool only if it is **identical** between human and mouse, not merely conserved. The bar is deliberately absolute: the cetuximab epitope is 20 of 27 residues identical with none differing outright, and cetuximab still fails to recognise murine EGFR, so a handful of conservative substitutions across a footprint is enough to abolish antibody binding. Every submitted binder therefore targets a surface with no human-mouse difference at all.
+
+*pH selectivity* is engineered, since the target cannot be mutated and no binder-design pipeline optimises for it.
+
+*Affinity* is what BindCraft optimises, and is the property these designs are least differentiated on.
+
+## Software
+
+| Tool | Version | Role |
+|------|---------|------|
+| BindCraft | `martinpacesa/BindCraft`, cloned 2026-09-29 | binder generation |
+| AlphaFold2 | `alphafold_params_2022-12-06`, multimer v3 | backbone hallucination and complex prediction |
+| ProteinMPNN | as vendored by BindCraft | sequence design |
+| PyRosetta | `2026.29+release.quarterly` | interface relaxation and scoring |
+| PROPKA | 3.5.1 | free-state pKa estimation |
+| FreeSASA | 2.2.1 | solvent accessibility |
+| Biopython | 1.88 | structure and sequence handling |
+
+PyRosetta and the AlphaFold2 parameters carry non-commercial licences; this work is academic. Full terms are recorded in the repository.
 
 ## Target definition
 
@@ -48,7 +74,7 @@ Each proposal was then tested for rotamer feasibility: an imidazole nitrogen was
 
 **Negative control.** Designed placements were compared against histidines placed at random among the positions the method could have chosen from: interface, exposed in the unbound binder, and chemically substitutable, with only the targeting removed. Across 3000 draws per design and substitution count, designed variants average 1.82 kcal/mol against 0.40 for random placement. 5 of the 8 submitted variants reach p < 0.05. No designed variant exceeds the maximum of its null distribution, so the claim is about frequency rather than about reaching something unreachable, and the p-values are uncorrected.
 
-**Structural revalidation.** Every variant and its unmodified parent were re-predicted from sequence under identical settings. 6 of the submitted designs retain interface confidence within 0.05 i_pTM of their parent. Damage does not track the number of substitutions: the three-substitution lead variant changes i_pTM by +0.002, while one single substitution collapsed its complex from 0.819 to 0.243 and was excluded. The variants that cost least are those built on histidines the design already carried.
+**Structural revalidation.** Every variant and its unmodified parent were re-predicted from sequence under identical settings. 6 of the 9 submitted designs that carry a network retain interface confidence within 0.05 i_pTM of their parent. Damage does not track the number of substitutions: the lead variant, which engages three handles, changes i_pTM by +0.002, while one single substitution collapsed its complex from 0.819 to 0.243 and was excluded. The variants that cost least are those built on histidines the design already carried.
 
 **Novelty.** No binder returns a hit from the RCSB sequence service across every polymer entity in the PDB, and the highest pairwise identity within the portfolio is 27%.
 
