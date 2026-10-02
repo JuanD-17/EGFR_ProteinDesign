@@ -16,7 +16,8 @@ __pycache__/
 01_Target/structure/*.pdb
 01_Target/structure/*.cif
 
-# Heavy model outputs (predicted structures, design trajectories).
+# Heavy model outputs. A predicted structure that backs a reported number is
+# tracked; the raw trajectory output that produced it is not.
 03_Design/**/*.pdb
 03_Design/**/*.cif
 03_Design/**/*.npz
@@ -27,12 +28,18 @@ __pycache__/
 # same coordinates, not just the script that produced them.
 !03_Design/target/*.pdb
 
+# The eight accepted binders and the re-predicted variant complexes. These
+# are the coordinates behind every interface figure in docs/validation.md,
+# and a reader cannot check those numbers without them. 6 MB in total.
+!03_Design/accepted/*.pdb
+!03_Design/validation/predictions/*.pdb
+
 # Credentials. Never.
 .env
 *.key
 
-# Raw BindCraft run output: large, and reproducible from the Kaggle notebook.
-# The accepted designs and the engineered variants are tracked.
+# Raw BindCraft run output: 213 MB of trajectories, reproducible from the
+# Kaggle notebook. What came out of them is tracked — the accepted designs,
+# the per-run logs, and the rejection analysis that distils them.
 03_Design/run1/
 03_Design/run2/
-03_Design/validation/predictions/

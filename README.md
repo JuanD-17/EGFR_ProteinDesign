@@ -84,17 +84,22 @@ EGFR_ProteinDesign/
 │   ├── design_campaign.md
 │   └── validation.md
 ├── scripts/                   code, numbered in execution order
-├── 00_Competition/            challenge rules and submission requirements
 ├── 01_Target/                 raw target data (not tracked)
 │   └── MANIFEST.json          provenance and checksums  ← tracked
 ├── 02_Analysis/               target analysis results
 ├── 03_Design/                 designs, variants, controls, validation
+│   ├── target/                the trimmed domain III given to BindCraft
+│   ├── accepted/              the eight generated binders
+│   └── validation/predictions/  re-predicted variants and their parents
 └── 04_Submission/             submission CSV and methods report
 ```
 
-Raw data and heavy model outputs are not tracked: they are reconstructed by
-the download script and pinned by checksums. What is tracked is the code,
-the provenance and the distilled results.
+Raw target data is not tracked: the download script reconstructs it and
+`MANIFEST.json` pins it by checksum. Of the model output, what is tracked is
+the coordinates behind a reported number — the designs, the re-predicted
+complexes, the run logs. The 213 MB of raw BindCraft trajectories that
+produced them is not; `03_Design/rejection_analysis/` is what was learned
+from it.
 
 ## Getting started
 
