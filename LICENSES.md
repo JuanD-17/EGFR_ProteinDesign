@@ -7,6 +7,10 @@ with its licence and what that licence permits.
 not grant it. Two dependencies below carry non-commercial terms and require
 action, marked ⚠ — see *Outstanding actions*.
 
+The code and documentation written for this project are released under the
+MIT licence, in [LICENSE](LICENSE). That covers what is ours; everything
+below belongs to someone else and keeps its own terms.
+
 Prepared by Juan David Hoyos Trejos, Universidad Icesi, for the Anthropic ×
 Adaptyv 2026 protein design competition, Challenge 01. Last updated
 29 September 2026.
