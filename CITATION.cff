@@ -32,6 +32,7 @@ keywords:
   - AlphaFold2
   - BindCraft
   - negative control
+repository-code: 'https://github.com/JuanD-17/EGFR_ProteinDesign'
 license: MIT
 version: 1.0.0
 date-released: '2026-10-03'

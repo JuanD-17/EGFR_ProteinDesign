@@ -104,7 +104,7 @@ from it.
 ## Getting started
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/JuanD-17/EGFR_ProteinDesign.git
 cd EGFR_ProteinDesign
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
