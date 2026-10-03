@@ -207,9 +207,15 @@ decides whether a design is good would only move the failure downstream.
   novo and zero-shot
 
 `04_Submission/` holds the CSV, a metadata table with every metric behind
-the ranking, and `METHODS.md`. The methods report is generated from the
-analysis outputs rather than transcribed, so its figures cannot drift from
-the data.
+the ranking, `METHODS.md`, and the text submitted in the form's methodology
+box. The methods report is generated from the analysis outputs rather than
+transcribed, so its figures cannot drift from the data.
+
+**Submitted 3 October 2026 with 15 of the 16 designs.** The sixteenth,
+`EGFRd3_16_parent_l66`, scored 2/4 on Proteinbase's novelty check against a
+3/4 threshold and was withdrawn. Our own novelty work was sequence only, and
+[validation](docs/validation.md) had already recorded that sequence identity
+is a weak proxy for structural novelty. This is that limitation coming due.
 
 In Track 3 submissions are pooled and selected by a model from the
 information submitted, weighing predicted design quality, design novelty
@@ -224,7 +230,7 @@ and method novelty. The methods report is part of what is evaluated.
 - [x] Histidine engineering, negative control, rotamer feasibility
 - [x] Structural revalidation against unmodified parents
 - [x] Novelty check and submission build
-- [ ] Submitted
+- [x] Submitted — 15 designs, 3 October 2026
 - [ ] Experimental validation (competition)
 
 ## Licence and publication
