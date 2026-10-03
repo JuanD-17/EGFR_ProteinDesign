@@ -1,8 +1,14 @@
-16 single-chain de novo binders (55-74 aa) against domain III of the human
+15 single-chain de novo binders (55-74 aa) against domain III of the human
 EGFR ectodomain: 8 carrying an engineered histidine network intended to make
 binding pH-dependent, 1 that arrived with such a network already in place and
-is submitted unchanged, and 7 unmodified parents included as a fallback should
+is submitted unchanged, and 6 unmodified parents included as a fallback should
 the switch fail. Ranked top-first in the CSV.
+
+A sixteenth design, a parent carrying no network, was withdrawn at upload: it
+scored 2/4 on this platform's novelty check. Our own novelty work was sequence
+only - an RCSB search returning no hit against any polymer entity in the PDB -
+and that is evidently a weaker test than the one applied here. The limitation
+was stated before the check was run and the result confirms it.
 
 APPROACH
 
@@ -75,9 +81,10 @@ against a natural average near 7. The most extreme case is the design carrying
 the lead variant. This is an expression and solubility liability across the
 whole portfolio. It is weighed in the ranking but not solved.
 
-No structural novelty comparison (e.g. Foldseek) was run; no design returns a
-hit from the RCSB sequence service, and the highest pairwise identity within
-the portfolio is 27%.
+No structural novelty comparison (e.g. Foldseek) was run. No design returns a
+hit from the RCSB sequence service and the highest pairwise identity within
+the portfolio is 27%, but sequence identity is a weak proxy for structural
+novelty, as the withdrawn design shows.
 
 CODE AND DATA
 
