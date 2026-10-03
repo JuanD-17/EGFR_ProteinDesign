@@ -309,3 +309,62 @@ In all three the preprint is already out and dated.
    makes the work independent of the competition.
 4. Resolve the PyRosetta licence with `license@uw.edu` before submission.
 5. Reconcile `METHODS.md` (16 designs) with what was submitted (15).
+
+---
+
+## 9. Venues
+
+The right journal depends on what exists when the manuscript is written, so
+the list is organised by scenario rather than by prestige. APC is stated
+because it decides more submissions than it should.
+
+### Always, first, regardless of scenario
+
+**bioRxiv** — free, immediate, citable, and it timestamps the reach
+correction and the null-model design. Not a journal and not a substitute for
+one. Post before any journal submission; every venue below permits it.
+
+### Scenario A — a design binds
+
+| Venue | Fit | APC |
+|---|---|---|
+| **Protein Science** (Wiley) | Protein engineering with computation; takes de novo design routinely | Hybrid — free via subscription route |
+| **PEDS** (OUP) | The natural home once there is a measurement | Hybrid — free via subscription route |
+| **ACS Synthetic Biology** | If framed as a conditional-activity module rather than an EGFR paper | Hybrid |
+| *Nature Communications / Science Advances* | Only if the switch works cleanly and cross-species holds. A functioning de novo conditional binder is genuinely high-profile; the bar is a clean dose–response at both pH values | ~$6,000+ |
+
+Start at Protein Science. PEDS is the fallback, not the ceiling.
+
+### Scenario B — computational only, with constant-pH MD added
+
+This is the realistic target if the competition yields nothing.
+
+| Venue | Fit | APC |
+|---|---|---|
+| **J. Chemical Information and Modeling** (ACS) | Strong. A measured geometric bound plus a matched null is exactly their methods profile | Hybrid — free via subscription route |
+| **Proteins: Structure, Function, Bioinformatics** (Wiley) | Classic fit; long history of pKa and electrostatics work | Hybrid — free route |
+| **PEDS** | Works once the pKa shift is computed rather than assumed | Hybrid — free route |
+| **PLOS Computational Biology** | Higher bar; needs the method framed as general, not EGFR-specific | ~$2,800, LMIC waivers available |
+
+Start at JCIM.
+
+### Scenario C — computational only, as it stands
+
+Possible, but it spends the result for less than it is worth. Listed for
+completeness.
+
+**Scientific Reports** (~$2,790), **Frontiers in Bioinformatics** (~$2,000+),
+**PeerJ** (~$1,500), **BMC Bioinformatics**. All open access with an APC, all
+broad-scope. Note the inversion: the journals that are easiest to enter are
+the ones that cost money, while the selective hybrids above can be published
+free through the subscription route.
+
+### On cost
+
+Check whether Universidad Icesi holds a transformative agreement with Wiley,
+ACS, OUP or Springer Nature before choosing. Many Colombian institutions do,
+and it changes which venues are reachable. The library will know. Ask before
+submitting, not after acceptance.
+
+PLOS, Frontiers and some others operate income-based waivers for authors in
+lower- and middle-income countries; these are applied for at submission.
