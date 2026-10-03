@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: >-
+  Conditional EGFR binder design: a pH-selective de novo binder pipeline
+  with negative controls
+message: >-
+  If you use this software or its results, please cite it using the
+  metadata below.
+type: software
+authors:
+  - given-names: Juan David
+    family-names: Hoyos Trejos
+    email: juan.hoyos9@u.icesi.edu.co
+    affiliation: >-
+      Department of Basic Medical Sciences, Universidad Icesi, Cali,
+      Colombia
+    orcid: 'https://orcid.org/0009-0000-3185-2992'
+abstract: >-
+  A reproducible pipeline for designing de novo protein binders that
+  engage domain III of the human EGFR ectodomain preferentially at the
+  acidic pH of the tumour microenvironment. Histidine networks are placed
+  on BindCraft-generated interfaces under a geometric rule derived from
+  measured rotamer reach, tested against a null distribution drawn from
+  the same constrained pool of positions, and revalidated structurally
+  against unmodified parents. Prepared for Challenge 01 of the Anthropic
+  and Adaptyv 2026 protein design competition.
+keywords:
+  - protein design
+  - de novo binder
+  - EGFR
+  - pH-selective binding
+  - Wyman linkage
+  - AlphaFold2
+  - BindCraft
+  - negative control
+license: MIT
+version: 1.0.0
+date-released: '2026-10-03'
