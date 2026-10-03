@@ -82,7 +82,8 @@ EGFR_ProteinDesign/
 │   ├── epitope_selection.md
 │   ├── ph_mechanism.md
 │   ├── design_campaign.md
-│   └── validation.md
+│   ├── validation.md
+│   └── manuscript_plan.md
 ├── scripts/                   code, numbered in execution order
 ├── 01_Target/                 raw target data (not tracked)
 │   └── MANIFEST.json          provenance and checksums  ← tracked
