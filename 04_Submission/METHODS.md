@@ -2,7 +2,7 @@
 
 Conditional EGFR binder design for Challenge 01 of the Anthropic × Adaptyv 2026 competition, Track 3.
 
-Generated 2026-10-01T14:54:20+00:00 from the pipeline outputs by `scripts/10_build_submission.py`. Every figure below is read from the analysis files rather than transcribed.
+Generated 2026-10-03T16:24:40+00:00 from the pipeline outputs by `scripts/10_build_submission.py`. Every figure below is read from the analysis files rather than transcribed.
 
 ---
 

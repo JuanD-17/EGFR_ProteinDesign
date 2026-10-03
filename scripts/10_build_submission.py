@@ -231,7 +231,10 @@ def main() -> int:
         writer = csv.writer(fh)
         writer.writerow(["name", "sequence", "molecule_class"])
         for entry in selected:
-            writer.writerow([entry["name"], entry["sequence"], "protein"])
+            # The FAQ calls this class "protein"; the upload form accepts
+            # "single_chain", "nanobody", "scfv", "fab_kappa", "fab_lambda".
+            # The form is what validates the file, so follow the form.
+            writer.writerow([entry["name"], entry["sequence"], "single_chain"])
 
     metadata = OUT_DIR / "submission_metadata.csv"
     columns = ["rank", "name", "kind", "n_new_substitutions", "design",

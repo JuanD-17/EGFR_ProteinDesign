@@ -43,3 +43,6 @@ __pycache__/
 # the per-run logs, and the rejection analysis that distils them.
 03_Design/run1/
 03_Design/run2/
+
+# Built for the submission form from files already tracked here.
+04_Submission/supporting_data.zip

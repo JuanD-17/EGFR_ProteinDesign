@@ -1,6 +1,6 @@
 # Step 01 - EGFR ectodomain annotation
 
-Generated 2026-09-29T16:31:51+00:00 by `scripts/01_annotate_target.py`.
+Generated 2026-10-03T16:25:29+00:00 by `scripts/01_annotate_target.py`.
 
 Ectodomain residues 25-645 (621 aa), UniProt precursor numbering. Structure 6ARU chain A, numbering offset UniProt - PDB = +24.
 
