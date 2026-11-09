@@ -46,3 +46,6 @@ __pycache__/
 
 # Built for the submission form from files already tracked here.
 04_Submission/supporting_data.zip
+
+# Isolated binder chains written by step 11 as PROPKA input.
+03_Design/validation/11_binder_only/

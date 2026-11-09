@@ -1,0 +1,17 @@
+design,variant,position,pka_free,pka_bound,measured_shift,coupling_measured_kcal_mol,nearest_acid,distance_a,in_contact,neighbours_8a
+EGFRd3_p2g0_l66_s408238_mpnn4_model2,Q23H,23,6.45,5.72,-0.73,-0.236,D368,8.62,no,70
+EGFRd3_p2g0_l73_s455990_mpnn4_model1,F59H,59,6.08,3.65,-2.43,-0.162,D368,11.19,no,104
+EGFRd3_p2g0_l74_s203049_mpnn7_model1,W63H,63,5.88,0.11,-5.76,-0.109,D368,10.47,no,101
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,M25H,25,6.42,5.69,-0.73,-0.226,D460,5.01,no,64
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H,24,6.02,2.8,-3.22,-0.145,D460,10.5,no,98
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H M25H,24,5.94,2.48,-3.46,-0.123,D460,11.15,no,95
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H M25H,25,6.44,5.54,-0.9,-0.257,D460,5.54,no,68
+EGFRd3_p2g1_l55_s473498_mpnn1_model2,M55H,55,6.42,4.88,-1.54,-0.288,D460,6.14,no,81
+EGFRd3_p2g1_l63_s42253_mpnn4_model2,R49H,49,6.05,2.81,-3.24,-0.155,D368,10.67,no,100
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 H11,7,6.24,6.16,-0.08,-0.03,D368,2.99,yes,104
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 H11,11,5.41,0.52,-4.9,-0.041,D368,9.84,no,111
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,7,6.24,6.29,0.05,0.021,D368,3.18,yes,105
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,10,6.1,2.92,-3.18,-0.17,D368,7.81,no,109
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,11,5.28,-0.18,-5.46,-0.03,D368,9.86,no,113
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,M10H H11,10,6.1,2.92,-3.18,-0.17,D368,7.81,no,109
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,M10H H11,11,5.28,-0.18,-5.46,-0.03,D368,9.86,no,113
