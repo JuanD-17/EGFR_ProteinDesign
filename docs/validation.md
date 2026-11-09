@@ -187,3 +187,74 @@ the most compositionally abnormal. This is characteristic of hallucinated
 sequences rather than of any one trajectory, and it is an expression and
 solubility liability for the whole portfolio, since these have to be made
 in a laboratory. It is weighed in the submission ranking but not solved.
+
+## The bound-state pKa, measured
+
+Everything above rests on an assumed 2.0-unit pKa shift on binding. Step 03b
+said why it was assumed — the complexes did not exist yet — and said plainly
+that this made the coupling a screen rather than a prediction. Step 07
+produced the complexes. Step 11 measures the shift instead.
+
+PROPKA is run twice per variant: on the complex, and on the binder taken
+from the same coordinates with the partner deleted. The binder is not moved,
+so the comparison isolates the electrostatic effect of the target rather
+than conformational relaxation.
+
+| | Assumed | Measured |
+|---|---:|---:|
+| pKa shift on binding | +2.00 | −5.76 to +0.05 |
+
+**The assumption was wrong in sign.** Of 16 histidines across 11 variants,
+none has a shift above +0.05. Under this estimate none of the submitted
+variants is a pH switch in the intended direction, and most would bind
+marginally better at pH 7.4 than at 6.5.
+
+### Why
+
+| | |
+|---|---|
+| Histidines within 4 Å of a target carboxylate | **2 of 16** |
+| Typical distance to the nearest acid | 5–11 Å |
+| Heavy atoms within 8 Å of the imidazole | 70–113 |
+
+The histidines are buried but not paired. Burying a base without a
+counter-charge destabilises its protonated form and the pKa falls, which is
+exactly the pattern in the table. The internal consistency is what makes it
+credible: the only two histidines in hydrogen-bonding contact with an acid
+are the only two whose shift is not negative.
+
+For the lead candidate, His7 reaches D368 at 3.18 Å and shifts +0.05. His10
+and His11, 7.8 and 9.9 Å from the nearest acid, lose 3.2 and 5.5 pKa units.
+
+### What failed
+
+Not the thermodynamics. The linkage ceiling from
+[ph_mechanism](ph_mechanism.md) is unaffected: a coupled protonation is
+still worth up to 1.23 kcal/mol across this window. Nothing here was
+coupled.
+
+The placement rule failed, and the rotamer test did not catch it because it
+was asking a different question. It probed whether a histidine *could* reach
+the handle on the parent backbone with the replaced side chain removed, and
+18 of 23 passed. Whether the contact exists after the sequence changes and
+AlphaFold2 predicts the variant again is not the same question, and the
+answer is mostly no.
+
+**Geometric reachability on the parent does not predict contact formation in
+the re-predicted variant.** That is the transferable result, and it costs
+this project its central claim.
+
+### Limitations of the measurement
+
+Deleting the partner without relaxing the binder gives a free state in the
+bound conformation. Real relaxation would raise the free-state pKa and make
+the shifts more negative, so the conservative direction does not rescue the
+result.
+
+PROPKA's error is near one pKa unit. The shifts beyond three units are well
+outside it; those under one unit are not resolvable.
+
+These are AlphaFold2 models. If the prediction misplaces a side chain, the
+contact distance and the pKa are wrong together. Constant-pH molecular
+dynamics over an ensemble, rather than PROPKA on a single frame, is the
+rigorous route and has not been run.

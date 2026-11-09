@@ -31,15 +31,30 @@ the magnitude of the dissociation constant.
 | Control | Designed placement 1.82 kcal/mol against 0.40 for random, 5 of 8 at p < 0.05 | [validation](docs/validation.md) |
 | Revalidation | 6 of 9 networked designs retain interface confidence within 0.05 i_pTM | [validation](docs/validation.md) |
 | Novelty | No hit against any polymer entity in the PDB; 27% maximum internal identity | [validation](docs/validation.md) |
+| **Bound-state pKa** | **Measured shifts run −5.76 to +0.05 against the +2.0 assumed; 2 of 16 histidines reach a carboxylate** | [validation](docs/validation.md) |
 
-**Lead candidate.** A 68-residue binder engaging D368, H370 and H433, with
-an estimated coupling of 2.38 kcal/mol, p = 0.0033 against random
-placement, all three rotamers geometrically feasible, and interface
-confidence unchanged from its parent (Δ i_pTM = +0.002).
+**Lead candidate.** A 68-residue binder, `EGFRd3_01_H7M10HH11_l68`, whose
+three histidines were placed to engage D368, H370 and H433: coupling
+estimated at 2.38 kcal/mol, p = 0.0033 against random placement, all three
+rotamers geometrically feasible on the parent backbone, and interface
+confidence unchanged from its parent (Δ i_pTM = +0.002). This is the design
+that was submitted.
 
-**What is not established.** That any of these bind at all, or bind
-pH-selectively. Every number above is computed. The chain this project
-follows, and does not short-circuit, is:
+**It does not survive step 11.** Re-predicting the variant complex and
+measuring the pKa rather than assuming it shows that only one of the three
+histidines reaches a carboxylate (His7–D368, 3.18 Å); the other two sit 7.8
+and 9.9 Å away while buried, and their pKa falls by 3.2 and 5.5 units. A
+buried base with no counter-charge is the opposite of a pH switch. Under
+this estimate the variant is not pH-selective in the intended direction.
+
+The placement rule is what failed, not the thermodynamics. Step 07 asked
+whether a rotamer *could* reach the handle on the parent backbone and 18 of
+23 passed; whether the contact survives re-prediction of the variant is a
+different question, and it mostly does not.
+
+**What is not established.** That any of these bind at all. Every number
+above is computed. The chain this project follows, and does not
+short-circuit, is:
 
 ```
 computed  →  structural or mechanistic hypothesis  →  experimental validation
@@ -231,6 +246,7 @@ and method novelty. The methods report is part of what is evaluated.
 - [x] Histidine engineering, negative control, rotamer feasibility
 - [x] Structural revalidation against unmodified parents
 - [x] Novelty check and submission build
+- [x] Bound-state pKa and contact geometry — **negative result**
 - [x] Submitted — 15 designs, 3 October 2026
 - [ ] Experimental validation (competition)
 
