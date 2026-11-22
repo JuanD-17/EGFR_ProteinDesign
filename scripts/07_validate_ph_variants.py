@@ -71,6 +71,18 @@ _spec.loader.exec_module(step05)
 # Both nitrogens titrate, so both are probed; using a single averaged
 # distance discards the shorter reach entirely.
 HIS_TIP_DISTANCES = (2.53, 3.67)
+
+# Step 05 places a histidine against a carboxylate and a glutamate against
+# a receptor histidine, so the probe has to know which side chain it is
+# testing. Radii measured the same way on 6ARU: 23 histidines, 52
+# glutamates. An aspartate already in place is tested as a glutamate would
+# be, which is lenient by about a tenth of an angstrom and is noted rather
+# than corrected.
+TIP_DISTANCES = {
+    "H": (2.53, 3.67),
+    "E": (2.88, 3.54),
+    "D": (2.39, 2.38),
+}
 HIS_RING_CLEARANCE = 2.9
 
 # Contact between an imidazole nitrogen and the handle. The upper bound is
@@ -116,7 +128,8 @@ def environment_without(residue, atoms_by_residue) -> np.ndarray:
 
 
 def rotamer_reaches(residue, handle_coord: np.ndarray,
-                    environment: np.ndarray) -> tuple[bool, float, int]:
+                    environment: np.ndarray,
+                    substitution: str = "H") -> tuple[bool, float, int]:
     """Can a histidine at this backbone position reach the handle?
 
     The imidazole tip is placed at every orientation on a sphere of
@@ -133,7 +146,8 @@ def rotamer_reaches(residue, handle_coord: np.ndarray,
         return False, math.inf, 0
     origin = np.array(residue["CB"].coord)
 
-    tips = np.vstack([origin + DIRECTIONS * d for d in HIS_TIP_DISTANCES])
+    radii = TIP_DISTANCES.get(substitution, HIS_TIP_DISTANCES)
+    tips = np.vstack([origin + DIRECTIONS * d for d in radii])
 
     # Reject tips colliding with the surroundings. `environment` must
     # already exclude the side chain being replaced.
@@ -203,9 +217,13 @@ def prepare() -> int:
                 position = int("".join(c for c in substitution[1:]
                                        if c.isdigit()))
                 residue = binder_residues[position - 1]
+                # `M10E` substitutes a glutamate; `H7` keeps what is there.
+                placed = (substitution[-1]
+                          if substitution[-1].isalpha() else substitution[0])
                 reaches, closest, count = rotamer_reaches(
                     residue, handles[uniprot],
-                    environment_without(residue, atoms_by_residue))
+                    environment_without(residue, atoms_by_residue),
+                    substitution=placed)
                 feasible &= reaches
                 details.append((substitution, uniprot, reaches, closest, count))
 
@@ -227,11 +245,16 @@ def prepare() -> int:
                       for s, u, r, _, _ in details))
 
             if feasible:
-                mutated = list(binder_sequence)
-                for substitution in subs:
-                    position = int("".join(c for c in substitution[1:]
-                                           if c.isdigit()))
-                    mutated[position - 1] = "H"
+                # Step 05 already wrote the mutated sequence. Rebuilding it
+                # here duplicated the rule, and the copy went stale the
+                # moment step 05 learned to place glutamates: this loop
+                # wrote a histidine for every substitution, so `M10E` came
+                # out as a histidine and the variant predicted was not the
+                # variant designed. Use step 05's sequence.
+                mutated = list(variant["sequence"])
+                assert len(mutated) == len(binder_sequence), (
+                    f"{name}: step 05 sequence is {len(mutated)} residues, "
+                    f"the complex has {len(binder_sequence)}")
                 records.append({
                     "name": f"{name}__{variant['substitutions'].replace(' ', '_')}",
                     "design": name,

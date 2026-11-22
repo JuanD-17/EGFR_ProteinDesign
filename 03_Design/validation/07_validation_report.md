@@ -1,6 +1,6 @@
 # Step 07 - Structural validation, preparation
 
-Generated 2026-09-30T23:32:13+00:00 by `scripts/07_validate_ph_variants.py --prepare`.
+Generated 2026-11-22T16:54:17+00:00 by `scripts/07_validate_ph_variants.py --prepare`.
 
 ## Why the scores stay separate
 
