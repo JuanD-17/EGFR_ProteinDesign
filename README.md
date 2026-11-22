@@ -32,6 +32,8 @@ the magnitude of the dissociation constant.
 | Revalidation | 6 of 9 networked designs retain interface confidence within 0.05 i_pTM | [validation](docs/validation.md) |
 | Novelty | No hit against any polymer entity in the PDB; 27% maximum internal identity | [validation](docs/validation.md) |
 | **Bound-state pKa** | **Measured shifts run −5.76 to +0.05 against the +2.0 assumed; 2 of 16 histidines reach a carboxylate** | [validation](docs/validation.md) |
+| **Cross-predictor** | **AlphaFold2 and Boltz-2 agree on every histidine: 14 of 16 placed beyond 4 Å, 0 disagreements** | [validation](docs/validation.md) |
+| **The rule's error** | **17 of 23 placements targeted a receptor histidine, which repels a protonated binder histidine** | [validation](docs/validation.md) |
 
 **Lead candidate.** A 68-residue binder, `EGFRd3_01_H7M10HH11_l68`, whose
 three histidines were placed to engage D368, H370 and H433: coupling
@@ -106,7 +108,8 @@ EGFR_ProteinDesign/
 ├── 03_Design/                 designs, variants, controls, validation
 │   ├── target/                the trimmed domain III given to BindCraft
 │   ├── accepted/              the eight generated binders
-│   └── validation/predictions/  re-predicted variants and their parents
+│   ├── v1_submitted/          the competition entry, frozen  ← see its README
+│   └── validation/            the corrected campaign, in progress
 └── 04_Submission/             submission CSV and methods report
 ```
 
@@ -247,6 +250,9 @@ and method novelty. The methods report is part of what is evaluated.
 - [x] Structural revalidation against unmodified parents
 - [x] Novelty check and submission build
 - [x] Bound-state pKa and contact geometry — **negative result**
+- [x] Independent re-prediction with Boltz-2 — both models agree
+- [x] Placement rule corrected: glutamate against receptor histidines
+- [ ] Re-prediction of the corrected variants
 - [x] Submitted — 15 designs, 3 October 2026
 - [ ] Experimental validation (competition)
 

@@ -32,7 +32,7 @@ __pycache__/
 # are the coordinates behind every interface figure in docs/validation.md,
 # and a reader cannot check those numbers without them. 6 MB in total.
 !03_Design/accepted/*.pdb
-!03_Design/validation/predictions/*.pdb
+!03_Design/**/predictions/*.pdb
 
 # Credentials. Never.
 .env
