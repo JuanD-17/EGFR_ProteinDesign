@@ -258,3 +258,66 @@ These are AlphaFold2 models. If the prediction misplaces a side chain, the
 contact distance and the pKa are wrong together. Constant-pH molecular
 dynamics over an ensemble, rather than PROPKA on a single frame, is the
 rigorous route and has not been run.
+
+## Whose fault was it: the rule, or the predictor?
+
+Step 11 left a fork. Either the placement rule picked positions that cannot
+reach their handle, or AlphaFold2 packed the side chain away from a contact
+that was available. Step 12 settles it by running step 07's probe again —
+same 200 orientations, same radii, same contact window — on the variant
+complex as predicted, with the histidine's own side chain removed and the
+target left in place.
+
+| | |
+|---|---|
+| Reach their intended handle by some unclashed rotamer | **12 of 16** |
+| Actually within 4 Å in the predicted structure | **2 of 16** |
+
+**The contacts were available and the predictor did not build them.**
+
+| Variant | His | Handle | Best possible | AF2 built |
+|---|---:|---|---:|---:|
+| H7 M10H H11 | 7 | D368 | 3.16 Å | 3.18 Å |
+| H7 M10H H11 | 10 | H370 | 2.91 Å | **7.81 Å** |
+| M25H | 25 | D460 | 2.99 Å | 5.01 Å |
+| Q23H | 23 | H433 | 3.04 Å | **8.62 Å** |
+| W63H | 63 | H433 | 3.27 Å | **10.47 Å** |
+| F59H | 59 | H433 | 3.38 Å | **11.19 Å** |
+
+Four placements genuinely fail: His11 in the l68 designs comes no closer
+than 4.4–4.9 Å, just outside the contact window, and His49 is blocked at
+6.1 Å. For those the rule is at fault. For the other twelve it is not.
+
+### What this does to the step 11 result
+
+The negative pKa shifts stand as measurements of the predicted structures,
+and they are correctly computed. What they measure is in question. A
+histidine that AlphaFold2 placed 7.8 Å from its carboxylate is buried
+without a counter-charge, so its pKa falls — but the structure that produced
+that number is one in which a 2.9 Å contact was sterically available and
+simply not taken.
+
+**Any pKa computed on a re-predicted variant inherits the predictor's
+side-chain placement.** Step 11's conclusion that these are not pH switches
+is conditional on AlphaFold2 being right about where the side chains go, and
+step 12 gives a concrete reason to doubt that for eleven of the sixteen.
+
+### The honest caveat
+
+The probe tests sterics, not energetics. A rotamer that does not clash is
+not necessarily one a protein would adopt: burying a charged imidazole
+costs desolvation, and AlphaFold2 may be declining the contact for a reason
+its training has encoded. The probe cannot distinguish "the predictor is
+wrong" from "the contact is real but unfavourable".
+
+What it does establish is that the two methods disagree, that the
+disagreement is large — 3 Å against 8 Å, repeatedly — and that the project's
+central negative result rests entirely on trusting one of them.
+
+### The transferable finding
+
+Re-prediction is the standard way to validate a designed mutation, and it is
+what step 07 did. This says it cannot be trusted for engineered polar
+contacts: the predictor does not reliably build them even when geometry
+permits, so a pipeline validating this way will discard correct designs, and
+any electrostatic quantity computed downstream carries the same error.
