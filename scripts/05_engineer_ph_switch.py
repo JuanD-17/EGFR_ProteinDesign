@@ -95,6 +95,33 @@ TITRATABLE_ATOMS = {
 # than estimated.
 BRIDGE_RANGE = (3.5, 7.7)
 
+# Two mechanisms, two substitutions. Step 03b separates them and this is
+# where that distinction has to be honoured.
+#
+#   anchor      a target carboxylate. Put a histidine against it: binding
+#               stabilises the protonated imidazole, its pKa rises, and the
+#               complex takes up a proton at the lower pH.
+#
+#   switch      a titratable group on the receptor, here H370 and H433. A
+#               histidine is the wrong partner: both carry +1 over this
+#               window and repel, which destabilises binding at low pH -
+#               the opposite of the objective. The right partner is a
+#               carboxylate on the binder, which raises the receptor
+#               group's pKa instead.
+#
+# An earlier version read step 03b's table without consulting its `role`
+# column and placed histidines against everything. 17 of 23 placements went
+# to H433 or H370 and could not have worked.
+SUBSTITUTION_BY_ROLE = {
+    "anchor for an engineered histidine": "H",
+    "receptor-side switch": "E",
+}
+
+# Reach measured the same way as the histidine bound, on 6ARU: the longest
+# CB-to-tip distance plus a 4.0 A charge-assisted contact. Glutamate
+# matches histidine at 7.7 A; aspartate falls short at 6.4 and is not used.
+REACH_CEILING = {"H": 7.7, "E": 7.7}
+
 # Positions whose side chain points away from the handle cannot reach it
 # however favourable the distance.
 MIN_ORIENTATION = 0.0
@@ -124,7 +151,11 @@ def load_handles() -> dict[int, dict]:
                 continue
             if verdict.startswith("too acidic"):
                 continue
+            substitution = SUBSTITUTION_BY_ROLE.get(row["role"])
+            if substitution is None:
+                continue              # a role with no design rule attached
             handles[int(row["uniprot_pos"])] = {
+                "substitution": substitution,
                 "uniprot_pos": int(row["uniprot_pos"]),
                 "pdb_resnum": int(row["pdb_resnum"]),
                 "residue": row["residue"],
@@ -329,7 +360,9 @@ def evaluate_design(path: Path, handles: dict[int, dict],
             centre = (residue["CB"] if "CB" in residue
                       else residue["CA"]).coord
             separation = float(np.linalg.norm(centre - handle["coord"]))
-            if not (BRIDGE_RANGE[0] <= separation <= BRIDGE_RANGE[1]):
+            substitution = handle["substitution"]
+            ceiling = REACH_CEILING[substitution]
+            if not (BRIDGE_RANGE[0] <= separation <= ceiling):
                 continue
 
             direction = side_chain_direction(residue)
@@ -347,10 +380,13 @@ def evaluate_design(path: Path, handles: dict[int, dict],
             blocked = PROTECTED.get(current)
             if rel_sasa < MIN_EXPOSURE:
                 blocked = f"core of the binder (rel SASA {rel_sasa:.2f})"
-            # A histidine already facing a handle needs no substitution: it
-            # is an existing switch, and discarding it would throw away the
-            # cheapest protonation event available.
-            already = (current == "H" and blocked is None)
+            # A residue of the right kind already facing the handle needs no
+            # substitution: it is an existing switch, and discarding it
+            # would throw away the cheapest protonation event available.
+            # Aspartate counts for a glutamate role - it is the same
+            # chemistry, only shorter, and it is already in place.
+            equivalent = {"H": ("H",), "E": ("E", "D")}[substitution]
+            already = (current in equivalent and blocked is None)
 
             candidates.append({
                 "binder_index": index,
@@ -359,11 +395,12 @@ def evaluate_design(path: Path, handles: dict[int, dict],
                 "handle_uniprot": position,
                 "handle_aa": handle["aa"],
                 "handle_role": handle["role"],
+                "substitution": substitution,
                 "handle_coupling": handle["coupling"],
                 "distance_a": round(separation, 2),
                 "orientation": round(orientation, 3),
                 "rel_sasa": round(rel_sasa, 2),
-                "already_histidine": already,
+                "already_correct": already,
                 "blocked": blocked,
             })
 
@@ -400,7 +437,7 @@ def evaluate_design(path: Path, handles: dict[int, dict],
 
             mutated = list(binder_sequence)
             for pick in picks:
-                mutated[pick["binder_index"]] = "H"
+                mutated[pick["binder_index"]] = pick["substitution"]
 
             coupling = sum(p["handle_coupling"] for p in picks)
             variants.append({
@@ -408,11 +445,15 @@ def evaluate_design(path: Path, handles: dict[int, dict],
                 "n_substitutions": size,
                 "substitutions": " ".join(
                     (f"{p['current_aa']}{p['binder_position']}"
-                     if p.get("already_histidine")
-                     else f"{p['current_aa']}{p['binder_position']}H")
+                     if p.get("already_correct")
+                     else f"{p['current_aa']}{p['binder_position']}"
+                          f"{p['substitution']}")
                     for p in picks),
                 "n_new_histidines": sum(
-                    0 if p.get("already_histidine") else 1 for p in picks),
+                    0 if p.get("already_correct") else 1 for p in picks),
+                "mechanisms": " ".join(
+                    ("binder-switch" if p["substitution"] == "H"
+                     else "receptor-switch") for p in picks),
                 "engages": " ".join(
                     f"{p['handle_aa']}{p['handle_uniprot']}" for p in picks),
                 "mean_distance_a": round(

@@ -1,6 +1,6 @@
 # Step 06 - Negative control
 
-Generated 2026-09-30T23:31:59+00:00 by `scripts/06_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
+Generated 2026-11-22T16:52:23+00:00 by `scripts/06_negative_control.py`, seed 20260930, 3000 draws per design and substitution count.
 
 ## The question
 
@@ -27,22 +27,22 @@ This is deliberately the hard version of the control. A null that scattered hist
 
 | Design | Substitutions | Observed | Null mean ± SD | Null max | p |
 |--------|---------------|---------:|----------------|--------:|--:|
-| EGFRd3_p2g0_l66_s408238_mpnn | Q23H | 0.943 | 0.034 ± 0.175 | 0.943 | 0.03599 |
-| EGFRd3_p2g0_l73_s455990_mpnn | F59H | 0.943 | 0.097 ± 0.287 | 0.943 | 0.1033 |
-| EGFRd3_p2g0_l74_s203049_mpnn | W63H | 0.943 | 0.038 ± 0.186 | 0.943 | 0.04065 |
-| EGFRd3_p2g0_l74_s258459_mpnn | W24H M25H | 1.791 | 0.233 ± 0.403 | 1.791 | 0.00733 |
-| EGFRd3_p2g0_l74_s258459_mpnn | W24H | 0.943 | 0.117 ± 0.299 | 0.943 | 0.04598 |
+| EGFRd3_p2g0_l66_s408238_mpnn | Q23E | 0.943 | 0.034 ± 0.175 | 0.943 | 0.03599 |
+| EGFRd3_p2g0_l73_s455990_mpnn | F59E | 0.943 | 0.097 ± 0.287 | 0.943 | 0.1033 |
+| EGFRd3_p2g0_l74_s203049_mpnn | W63E | 0.943 | 0.038 ± 0.186 | 0.943 | 0.04065 |
+| EGFRd3_p2g0_l74_s258459_mpnn | W24E M25H | 1.791 | 0.233 ± 0.403 | 1.791 | 0.00733 |
+| EGFRd3_p2g0_l74_s258459_mpnn | W24E | 0.943 | 0.117 ± 0.299 | 0.943 | 0.04598 |
 | EGFRd3_p2g0_l74_s258459_mpnn | M25H | 0.848 | 0.117 ± 0.299 | 0.943 | 0.13296 |
-| EGFRd3_p2g1_l55_s473498_mpnn | M52H M55H | 1.791 | 0.279 ± 0.441 | 1.791 | 0.01 |
-| EGFRd3_p2g1_l55_s473498_mpnn | M52H | 0.943 | 0.138 ± 0.329 | 0.943 | 0.11563 |
+| EGFRd3_p2g1_l55_s473498_mpnn | M52E M55H | 1.791 | 0.279 ± 0.441 | 1.791 | 0.01 |
+| EGFRd3_p2g1_l55_s473498_mpnn | M52E | 0.943 | 0.138 ± 0.329 | 0.943 | 0.11563 |
 | EGFRd3_p2g1_l55_s473498_mpnn | M55H | 0.848 | 0.138 ± 0.329 | 0.943 | 0.14995 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H Q57H | 1.531 | 0.204 ± 0.373 | 1.531 | 0.006 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | Q57H | 0.943 | 0.094 ± 0.267 | 0.943 | 0.07498 |
-| EGFRd3_p2g1_l63_s42253_mpnn4 | R49H | 0.588 | 0.094 ± 0.267 | 0.943 | 0.11529 |
-| EGFRd3_p2g1_l66_s66715_mpnn4 | W37H | 0.943 | 0.154 ± 0.348 | 0.943 | 0.16328 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 M10H H11 | 2.379 | 0.553 ± 0.547 | 2.379 | 0.00333 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 H11 | 1.791 | 0.367 ± 0.479 | 1.791 | 0.01899 |
-| EGFRd3_p2g1_l68_s39881_mpnn3 | M10H H11 | 1.531 | 0.367 ± 0.479 | 1.791 | 0.02866 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | R49E Q57E | 1.531 | 0.204 ± 0.373 | 1.531 | 0.006 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | Q57E | 0.943 | 0.094 ± 0.267 | 0.943 | 0.07498 |
+| EGFRd3_p2g1_l63_s42253_mpnn4 | R49E | 0.588 | 0.094 ± 0.267 | 0.943 | 0.11529 |
+| EGFRd3_p2g1_l66_s66715_mpnn4 | W37E | 0.943 | 0.154 ± 0.348 | 0.943 | 0.16328 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 M10E H11E | 2.379 | 0.553 ± 0.547 | 2.379 | 0.00333 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | H7 H11E | 1.791 | 0.367 ± 0.479 | 1.791 | 0.01899 |
+| EGFRd3_p2g1_l68_s39881_mpnn3 | M10E H11E | 1.531 | 0.367 ± 0.479 | 1.791 | 0.02866 |
 
 9 of 16 variants reach p < 0.05. 0 exceed every random draw.
 
