@@ -373,3 +373,76 @@ contact absent, with either model, and any electrostatic quantity computed
 on that structure inherits the error. This project's own negative result in
 step 11 is an instance: the pKa shifts are correctly computed from
 structures that do not contain the interaction being measured.
+
+## Were the predictors right? And a flaw they exposed
+
+Two things were asked of the declined positions. One answered nothing; the
+other answered more than the question.
+
+### The environment analysis has no signal
+
+For each histidine the probe was run again, the tip position closest to the
+handle was kept, and everything within 6 Å of it was characterised. If the
+declined positions were apolar pockets with no compensating charge, the
+predictors would have had grounds.
+
+| | Contact built | Reachable, declined |
+|---|---:|---:|
+| Apolar fraction | 0.652 | 0.657 |
+| Heavy atoms within 6 Å | 46 | 36 |
+
+The two groups are indistinguishable on composition, and with one case in
+the first group nothing could be concluded even if they were not. **This
+measurement does not establish that the predictors had grounds, and does
+not establish that they did not.** It is reported because it was run, not
+because it decided anything.
+
+### The handle chemistry is the real finding
+
+Counting which groups the placement rule actually chose:
+
+| Handle | Times chosen | Type |
+|---|---:|---|
+| H433 | 13 | receptor histidine |
+| H370 | 4 | receptor histidine |
+| D460 | 4 | carboxylate |
+| D368 | 2 | carboxylate |
+
+**Seventeen of twenty-three placements target a histidine on the
+receptor.**
+
+That cannot work. The mechanism requires binding to stabilise the
+protonated binder histidine, which needs a negative counter-charge. A
+receptor histidine carries +1 across the same window, so the pair repels
+and binding is destabilised at the lower pH — the opposite of the intended
+direction. [ph_mechanism](ph_mechanism.md) listed H433 as titratable with
+a near-ideal pKa of 6.22, and the rule took it as an anchor without asking
+which sign it carries when protonated.
+
+The measured shifts are consistent:
+
+| Handle chemistry | n | Mean shift (AF2) | Mean shift (Boltz-2) |
+|---|---:|---:|---:|
+| Carboxylate | 5 | **−0.64** | −2.04 |
+| Receptor histidine | 11 | −3.73 | −2.92 |
+
+The single non-negative shift in the whole project is His7 against D368,
+the one carboxylate contact that was built, in both predictors. With five
+cases against eleven, and distance confounded with chemistry, this is
+consistent with the mechanism rather than a demonstration of it.
+
+### What this does to the account
+
+Three failures were found in sequence, and they are not the same failure:
+
+1. The rule chose the wrong chemistry for most placements. A receptor
+   histidine is titratable but it is not an anchor.
+2. Geometric reachability on the parent did not predict contact formation
+   in the re-predicted variant.
+3. Both predictors decline contacts that remain sterically available, and
+   whether they are right cannot be settled from the structures alone.
+
+The first is ours and is the most consequential, because no amount of
+geometric care rescues a placement aimed at a group of the wrong sign. The
+negative control in step 06 could not catch it: both arms drew from the
+same handle list, so the error was shared by the null.
