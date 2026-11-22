@@ -1,0 +1,17 @@
+design,variant,position,intended_handle,rotamer_reaches_in_variant,closest_possible_a,n_contact_orientations,as_predicted_distance_a
+EGFRd3_p2g0_l66_s408238_mpnn4_model2,Q23H,23,H433,yes,3.06,8,8.53
+EGFRd3_p2g0_l73_s455990_mpnn4_model1,F59H,59,H433,yes,3.34,6,11.34
+EGFRd3_p2g0_l74_s203049_mpnn7_model1,W63H,63,H433,yes,3.31,2,11.7
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,M25H,25,D460,no,16.48,0,8.51
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H,24,H433,no,13.21,0,4.56
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H M25H,24,H433,yes,2.93,9,10.2
+EGFRd3_p2g0_l74_s258459_mpnn1_model1,W24H M25H,25,H433,no,11.64,0,9.24
+EGFRd3_p2g1_l55_s473498_mpnn1_model2,M55H,55,D460,yes,3.18,7,5.03
+EGFRd3_p2g1_l63_s42253_mpnn4_model2,R49H,49,H370,yes,3.16,9,7.21
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 H11,7,D368,yes,3.14,5,3.99
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 H11,11,H433,yes,3.16,3,9.58
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,7,D368,yes,2.98,3,3.11
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,10,H370,yes,3.11,8,7.27
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,H7 M10H H11,11,H433,yes,3.08,2,10.77
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,M10H H11,10,H370,yes,2.91,11,8.05
+EGFRd3_p2g1_l68_s39881_mpnn3_model1,M10H H11,11,H370,no,5.08,0,9.97

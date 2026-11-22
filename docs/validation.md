@@ -321,3 +321,55 @@ what step 07 did. This says it cannot be trusted for engineered polar
 contacts: the predictor does not reliably build them even when geometry
 permits, so a pipeline validating this way will discard correct designs, and
 any electrostatic quantity computed downstream carries the same error.
+
+## A second predictor says the same thing
+
+Step 12 left the finding resting on AlphaFold2 alone, which makes it an
+observation about one model rather than about the problem. Boltz-2 — a
+different architecture, trained separately — was given the same 19
+complexes under the same conditions: target with a server alignment, binder
+without one, chains unchanged. Steps 11 and 12 then ran on its output
+without modification.
+
+| | |
+|---|---:|
+| Histidines compared | 16 |
+| Both predictors place it beyond 4 Å of the handle | **14** |
+| Both place it in contact | 2 |
+| **Disagree** | **0** |
+| Both give a pKa shift at or below zero | 15 of 16 |
+| A rotamer reached, and neither model used it | 10 |
+
+The two models make the same call on every single histidine. The two in
+contact are the same two — His7 of the l68 designs, against D368.
+
+Boltz-2's interface confidence is high: median i_pTM 0.914 across the 19
+complexes, range 0.435 to 0.950. It is not rejecting these designs. It is
+confident in a structure that does not contain the contact they were built
+around.
+
+### What this settles
+
+The behaviour is not an artefact of one implementation. Two predictors of
+different architectures, given the same input, decline the same contacts
+while a reaching rotamer sits unused in ten of sixteen cases.
+
+### What it does not settle
+
+Both models are trained on the Protein Data Bank and inherit its biases
+together, so agreement is not independence in the strict sense, and neither
+is an experiment. A contact absent from both predictions may still form in
+a real protein. The probe also tests sterics, not energetics: burying a
+charged imidazole costs desolvation, and both models may be declining the
+contact for a reason their training has encoded rather than through error.
+
+What the agreement removes is the one explanation that would have been
+cheapest to accept — that a single predictor packed the interface badly.
+
+### The consequence for anyone designing this way
+
+Validating a designed polar contact by re-prediction will report the
+contact absent, with either model, and any electrostatic quantity computed
+on that structure inherits the error. This project's own negative result in
+step 11 is an instance: the pKa shifts are correctly computed from
+structures that do not contain the interaction being measured.

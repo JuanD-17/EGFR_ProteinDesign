@@ -107,6 +107,10 @@ def main() -> int:
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--predictions", type=Path, default=PREDICTIONS)
+    parser.add_argument("--label", default="",
+                        help="suffix for the output files")
+    parser.add_argument("--bound-state", type=Path, default=BOUND_STATE,
+                        help="step 11 output to set beside the probe")
     args = parser.parse_args()
 
     if not VARIANTS.is_file():
@@ -120,8 +124,8 @@ def main() -> int:
 
     # Step 11's measured contact distances, to set beside the probe.
     measured: dict[tuple[str, str, int], dict] = {}
-    if BOUND_STATE.is_file():
-        for row in csv.DictReader(BOUND_STATE.open()):
+    if args.bound_state.is_file():
+        for row in csv.DictReader(args.bound_state.open()):
             key = (row["design"], row["variant"], int(row["position"]))
             measured[key] = row
 
@@ -217,7 +221,7 @@ def main() -> int:
         print("\nNothing probed.")
         return 1
 
-    out_csv = OUT_DIR / "12_rotamer_in_variant.csv"
+    out_csv = OUT_DIR / f"12_rotamer_in_variant{args.label}.csv"
     with out_csv.open("w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0]))
         writer.writeheader()
@@ -225,7 +229,7 @@ def main() -> int:
 
     reaches = [r for r in rows if r["rotamer_reaches_in_variant"] == "yes"]
 
-    report = OUT_DIR / "12_rotamer_in_variant_report.md"
+    report = OUT_DIR / f"12_rotamer_in_variant_report{args.label}.md"
     with report.open("w") as fh:
         w = fh.write
         stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")

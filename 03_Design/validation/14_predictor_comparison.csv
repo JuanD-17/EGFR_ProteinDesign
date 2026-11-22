@@ -1,0 +1,17 @@
+design,variant,position,handle,af2_distance_a,boltz_distance_a,af2_contact,boltz_contact,af2_shift,boltz_shift,af2_rotamer_reaches,boltz_rotamer_reaches
+l66,Q23H,23,H433,8.62,8.53,no,no,-0.73,-1.04,yes,yes
+l73,F59H,59,H433,11.19,11.34,no,no,-2.43,-2.53,yes,yes
+l74,W63H,63,H433,10.47,11.7,no,no,-5.76,-4.38,yes,yes
+l74,M25H,25,D460,5.01,8.51,no,no,-0.73,-1.19,yes,no
+l74,W24H,24,H433,10.5,4.56,no,no,-3.22,-1.03,yes,no
+l74,W24H M25H,24,H433,11.15,10.2,no,no,-3.46,-4.2,yes,yes
+l74,W24H M25H,25,D460,5.54,9.24,no,no,-0.9,-1.77,yes,no
+l55,M55H,55,D460,6.14,5.03,no,no,-1.54,-0.37,yes,yes
+l63,R49H,49,H370,10.67,7.21,no,no,-3.24,-1.52,no,yes
+l68,H7 H11,11,H433,9.84,9.58,no,no,-4.9,-4.29,no,yes
+l68,H7 H11,7,D368,2.99,3.99,yes,yes,-0.08,-3.51,yes,yes
+l68,H7 M10H H11,10,H370,7.81,7.27,no,no,-3.18,-1.77,yes,yes
+l68,H7 M10H H11,11,H433,9.86,10.77,no,no,-5.46,-4.11,no,yes
+l68,H7 M10H H11,7,D368,3.18,3.11,yes,yes,0.05,-3.37,yes,yes
+l68,M10H H11,10,H370,7.81,8.05,no,no,-3.18,-2.71,yes,yes
+l68,M10H H11,11,H433,9.86,9.97,no,no,-5.46,-4.49,no,no

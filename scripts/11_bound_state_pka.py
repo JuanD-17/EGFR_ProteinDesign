@@ -202,6 +202,9 @@ def main() -> int:
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--predictions", type=Path, default=PREDICTIONS,
                         help="directory of re-predicted complexes")
+    parser.add_argument("--label", default="",
+                        help="suffix for the output files, so a second "
+                             "predictor's results do not overwrite the first")
     parser.add_argument("--scratch", type=Path,
                         default=OUT_DIR / "11_binder_only",
                         help="where isolated binder chains are written")
@@ -291,7 +294,7 @@ def main() -> int:
         print("\nNo histidine resolved. Nothing written.")
         return 1
 
-    out_csv = OUT_DIR / "11_bound_state_pka.csv"
+    out_csv = OUT_DIR / f"11_bound_state_pka{args.label}.csv"
     with out_csv.open("w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0]))
         writer.writeheader()
@@ -304,7 +307,7 @@ def main() -> int:
         key = (row["design"], row["variant"])
         totals[key] = totals.get(key, 0.0) + row["coupling_measured_kcal_mol"]
 
-    report = OUT_DIR / "11_bound_state_report.md"
+    report = OUT_DIR / f"11_bound_state_report{args.label}.md"
     contacts = [r for r in rows if r["in_contact"] == "yes"]
     positive = [r for r in rows if r["measured_shift"] > 0]
     shifts = [r["measured_shift"] for r in rows]
